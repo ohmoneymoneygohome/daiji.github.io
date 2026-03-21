@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代际知识库 - 理解世代差异，支撑业务决策</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        gen_x: '#4682B4',
+                        gen_y: '#32CD32',
+                        gen_z: '#FF6347',
+                        gen_alpha: '#9370DB',
+                        gen_beta: '#FFD700',
+                        gen_boomer: '#8B4513',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="#generations" class="text-gray-700 hover:text-primary transition-colors">代际档案</a>
+                    <a href="#insights" class="text-gray-700 hover:text-primary transition-colors">维度洞察</a>
+                    <a href="#practices" class="text-gray-700 hover:text-primary transition-colors">实践案例</a>
+                    <a href="#methodology" class="text-gray-700 hover:text-primary transition-colors">前沿方法论</a>
+                    <a href="#guide" class="text-gray-700 hover:text-primary transition-colors">搭建指南</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-700">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-primary">首页</a>
+                <a href="#generations" class="block text-gray-700 hover:text-primary">代际档案</a>
+                <a href="#insights" class="block text-gray-700 hover:text-primary">维度洞察</a>
+                <a href="#practices" class="block text-gray-700 hover:text-primary">实践案例</a>
+                <a href="#methodology" class="block text-gray-700 hover:text-primary">前沿方法论</a>
+                <a href="#guide" class="block text-gray-700 hover:text-primary">搭建指南</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner 区域 -->
+    <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+                    <span class="text-gradient bg-gradient-to-r from-primary to-purple-600">理解世代差异</span>
+                    <br>支撑业务决策
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    从婴儿潮到Beta世代，系统梳理不同代际的价值观、消费习惯与行为模式，为营销、管理、产品决策提供专业支撑
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#generations" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-lg">
+                        <i class="fa fa-user-circle mr-2"></i>查看代际档案
+                    </a>
+                    <a href="#guide" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fa fa-cog mr-2"></i>搭建自己的知识库
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 代际基础档案 -->
+    <section id="generations" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">代际基础档案</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">从战后到未来，覆盖完整的代际序列，清晰定义每个世代的核心特征</p>
+            </div>
+
+            <!-- 时间轴图表 -->
+            <div class="mb-12 bg-gray-50 rounded-2xl p-6 shadow-inner">
+                <img src="https://p9-flow-sign.byteimg.com/tos-cn-i-ik7evvg4ik/rc/pc/super_tool/0d5688cade1e40e38a72aff38bf9419a.png?lk3s=8e244e95&rcl=20260321165540649552181128F5D2B3E5&rrcfp=f512b60b&x-expires=1775379495&x-signature=Os7jjp4pNe%2FoD48m0z5lLEsh0f0%3D" 
+                     alt="代际划分时间轴与核心特征" 
+                     class="w-full h-auto rounded-lg shadow-md">
+            </div>
+
+            <!-- 代际卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 婴儿潮 -->
+                <div class="card-hover bg-white border-t-4 border-gen_boomer rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gen_boomer/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-user text-gen_boomer text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">婴儿潮世代</h3>
+                            <p class="text-sm text-gray-500">1946-1964</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">成长于战后经济复苏期，普遍重视集体主义与职业稳定，是传统职场文化的主要构建者。</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">集体主义</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">稳定优先</span>
+                    </div>
+                </div>
+
+                <!-- X世代 -->
+                <div class="card-hover bg-white border-t-4 border-gen_x rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gen_x/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-home text-gen_x text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">X世代</h3>
+                            <p class="text-sm text-gray-500">1965-1980</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">家庭的"首席财务官"，主导全球消费支出，消费理性且注重性价比，目前是职场的中坚力量。</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">家庭责任</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">理性消费</span>
+                    </div>
+                    <div class="mt-4">
+                        <img src="https://aka.doubaocdn.com/s/wypj1w6PTx" alt="X世代家庭消费" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Y世代 -->
+                <div class="card-hover bg-white border-t-4 border-gen_y rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gen_y/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-laptop text-gen_y text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Y世代/千禧一代</h3>
+                            <p class="text-sm text-gray-500">1981-1995</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">互联网早期使用者，经历了互联网泡沫与金融危机，注重工作与生活的平衡，是第一批网络移民。</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">工作生活平衡</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">互联网早期</span>
+                    </div>
+                </div>
+
+                <!-- Z世代 -->
+                <div class="card-hover bg-white border-t-4 border-gen_z rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gen_z/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-mobile text-gen_z text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Z世代</h3>
+                            <p class="text-sm text-gray-500">1996-2009</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">移动互联网原住民，追求个性表达与真实体验，厌恶虚假营销，是当前消费与职场的新生力量。</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">个性表达</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">数字原生</span>
+                    </div>
+                    <div class="mt-4">
+                        <img src="https://aka.doubaocdn.com/s/qnUb1w6PTr" alt="Z世代消费场景" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                </div>
+
+                <!-- α世代 -->
+                <div class="card-hover bg-white border-t-4 border-gen_alpha rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gen_alpha/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-gamepad text-gen_alpha text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">α世代</h3>
+                            <p class="text-sm text-gray-500">2010-2024</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">完全的数字原生代，从小接触智能设备，越来越多地参与家庭消费决策，被称为"家庭合伙人"。</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI启蒙</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">家庭合伙人</span>
+                    </div>
+                </div>
+
+                <!-- Beta世代 -->
+                <div class="card-hover bg-white border-t-4 border-gen_beta rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gen_beta/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-robot text-gen_beta text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Beta世代</h3>
+                            <p class="text-sm text-gray-500">2025-2039</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">即将到来的全新世代，是首个AI原生代，成长于人工智能全面普及的环境，将环保与永续视为基本需求。</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI原生</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">永续优先</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 维度洞察 -->
+    <section id="insights" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">多维度代际洞察</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">横向拆解价值观、消费、职场等核心维度，理解差异的底层逻辑</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- 雷达图 -->
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">核心价值观维度对比</h3>
+                    <img src="https://p6-flow-sign.byteimg.com/tos-cn-i-ik7evvg4ik/rc/pc/super_tool/7064441e02774c60abf59b7c5d4d5e40.png?lk3s=8e244e95&rcl=20260321165540649552181128F5D2B3E5&rrcfp=f512b60b&x-expires=1775379495&x-signature=U1N4VhHXEtuotOuqEeTp5SzMDrU%3D" 
+                         alt="不同代际核心价值观维度对比" 
+                         class="w-full h-auto rounded-lg">
+                    <p class="mt-4 text-sm text-gray-500">
+                        从数据可以看出，随着代际的变迁，物质主义与工作中心度逐步下降，而技术接受度、社会责任感与个性化需求逐步上升。
+                    </p>
+                </div>
+
+                <!-- 经典对比图 -->
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">XYZ世代特征对比</h3>
+                    <img src="https://aka.doubaocdn.com/s/kQE11w6PTn" alt="XYZ代际分布与特点" class="w-full h-auto rounded-lg">
+                    <p class="mt-4 text-sm text-gray-500">
+                        数据来源：Mob研究院，直观展示了X、Y、Z三代核心特征的差异。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 洞察要点 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-heart text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">价值观演变</h3>
+                    <p class="text-gray-600">从"物质主义"向"后物质主义"跃迁，年轻世代更关注自我实现、社会责任感与可持续发展。</p>
+                </div>
+                <div class="block bg-white rounded-xl shadow-md p-6">
+                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-code text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">技术接受度</h3>
+                    <p class="text-gray-600">代际的技术接受度呈现明显的递增趋势，Beta世代将成为首个完全适应AI环境的群体。</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-briefcase text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">工作价值观</h3>
+                    <p class="text-gray-600">
+                        根据<a href="https://ckgsb.com/faculty/media/detail/79/7172.html" target="_blank" class="text-primary hover:underline">长江商学院研究</a>，Z世代更看重兴趣匹配与成长机会，对升职加薪的频次要求更高。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用实践 -->
+    <section id="practices" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">落地实践案例</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">从理论到实践，沉淀可复用的代际应用方法与成功案例</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 跨代管理 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-white rounded-2xl shadow-md p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-users text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">跨代职场协作</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        随着多代同堂职场的到来，跨代沟通成为企业管理的核心挑战。头部企业已经探索出了成熟的实践：
+                    </p>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">代沟翻译官机制</span>
+                                <p class="text-sm text-gray-500">建立代际语言的转译机制，消除沟通壁垒</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">定制化激励体系</span>
+                                <p class="text-sm text-gray-500">针对不同代际的动机设计差异化的激励方案</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <img src="https://aka.doubaocdn.com/s/wypj1w6PTx" alt="跨代职场协作" class="w-full h-48 object-cover rounded-lg">
+                </div>
+
+                <!-- 代际营销 -->
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-md p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-purple-600/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-line-chart text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">代际精准营销</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        针对不同代际的特征，品牌可以设计差异化的营销策略，精准触达目标用户：
+                    </p>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">针对X世代的家庭营销</span>
+                                <p class="text-sm text-gray-500">主打品质、安全与性价比，满足家庭采购决策需求</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">针对Z世代的价值观营销</span>
+                                <p class="text-sm text-gray-500">传递环保、平等、多元的理念，获取价值认同</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <img src="https://aka.doubaocdn.com/s/qnUb1w6PTr" alt="Z世代消费场景" class="w-full h-48 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 前沿方法论 -->
+    <section id="methodology" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">前沿代际方法论</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">最新的代际研究理论成果，为代际问题提供全新的解决框架</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 方法论1：代际冲突修复法 -->
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-md p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-blue-600/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-comments text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">代际冲突修复法</h3>
+                            <p class="text-sm text-gray-500">宋亚南 提出</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic mb-4 border-l-4 border-blue-300 pl-4">
+                        "对代际之间的冲突与发展，阅读、小憩和其他形式的交流都是必不可少的。"
+                    </blockquote>
+                    <p class="text-gray-600">
+                        该方法论指出，代际冲突的核心根源在于缺乏有效的轻量沟通。通过共同阅读、放松式小憩与非功利性的日常交流，可以逐步修复代际之间的信任，消解对立情绪，打破沟通壁垒，最终促进代际的共同发展。
+                    </p>
+                </div>
+
+                <!-- 方法论2：代际叙事三角模型 -->
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-md p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-purple-600/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-cogs text-purple-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">代际叙事三角模型</h3>
+                            <p class="text-sm text-gray-500">宋亚南 提出</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic mb-4 border-l-4 border-purple-300 pl-4">
+                        "代际大情节，小情节，反情节，可以作为方法论，作为OS，适用于一切与人有关的场景"
+                    </blockquote>
+                    <p class="text-gray-600">
+                        该模型将代际认知拆解为三种底层叙事模式，可作为通用的底层操作系统：
+                        <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                            <li>• <strong>大情节</strong>：传统代际的集体主义、宏大叙事</li>
+                            <li>• <strong>小情节</strong>：中间代际的个人成长、小确幸叙事</li>
+                            <li>• <strong>反情节</strong>：年轻代际的解构与重构、反传统叙事</li>
+                        </ul>
+                        这套框架可以适配营销、管理、产品等一切与人有关的场景。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 搭建指南 -->
+    <section id="guide" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">知识库搭建指南</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">如何搭建属于你自己的专业代际知识库，从架构到运营的全流程方案</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-folder-open text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">架构设计</h3>
+                    <p class="text-sm text-gray-600">采用"浅层目录+强标签"模式，4大核心目录覆盖全场景</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                    <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-tags text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">标签体系</h3>
+                    <p class="text-sm text-gray-600">多维度标签与同义词映射，支持灵活检索与筛选</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                    <div class="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-refresh text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">运营维护</h3>
+                    <p class="text-sm text-gray-600">内容生命周期管理，定期复审，反刻板印象机制</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                    <div class="w-16 h-16 rounded-full fa-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-brain text-orange-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">技术赋能</h3>
+                    <p class="text-sm text-gray-600">RAG智能检索，语义理解，动态数据看板</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md p-8">
+                <h3 class="text-xl font-bold mb-6">落地路线图</h3>
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                    
+                    <div class="space-y-8">
+                        <!-- MVP阶段 -->
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+                                1
+                            </div>
+                            <h4 class="font-bold text-lg">MVP阶段（1-2个月）</h4>
+                            <p class="text-gray-600 mt-1">完成核心6大代际的基础档案，沉淀核心维度洞察与经典案例，上线基础的检索与浏览功能</p>
+                        </div>
+
+                        <!-- 扩展阶段 -->
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary/80 flex items-center justify-center text-white">
+                                2
+                            </div>
+                            <h4 class="font-bold text-lg">扩展阶段（3-6个月）</h4>
+                            <p class="text-gray-600 mt-1">补充业务部门的实践案例，引入RAG与智能问答能力，建立初步的运营机制</p>
+                        </div>
+
+                        <!-- 成熟阶段 -->
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary/60 flex items-center justify-center text-white">
+                                3
+                            </div>
+                            <h4 class="font-bold text-lg">成熟阶段（6-12个月）</h4>
+                            <p class="text-gray-600 mt-1">完善全维度的内容覆盖，建立动态的数据更新机制，打造跨部门的知识协作网络</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">代际知识库</span>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    帮助你理解世代差异，支撑业务决策
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                所有资料链接均可直接点击访问，图片与数据来源均已标注
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('bg-white/80');
+                navbar.classList.add('bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/80');
+                navbar.classList.remove('bg-white');
+            }
+        });
+
+        // 点击移动端菜单链接后关闭菜单
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

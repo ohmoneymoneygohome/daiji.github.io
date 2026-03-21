@@ -1,0 +1,15 @@
+[3508:52948:0322/000555.113:WARNING:t_skinfilemap.cpp(63)] SGRenderLog:CheckUpdate newMem.OpenMem Suc, szNewMem:Local\sgime_skin.v34.filemap.sogouime
+[3508:52948:0322/000555.113:WARNING:t_skinfilemap.cpp(65)] SGRenderLog:CheckUpdate finish: old version:1
+[3508:52948:0322/000555.113:WARNING:t_skinfilemap.cpp(67)] SGRenderLog:CheckUpdate finish: new version:34
+[55360:51204:0322/001120.253:WARNING:t_skinfilemap.cpp(63)] SGRenderLog:CheckUpdate newMem.OpenMem Suc, szNewMem:Local\sgime_skin.v34.filemap.sogouime
+[55360:51204:0322/001120.253:WARNING:t_skinfilemap.cpp(65)] SGRenderLog:CheckUpdate finish: old version:1
+[55360:51204:0322/001120.253:WARNING:t_skinfilemap.cpp(67)] SGRenderLog:CheckUpdate finish: new version:34
+[55360:51204:0322/001134.567:WARNING:imeconvertstate.cpp(3202)] kernel convert return count0
+[55360:51204:0322/001134.807:WARNING:imeconvertstate.cpp(3202)] kernel convert return count0
+[55360:51204:0322/001134.991:WARNING:imeconvertstate.cpp(3202)] kernel convert return count0
+[26080:43608:0322/001728.909:WARNING:t_skinfilemap.cpp(63)] SGRenderLog:CheckUpdate newMem.OpenMem Suc, szNewMem:Local\sgime_skin.v34.filemap.sogouime
+[26080:43608:0322/001728.909:WARNING:t_skinfilemap.cpp(65)] SGRenderLog:CheckUpdate finish: old version:1
+[26080:43608:0322/001728.909:WARNING:t_skinfilemap.cpp(67)] SGRenderLog:CheckUpdate finish: new version:34
+[48784:32200:0322/002312.282:WARNING:t_skinfilemap.cpp(63)] SGRenderLog:CheckUpdate newMem.OpenMem Suc, szNewMem:Local\sgime_skin.v34.filemap.sogouime
+[48784:32200:0322/002312.282:WARNING:t_skinfilemap.cpp(65)] SGRenderLog:CheckUpdate finish: old version:1
+[48784:32200:0322/002312.282:WARNING:t_skinfilemap.cpp(67)] SGRenderLog:CheckUpdate finish: new version:34
