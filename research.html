@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大器层·代际研究 - 代际知识库</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        gen_x: '#4682B4',
+                        gen_y: '#32CD32',
+                        gen_z: '#FF6347',
+                        gen_alpha: '#9370DB',
+                        gen_beta: '#FFD700',
+                        gen_boomer: '#8B4513',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="text-gray-700 hover:text-primary transition-colors">2026 </a>
+                    <a href="index.html#generations" class="text-gray-700 hover:text-primary transition-colors">代际档案</a>
+                    <a href="index.html#insights" class="text-gray-700 hover:text-primary transition-colors">维度洞察</a>
+                    <a href="index.html#methodology" class="text-gray-700 hover:text-primary transition-colors">前沿方法论</a>
+                    <a href="index.html#contributors" class="text-gray-700 hover:text-primary transition-colors">代际理论贡献者</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-700">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html#home" class="block text-gray-700 hover:text-primary">首页</a>
+                <a href="index.html#generations" class="block text-gray-700 hover:text-primary">代际档案</a>
+                <a href="index.html#insights" class="block text-gray-700 hover:text-primary">维度洞察</a>
+                <a href="index.html#methodology" class="block text-gray-700 hover:text-primary">前沿方法论</a>
+                <a href="index.html#contributors" class="block text-gray-700 hover:text-primary">代际理论贡献者</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner 区域 -->
+    <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+                    <span class="text-gradient bg-gradient-to-r from-primary to-purple-600">大器层·代际研究</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    专注于代际差异研究，为企业管理、市场营销、产品设计提供科学依据
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#about" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-lg">
+                        <i class="fa fa-info-circle mr-2"></i>了解我们
+                    </a>
+                    <a href="#research" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fa fa-flask mr-2"></i>研究方向
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">关于大器层·代际研究</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们的使命与愿景</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">我们的使命</h3>
+                    <p class="text-gray-600 mb-6">
+                        大器层·代际研究致力于深入探索不同世代的价值观、行为模式与消费习惯，为企业和组织提供基于科学研究的决策支持。我们相信，理解代际差异是构建和谐社会与高效组织的关键。
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4">我们的愿景</h3>
+                    <p class="text-gray-600">
+                        成为代际研究领域的引领者，通过跨学科的研究方法，为解决代际冲突、促进代际融合提供创新方案，助力企业在多元化的时代背景下实现可持续发展。
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-6 shadow-inner">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20research%20team%20collaborating%20in%20modern%20office%20space&image_size=landscape_16_9" alt="大器层·代际研究团队" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section id="research" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">研究方向</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们专注于以下代际研究领域</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-briefcase text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">职场代际管理</h3>
+                    <p class="text-gray-600">研究不同世代在工作价值观、沟通方式、激励机制等方面的差异，为企业提供跨代管理策略。</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-shopping-cart text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">代际消费行为</h3>
+                    <p class="text-gray-600">分析不同世代的消费习惯、品牌偏好、购买决策过程，为市场营销提供精准策略。</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-mobile text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">数字代际差异</h3>
+                    <p class="text-gray-600">研究不同世代对数字技术的接受度、使用习惯和依赖程度，为产品设计提供依据。</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-users text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">代际沟通策略</h3>
+                    <p class="text-gray-600">探索不同世代之间的沟通障碍与解决方案，促进代际之间的理解与融合。</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-graduation-cap text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">教育代际差异</h3>
+                    <p class="text-gray-600">研究不同世代的学习方式、教育需求和知识获取习惯，为教育创新提供方向。</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+                        <i class="fa fa-globe text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">全球化与代际</h3>
+                    <p class="text-gray-600">分析全球化背景下不同国家和文化中代际差异的共性与特性，为跨国企业提供参考。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究方法 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">研究方法</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们采用科学、系统的研究方法</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-indigo-50 to-white rounded-2xl shadow-md p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-bar-chart text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">定量研究</h3>
+                    </div>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">大规模问卷调查</span>
+                                <p class="text-sm text-gray-500">覆盖不同年龄段的样本，获取量化数据</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">数据挖掘与分析</span>
+                                <p class="text-sm text-gray-500">利用大数据技术分析代际行为模式</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">实验研究</span>
+                                <p class="text-sm text-gray-500">控制变量，验证代际差异的因果关系</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-md p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-purple-600/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-comments text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">定性研究</h3>
+                    </div>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">深度访谈</span>
+                                <p class="text-sm text-gray-500">与不同世代代表进行深入交流</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">焦点小组讨论</span>
+                                <p class="text-sm text-gray-500">组织同世代或跨世代小组讨论</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium"> ethnographic research</span>
+                                <p class="text-sm text-gray-500">观察不同世代的日常生活与行为</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队介绍 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">研究团队</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">我们的核心研究人员</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20researcher%20portrait%20academic%20style&image_size=square" alt="研究人员" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">张教授</h3>
+                    <p class="text-sm text-gray-500 mb-3">首席研究员</p>
+                    <p class="text-sm text-gray-600">
+                        社会学博士，专注代际研究20年，发表学术论文50余篇
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20female%20researcher%20portrait%20academic%20style&image_size=square" alt="研究人员" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">李博士</h3>
+                    <p class="text-sm text-gray-500 mb-3">高级研究员</p>
+                    <p class="text-sm text-gray-600">
+                        心理学博士，专注于代际心理差异与沟通研究
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=young%20professional%20researcher%20portrait%20academic%20style&image_size=square" alt="研究人员" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">王研究员</h3>
+                    <p class="text-sm text-gray-500 mb-3">研究员</p>
+                    <p class="text-sm text-gray-600">
+                        数据科学专家，专注于代际行为的大数据分析
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">联系方式</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">与我们取得联系</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-inner">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">邮箱</h4>
+                                    <p class="text-gray-600">contact@daiqiceng.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">电话</h4>
+                                    <p class="text-gray-600">+86 123 4567 8910</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-map-marker text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">地址</h4>
+                                    <p class="text-gray-600">北京市海淀区中关村大街1号</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <form>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">姓名</label>
+                                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">邮箱</label>
+                                    <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">留言</label>
+                                    <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                                    提交
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">代际知识库</span>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    大器层·代际研究 © 2026
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                专注于代际差异研究，为企业管理、市场营销、产品设计提供科学依据
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('bg-white/80');
+                navbar.classList.add('bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/80');
+                navbar.classList.remove('bg-white');
+            }
+        });
+
+        // 点击移动端菜单链接后关闭菜单
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
