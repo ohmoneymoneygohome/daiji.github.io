@@ -168,109 +168,139 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
             
-            // 创建世代粒子系统
-            const generations = [];
-            const generationColors = [
-                0x4F46E5, // 主色
-                0x8B5CF6, // 次要色
-                0x4682B4, // X世代
-                0x32CD32, // Y世代
-                0xFF6347, // Z世代
-                0x9370DB, // α世代
-                0xFFD700  // Beta世代
+            // 世代头像URL
+            const generationAvatars = [
+                'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20older%20person%20baby%20boomer%20generation%20corporate%20style&image_size=square', // 婴儿潮世代
+                'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20middle%20aged%20person%20generation%20x%20business%20style&image_size=square', // X世代
+                'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20young%20adult%20millennial%20generation%20modern%20style&image_size=square', // Y世代
+                'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20teenager%20generation%20z%20digital%20native%20style&image_size=square', // Z世代
+                'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=illustration%20of%20child%20generation%20alpha%20digital%20native%20style&image_size=square', // α世代
+                'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=futuristic%20illustration%20of%20child%20generation%20beta%20AI%20native%20style&image_size=square' // Beta世代
             ];
             
-            // 创建粒子几何体
-            function createParticles(color, count, size) {
-                const geometry = new THREE.BufferGeometry();
-                const positions = new Float32Array(count * 3);
-                const colors = new Float32Array(count * 3);
-                
-                const colorObj = new THREE.Color(color);
-                
-                for (let i = 0; i < count * 3; i += 3) {
-                    // 随机位置
-                    positions[i] = (Math.random() - 0.5) * 10;
-                    positions[i + 1] = (Math.random() - 0.5) * 10;
-                    positions[i + 2] = (Math.random() - 0.5) * 10;
-                    
-                    // 颜色
-                    colors[i] = colorObj.r;
-                    colors[i + 1] = colorObj.g;
-                    colors[i + 2] = colorObj.b;
-                }
-                
-                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-                
-                const material = new THREE.PointsMaterial({
-                    size: size,
-                    vertexColors: true,
-                    transparent: true,
-                    opacity: 0.8,
-                    blending: THREE.AdditiveBlending
+            // 加载纹理
+            const textureLoader = new THREE.TextureLoader();
+            const textures = [];
+            let loadedTextures = 0;
+            
+            generationAvatars.forEach((avatarUrl, index) => {
+                textureLoader.load(avatarUrl, (texture) => {
+                    textures[index] = texture;
+                    loadedTextures++;
+                    if (loadedTextures === generationAvatars.length) {
+                        initScene();
+                    }
                 });
-                
-                const particles = new THREE.Points(geometry, material);
-                scene.add(particles);
-                
-                return particles;
-            }
-            
-            // 创建不同世代的粒子
-            for (let i = 0; i < generationColors.length; i++) {
-                const particles = createParticles(generationColors[i], 100, 0.05 + i * 0.02);
-                generations.push({
-                    particles: particles,
-                    speed: 0.005 + i * 0.002,
-                    rotationSpeed: 0.001 + i * 0.0005
-                });
-            }
-            
-            // 创建世代连接线条
-            const lineGeometry = new THREE.BufferGeometry();
-            const linePositions = new Float32Array(generationColors.length * 3);
-            
-            for (let i = 0; i < generationColors.length; i++) {
-                linePositions[i * 3] = Math.sin(i * Math.PI * 2 / generationColors.length) * 3;
-                linePositions[i * 3 + 1] = Math.cos(i * Math.PI * 2 / generationColors.length) * 3;
-                linePositions[i * 3 + 2] = 0;
-            }
-            
-            lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-            
-            const lineMaterial = new THREE.LineBasicMaterial({
-                color: 0xffffff,
-                transparent: true,
-                opacity: 0.3
             });
             
-            const line = new THREE.LineLoop(lineGeometry, lineMaterial);
-            scene.add(line);
+            // 世代数据
+            const generations = [];
             
-            // 动画循环
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                // 旋转和移动粒子
-                generations.forEach((gen, index) => {
-                    gen.particles.rotation.x += gen.rotationSpeed;
-                    gen.particles.rotation.y += gen.rotationSpeed;
+            // 初始化场景
+            function initScene() {
+                // 创建世代头像
+                generationAvatars.forEach((avatarUrl, index) => {
+                    const group = new THREE.Group();
                     
-                    // 粒子脉动效果
-                    const time = Date.now() * 0.001;
-                    gen.particles.scale.set(
-                        1 + Math.sin(time * gen.speed * 2) * 0.2,
-                        1 + Math.sin(time * gen.speed * 2) * 0.2,
-                        1 + Math.sin(time * gen.speed * 2) * 0.2
-                    );
+                    // 创建多个头像实例
+                    const avatarCount = 15;
+                    for (let i = 0; i < avatarCount; i++) {
+                        // 创建平面几何体
+                        const geometry = new THREE.PlaneGeometry(0.5, 0.5);
+                        
+                        // 创建材质
+                        const material = new THREE.MeshBasicMaterial({
+                            map: textures[index],
+                            transparent: true,
+                            opacity: 0.8,
+                            side: THREE.DoubleSide
+                        });
+                        
+                        // 创建网格
+                        const avatar = new THREE.Mesh(geometry, material);
+                        
+                        // 随机位置
+                        const radius = 3 + index * 0.5;
+                        const angle = (i / avatarCount) * Math.PI * 2;
+                        const x = Math.sin(angle) * radius;
+                        const y = Math.cos(angle) * radius;
+                        const z = (Math.random() - 0.5) * 2;
+                        
+                        avatar.position.set(x, y, z);
+                        
+                        // 随机旋转
+                        avatar.rotation.x = Math.random() * Math.PI;
+                        avatar.rotation.y = Math.random() * Math.PI;
+                        
+                        group.add(avatar);
+                    }
+                    
+                    scene.add(group);
+                    
+                    generations.push({
+                        group: group,
+                        speed: 0.005 + index * 0.001,
+                        rotationSpeed: 0.001 + index * 0.0005
+                    });
                 });
                 
-                // 旋转线条
-                line.rotation.y += 0.002;
-                line.rotation.x += 0.001;
+                // 创建世代连接线条
+                const lineGeometry = new THREE.BufferGeometry();
+                const linePositions = new Float32Array(generationAvatars.length * 3);
                 
-                renderer.render(scene, camera);
+                for (let i = 0; i < generationAvatars.length; i++) {
+                    const radius = 3 + i * 0.5;
+                    linePositions[i * 3] = Math.sin(i * Math.PI * 2 / generationAvatars.length) * radius;
+                    linePositions[i * 3 + 1] = Math.cos(i * Math.PI * 2 / generationAvatars.length) * radius;
+                    linePositions[i * 3 + 2] = 0;
+                }
+                
+                lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+                
+                const lineMaterial = new THREE.LineBasicMaterial({
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                
+                const line = new THREE.LineLoop(lineGeometry, lineMaterial);
+                scene.add(line);
+                
+                // 动画循环
+                function animate() {
+                    requestAnimationFrame(animate);
+                    
+                    // 旋转和移动头像组
+                    generations.forEach((gen, index) => {
+                        gen.group.rotation.x += gen.rotationSpeed;
+                        gen.group.rotation.y += gen.rotationSpeed;
+                        
+                        // 头像组脉动效果
+                        const time = Date.now() * 0.001;
+                        gen.group.scale.set(
+                            1 + Math.sin(time * gen.speed * 2) * 0.1,
+                            1 + Math.sin(time * gen.speed * 2) * 0.1,
+                            1 + Math.sin(time * gen.speed * 2) * 0.1
+                        );
+                        
+                        // 为每个头像添加独立动画
+                        gen.group.children.forEach((avatar, avatarIndex) => {
+                            const avatarTime = time + avatarIndex * 0.1;
+                            avatar.rotation.x += 0.005;
+                            avatar.rotation.y += 0.005;
+                            avatar.position.z = Math.sin(avatarTime * 2) * 0.5;
+                        });
+                    });
+                    
+                    // 旋转线条
+                    line.rotation.y += 0.002;
+                    line.rotation.x += 0.001;
+                    
+                    renderer.render(scene, camera);
+                }
+                
+                // 开始动画
+                animate();
             }
             
             // 响应窗口大小变化
@@ -279,9 +309,6 @@
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
             });
-            
-            // 开始动画
-            animate();
         })();
     </script>
 </body>
