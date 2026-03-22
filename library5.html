@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职场、管理与代际融合 - 代际图书馆</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20knowledge%20base%20icon%20book%20generations%20symbol%20minimal%20design&image_size=square" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .book-card {
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+        
+        .book-cover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .book-cover:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+        
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+        
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+        
+        .stagger-9 {
+            animation-delay: 0.9s;
+        }
+        
+        .stagger-10 {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="home.html#library" class="text-gray-700 hover:text-primary transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <!-- 标题部分 -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">职场、管理与代际融合</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">聚焦管理学、人力资源与组织行为学，探讨如何在有史以来第一次"多代同堂"的职场中消除代沟。</p>
+        </section>
+
+        <!-- 图书馆导航 -->
+        <section class="mb-16">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="library1.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">奠基理论与世代周期研究</a>
+                <a href="library2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际流动与阶层再生产</a>
+                <a href="library3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际创伤与家庭心理学</a>
+                <a href="library4.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">中国视角的代际研究</a>
+                <a href="library5.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">职场、管理与代际融合</a>
+                <a href="library6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际公平、伦理与长远哲学</a>
+            </div>
+        </section>
+
+        <!-- 书籍展示 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 书籍1 -->
+            <div class="book-card fade-in stagger-1">
+                <div class="book-cover bg-blue-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20100-Year%20Life%20Lynda%20Gratton%20Andrew%20Scott%20longevity%20work%20future&image_size=portrait_4_3" alt="《百岁人生：长寿时代的生活和工作》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《百岁人生：长寿时代的生活和工作》</h3>
+                    <p class="text-gray-600">Lynda Gratton & Andrew Scott</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2016年，Bloomsbury 出版。【中译版】中信出版集团 (2018)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">指出长寿改变了传统的"学习-工作-退休"的三段论节奏，深刻影响了多代际共存的职场模式。</p>
+                </div>
+            </div>
+
+            <!-- 书籍2 -->
+            <div class="book-card fade-in stagger-2">
+                <div class="book-cover bg-green-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Remix%20Lindsey%20Pollak%20multigenerational%20workplace%20management&image_size=portrait_4_3" alt="《职场代际融合》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《职场代际融合》</h3>
+                    <p class="text-gray-600">Lindsey Pollak</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2019年，HarperBusiness (哈珀·柯林斯旗下) 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">主张将不同世代的优势像音乐"混音"一样结合起来，提供跨代团队实战管理策略。</p>
+                </div>
+            </div>
+
+            <!-- 书籍3 -->
+            <div class="book-card fade-in stagger-3">
+                <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Gentelligence%20Megan%20Gerhardt%20generational%20intelligence%20workplace&image_size=portrait_4_3" alt="《代际智商》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《代际智商》</h3>
+                    <p class="text-gray-600">Megan Gerhardt</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2021年，Rowman & Littlefield Publishers 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">提出用"代际智商"取代世代对立（如停用"OK Boomer"），将代际多样性转化为企业核心竞争力。</p>
+                </div>
+            </div>
+
+            <!-- 书籍4 -->
+            <div class="book-card fade-in stagger-4">
+                <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20When%20Generations%20Collide%20Lynne%20Lancaster%20David%20Stillman%20workplace%20generations&image_size=portrait_4_3" alt="《当世代碰撞时》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《当世代碰撞时》</h3>
+                    <p class="text-gray-600">Lynne C. Lancaster & David Stillman</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2002年，HarperBusiness 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">职场代沟研究的早期经典，系统梳理了传统派、婴儿潮、X世代与千禧一代的工作价值观差异。</p>
+                </div>
+            </div>
+
+            <!-- 书籍5 -->
+            <div class="book-card fade-in stagger-5">
+                <div class="book-cover bg-yellow-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Generations%20at%20Work%20Ron%20Zemke%20workplace%20management%20generations&image_size=portrait_4_3" alt="《工作中的世代》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《工作中的世代》</h3>
+                    <p class="text-gray-600">Ron Zemke 等</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1999年（最新修订于2013年），AMACOM (美国管理协会) 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">详细提供了从老将到新兵的沟通技巧、激励机制与冲突解决工具。</p>
+                </div>
+            </div>
+
+            <!-- 书籍6 -->
+            <div class="book-card fade-in stagger-6">
+                <div class="book-cover bg-indigo-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Navigating%20the%20Multigenerational%20Workplace%20Michael%20Urick%20organizational%20behavior&image_size=portrait_4_3" alt="《驾驭多代际职场》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《驾驭多代际职场》</h3>
+                    <p class="text-gray-600">Michael Urick</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2017年，Routledge 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">从组织行为学角度探讨代际身份认同、刻板印象如何影响团队合作与知识传承。</p>
+                </div>
+            </div>
+
+            <!-- 书籍7 -->
+            <div class="book-card fade-in stagger-7">
+                <div class="book-cover bg-pink-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Gen%20Z%20%40%20Work%20David%20Stillman%20Jonah%20Stillman%20Generation%20Z%20workplace&image_size=portrait_4_3" alt="《Z世代在职场》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《Z世代在职场》</h3>
+                    <p class="text-gray-600">David Stillman & Jonah Stillman</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2017年，HarperBusiness 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">这是一本由X世代父亲和Z世代儿子合著的指南，专门针对00后的工作动机与管理方式进行研究。</p>
+                </div>
+            </div>
+
+            <!-- 书籍8 -->
+            <div class="book-card fade-in stagger-8">
+                <div class="book-cover bg-teal-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Retiring%20the%20Generation%20Gap%20Jennifer%20Deal%20workplace%20generations%20common%20ground&image_size=portrait_4_3" alt="《消除代沟：年轻与年长员工如何寻找共同点》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《消除代沟：年轻与年长员工如何寻找共同点》</h3>
+                    <p class="text-gray-600">Jennifer J. Deal</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2007年，Jossey-Bass 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">基于长期数据调研，证明不同世代在职场上的核心诉求（如渴望尊重、信任）共同点远大于分歧。</p>
+                </div>
+            </div>
+
+            <!-- 书籍9 -->
+            <div class="book-card fade-in stagger-9">
+                <div class="book-cover bg-orange-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Managing%20the%20Millennials%20Chip%20Espinoza%20millennial%20management&image_size=portrait_4_3" alt="《管理千禧一代》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《管理千禧一代》</h3>
+                    <p class="text-gray-600">Chip Espinoza 等</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2010年，Wiley (约翰·威立出版社) 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">针对Y世代（千禧一代）职场特征（如渴望即时反馈、看重意义）的专项管理学著作。</p>
+                </div>
+            </div>
+
+            <!-- 书籍10 -->
+            <div class="book-card fade-in stagger-10">
+                <div class="book-cover bg-blue-200 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%202020%20Workplace%20Jeanne%20Meister%20Karie%20Willyerd%20social%20media%20workplace&image_size=portrait_4_3" alt="《2020职场》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《2020职场》</h3>
+                    <p class="text-gray-600">Jeanne Meister & Karie Willyerd</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2010年，HarperBusiness 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">探讨社交媒体时代如何重塑跨代际招聘、员工留存与企业学习文化的演变。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">代际图书馆 - 职场、管理与代际融合</p>
+                <p class="text-gray-500 text-sm mt-2">© 2026 代际知识库</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

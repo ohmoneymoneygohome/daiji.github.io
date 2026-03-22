@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代际公平、伦理与长远哲学 - 代际图书馆</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20knowledge%20base%20icon%20book%20generations%20symbol%20minimal%20design&image_size=square" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .book-card {
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+        
+        .book-cover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .book-cover:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+        
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+        
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+        
+        .stagger-9 {
+            animation-delay: 0.9s;
+        }
+        
+        .stagger-10 {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="home.html#library" class="text-gray-700 hover:text-primary transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <!-- 标题部分 -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">代际公平、伦理与长远哲学</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">属于哲学、政治学和公共政策，探讨我们对未出生的后代负有怎样的义务，涉及气候变化、养老金和资源分配。</p>
+        </section>
+
+        <!-- 图书馆导航 -->
+        <section class="mb-16">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="library1.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">奠基理论与世代周期研究</a>
+                <a href="library2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际流动与阶层再生产</a>
+                <a href="library3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际创伤与家庭心理学</a>
+                <a href="library4.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">中国视角的代际研究</a>
+                <a href="library5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">职场、管理与代际融合</a>
+                <a href="library6.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">代际公平、伦理与长远哲学</a>
+            </div>
+        </section>
+
+        <!-- 书籍展示 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 书籍1 -->
+            <div class="book-card fade-in stagger-1">
+                <div class="book-cover bg-blue-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20A%20Theory%20of%20Justice%20John%20Rawls%20justice%20philosophy%20academic&image_size=portrait_4_3" alt="《正义论》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《正义论》 - 章节：代际正义</h3>
+                    <p class="text-gray-600">约翰·罗尔斯 (John Rawls)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1971年，Harvard University Press (哈佛大学出版社)。【中译版】中国社会科学出版社等。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">提出的"正义的储存原则"（Just Savings Principle）是现代所有关于代际正义、资源跨代分配讨论的哲学基石。</p>
+                </div>
+            </div>
+
+            <!-- 书籍2 -->
+            <div class="book-card fade-in stagger-2">
+                <div class="book-cover bg-green-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Reasons%20and%20Persons%20Derek%20Parfit%20philosophy%20ethics&image_size=portrait_4_3" alt="《理与人》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《理与人》</h3>
+                    <p class="text-gray-600">德里克·帕菲特 (Derek Parfit)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1984年，Oxford University Press (牛津大学出版社)。【中译版】上海译文出版社 (2005)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">提出了著名的"非同一性问题"（Non-Identity Problem），彻底颠覆了人类看待未来世代道德义务的哲学框架。</p>
+                </div>
+            </div>
+
+            <!-- 书籍3 -->
+            <div class="book-card fade-in stagger-3">
+                <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20What%20We%20Owe%20the%20Future%20William%20MacAskill%20longtermism%20ethics&image_size=portrait_4_3" alt="《我们欠未来的》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《我们欠未来的》</h3>
+                    <p class="text-gray-600">William MacAskill</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2022年，Basic Books 出版。【中译版】中信出版集团 (2024)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">"长期主义"（Longtermism）和有效利他主义代表作，呼吁我们将道德关怀延伸至未来几百万年的无数代人。</p>
+                </div>
+            </div>
+
+            <!-- 书籍4 -->
+            <div class="book-card fade-in stagger-4">
+                <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Good%20Ancestor%20Roman%20Krznaric%20future%20thinking%20ethics&image_size=portrait_4_3" alt="《好祖先：如何思考长远世界》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《好祖先：如何思考长远世界》</h3>
+                    <p class="text-gray-600">Roman Krznaric</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2020年，WH Allen 出版。【中译版】中信出版集团 (2022)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">批判现代民主社会与商业市场的"短期主义"，教导人类如何为几百年后的子孙后代负责。</p>
+                </div>
+            </div>
+
+            <!-- 书籍5 -->
+            <div class="book-card fade-in stagger-5">
+                <div class="book-cover bg-yellow-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Imperative%20of%20Responsibility%20Hans%20Jonas%20ethics%20technology%20future&image_size=portrait_4_3" alt="《责任原理：现代技术文明的伦理探索》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《责任原理：现代技术文明的伦理探索》</h3>
+                    <p class="text-gray-600">汉斯·约纳斯 (Hans Jonas)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">德文首版 1979年，英文版 Univ of Chicago Press (1984)。【中译版】上海译文 (2013)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">在核武器和环境破坏背景下，重塑了人类对未来世代生存环境的绝对道德责任。</p>
+                </div>
+            </div>
+
+            <!-- 书籍6 -->
+            <div class="book-card fade-in stagger-6">
+                <div class="book-cover bg-indigo-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20A%20Theory%20of%20Intergenerational%20Justice%20Joerg%20Chet%20Tremmel%20philosophy%20justice&image_size=portrait_4_3" alt="《代际正义论》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《代际正义论》</h3>
+                    <p class="text-gray-600">Joerg Chet Tremmel</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2009年，Earthscan / Routledge 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">全面系统地论述了当代人与未来人之间权利分配的法理依据与政治逻辑。</p>
+                </div>
+            </div>
+
+            <!-- 书籍7 -->
+            <div class="book-card fade-in stagger-7">
+                <div class="book-cover bg-pink-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Pinch%20David%20Willetts%20generational%20inequality%20economics&image_size=portrait_4_3" alt="《榨取：婴儿潮一代如何夺走了孩子们的未来》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《榨取：婴儿潮一代如何夺走了孩子们的未来》</h3>
+                    <p class="text-gray-600">David Willetts</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2010年，Atlantic Books 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">以英国为例，犀利指出战后婴儿潮一代如何利用政策红利霸占房产和福利，造成严重的代际经济不公。</p>
+                </div>
+            </div>
+
+            <!-- 书籍8 -->
+            <div class="book-card fade-in stagger-8">
+                <div class="book-cover bg-teal-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Climate%20Change%20Justice%20and%20Future%20Generations%20Edward%20Page%20climate%20ethics&image_size=portrait_4_3" alt="《气候变化、正义与未来世代》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《气候变化、正义与未来世代》</h3>
+                    <p class="text-gray-600">Edward A. Page</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2006年，Edward Elgar Publishing 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">从气候危机的现实出发，探讨代际间的碳排放权分配与跨代环境正义。</p>
+                </div>
+            </div>
+
+            <!-- 书籍9 -->
+            <div class="book-card fade-in stagger-9">
+                <div class="book-cover bg-orange-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Ethics%20for%20a%20Broken%20World%20Tim%20Mulgan%20ethics%20future%20resources&image_size=portrait_4_3" alt="《破碎世界的伦理学》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《破碎世界的伦理学》</h3>
+                    <p class="text-gray-600">Tim Mulgan</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2011年，Routledge 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">用思想实验的方式，假设未来世界资源已经枯竭，未来的世代会如何通过伦理学来审判我们今天的行为。</p>
+                </div>
+            </div>
+
+            <!-- 书籍10 -->
+            <div class="book-card fade-in stagger-10">
+                <div class="book-cover bg-blue-200 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Justice%20Between%20Age%20Groups%20and%20Generations%20Peter%20Laslett%20James%20Fishkin%20political%20philosophy&image_size=portrait_4_3" alt="《年龄组与世代间的正义》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《年龄组与世代间的正义》</h3>
+                    <p class="text-gray-600">Peter Laslett & James Fishkin</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1992年，Yale University Press (耶鲁大学出版社) 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">汇集了众多政治哲学家关于人口老龄化、社会契约和代际福利负担的经典论文集。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">代际图书馆 - 代际公平、伦理与长远哲学</p>
+                <p class="text-gray-500 text-sm mt-2">© 2026 代际知识库</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

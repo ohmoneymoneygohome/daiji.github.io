@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代际流动与阶层再生产 - 代际图书馆</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20knowledge%20base%20icon%20book%20generations%20symbol%20minimal%20design&image_size=square" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .book-card {
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+        
+        .book-cover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .book-cover:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+        
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+        
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+        
+        .stagger-9 {
+            animation-delay: 0.9s;
+        }
+        
+        .stagger-10 {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="home.html#library" class="text-gray-700 hover:text-primary transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <!-- 标题部分 -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">代际流动与阶层再生产</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">研究财富、贫困、教育和阶层是如何在父代与子代之间传递、固化或打破的</p>
+        </section>
+
+        <!-- 图书馆导航 -->
+        <section class="mb-16">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="library1.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">奠基理论与世代周期研究</a>
+                <a href="library2.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">代际流动与阶层再生产</a>
+                <a href="library3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际创伤与家庭心理学</a>
+                <a href="library4.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">中国视角的代际研究</a>
+                <a href="library5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">职场、管理与代际融合</a>
+                <a href="library6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际公平、伦理与长远哲学</a>
+            </div>
+        </section>
+
+        <!-- 书籍展示 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 书籍1 -->
+            <div class="book-card fade-in stagger-1">
+                <div class="book-cover bg-green-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Son%20Also%20Rises%20Gregory%20Clark%20social%20mobility%20academic%20style&image_size=portrait_4_3" alt="《子代亦然：罕见姓氏与社会流动的历史》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《子代亦然：罕见姓氏与社会流动的历史》</h3>
+                    <p class="text-gray-600">Gregory Clark</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2014年，Princeton University Press (普林斯顿)。【中译版】中信出版集团 (2015)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">通过追踪多国几个世纪以来的罕见姓氏，证明代际阶层固化是长期常态，流动极其缓慢。</p>
+                </div>
+            </div>
+
+            <!-- 书籍2 -->
+            <div class="book-card fade-in stagger-2">
+                <div class="book-cover bg-blue-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Our%20Kids%20Robert%20Putnam%20American%20Dream%20academic%20style&image_size=portrait_4_3" alt="《我们的孩子：危机中的美国梦》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《我们的孩子：危机中的美国梦》</h3>
+                    <p class="text-gray-600">Robert D. Putnam</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2015年，Simon & Schuster 出版。【中译版】中国政法大学出版社 (2017)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">通过绝佳的田野调查，深刻剖析美国社会阶层固化、代际流动停滞的现状。</p>
+                </div>
+            </div>
+
+            <!-- 书籍3 -->
+            <div class="book-card fade-in stagger-3">
+                <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Learning%20to%20Labor%20Paul%20Willis%20working%20class%20education%20academic%20style&image_size=portrait_4_3" alt="《学做工：工人阶级子弟为何继承父业》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《学做工：工人阶级子弟为何继承父业》</h3>
+                    <p class="text-gray-600">Paul Willis</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1977年，Saxon House / Columbia Univ Press。【中译版】译林出版社 (2013)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">教育社会学与代际再生产经典，揭示底层"反智文化"如何导致阶层的代际自我复制。</p>
+                </div>
+            </div>
+
+            <!-- 书籍4 -->
+            <div class="book-card fade-in stagger-4">
+                <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Reproduction%20in%20Education%20Society%20and%20Culture%20Pierre%20Bourdieu%20sociology%20academic%20style&image_size=portrait_4_3" alt="《再生产：教育、社会与文化》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《再生产：教育、社会与文化》</h3>
+                    <p class="text-gray-600">Pierre Bourdieu (皮埃尔·布迪厄)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">法文首版 1970年，英文版 Sage (1977)。【中译版】商务印书馆 (2002)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">提出了"文化资本"概念，解释教育体系如何隐蔽地完成代际阶层特权的传承。</p>
+                </div>
+            </div>
+
+            <!-- 书籍5 -->
+            <div class="book-card fade-in stagger-5">
+                <div class="book-cover bg-yellow-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Unequal%20Childhoods%20Annette%20Lareau%20sociology%20family%20academic%20style&image_size=portrait_4_3" alt="《不平等的童年》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《不平等的童年》</h3>
+                    <p class="text-gray-600">Annette Lareau</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2003年，University of California Press。【中译版】北京大学出版社 (2010)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">通过"协作培养"和"自然成长"两种教养方式，揭示阶层差异如何在童年期刻下代际烙印。</p>
+                </div>
+            </div>
+
+            <!-- 书籍6 -->
+            <div class="book-card fade-in stagger-6">
+                <div class="book-cover bg-indigo-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Schooling%20in%20Capitalist%20America%20Bowles%20Gintis%20education%20sociology%20academic%20style&image_size=portrait_4_3" alt="《资本主义美国的学校教育》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《资本主义美国的学校教育》</h3>
+                    <p class="text-gray-600">Samuel Bowles & Herbert Gintis</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1976年，Basic Books 出版。【中译版】上海教育出版社 (2011)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">探讨宏观经济结构如何通过学校教育的"对应原则"传递给下一代。</p>
+                </div>
+            </div>
+
+            <!-- 书籍7 -->
+            <div class="book-card fade-in stagger-7">
+                <div class="book-cover bg-pink-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Ain't%20No%20Makin'%20It%20Jay%20MacLeod%20social%20mobility%20poverty%20academic%20style&image_size=portrait_4_3" alt="《哪儿也去不了：社会流动与底层青年的成长》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《哪儿也去不了：社会流动与底层青年的成长》</h3>
+                    <p class="text-gray-600">Jay MacLeod</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1987年，Routledge 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">对贫民窟青年的长期民族志研究，直击代际贫困的再生产与底层青年的绝望。</p>
+                </div>
+            </div>
+
+            <!-- 书籍8 -->
+            <div class="book-card fade-in stagger-8">
+                <div class="book-cover bg-teal-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Dream%20Hoarders%20Richard%20Reeves%20social%20mobility%20middle%20class%20academic%20style&image_size=portrait_4_3" alt="《梦想囤积者》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《梦想囤积者》</h3>
+                    <p class="text-gray-600">Richard V. Reeves</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2017年，Brookings Institution Press。【中译版】上海社会科学院出版社。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">探讨美国中上阶层如何通过学区房、实习机会等手段囤积资源，阻断底层的代际上升空间。</p>
+                </div>
+            </div>
+
+            <!-- 书籍9 -->
+            <div class="book-card fade-in stagger-9">
+                <div class="book-cover bg-orange-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Constant%20Flux%20Erikson%20Goldthorpe%20social%20mobility%20academic%20style&image_size=portrait_4_3" alt="《恒定的流动：工业社会的阶层流动研究》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《恒定的流动：工业社会的阶层流动研究》</h3>
+                    <p class="text-gray-600">Robert Erikson & John H. Goldthorpe</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1992年，Clarendon Press / Oxford (牛津大学出版社)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">欧洲代际阶层流动的大数据比较研究标杆，提出了经典的社会流动模型。</p>
+                </div>
+            </div>
+
+            <!-- 书籍10 -->
+            <div class="book-card fade-in stagger-10">
+                <div class="book-cover bg-blue-200 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Giving%20Kids%20a%20Fair%20Chance%20James%20Heckman%20early%20intervention%20economics%20academic%20style&image_size=portrait_4_3" alt="《给孩子一个公平的机会》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《给孩子一个公平的机会》</h3>
+                    <p class="text-gray-600">James Heckman (诺奖得主)</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2013年，MIT Press (麻省理工学院出版社)。【中译版】浙江大学出版社 (2020)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">从经济学角度强有力地论证了早期干预（0-5岁）是如何打破贫困的代际循环的最有效手段。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">代际图书馆 - 代际流动与阶层再生产</p>
+                <p class="text-gray-500 text-sm mt-2">© 2026 代际知识库</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

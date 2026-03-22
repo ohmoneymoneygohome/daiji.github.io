@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千禧世代 - 代际知识库</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20knowledge%20base%20icon%20book%20generations%20symbol%20minimal%20design&image_size=square" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .generation-card {
+            transition: all 0.3s ease;
+        }
+        
+        .generation-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="home.html#profiles" class="text-gray-700 hover:text-primary transition-colors">代际档案</a>
+                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <!-- 标题部分 -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">千禧世代 (Millennials)</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">出生于 1981-1996 年，是数字时代的第一代，经历了互联网革命的一代</p>
+        </section>
+
+        <!-- 世代导航 -->
+        <section class="mb-16">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="generation1.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">传统世代</a>
+                <a href="generation2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">婴儿潮世代</a>
+                <a href="generation3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">X世代</a>
+                <a href="generation4.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">千禧世代</a>
+                <a href="generation5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Z世代</a>
+                <a href="generation6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Alpha世代</a>
+            </div>
+        </section>
+
+        <!-- 世代详细介绍 -->
+        <section class="max-w-4xl mx-auto">
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 fade-in">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=millennial%20generation%20portrait%2C%20young%20adults%20from%201980s-1990s%2C%20digital%20native%2C%20tech-savvy%2C%20diverse%20group&image_size=portrait_4_3" alt="千禧世代" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">世代特征</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>是数字时代的第一代，从小接触互联网和数字技术</li>
+                            <li>经历了9/11恐怖袭击、2008年金融危机等重大事件</li>
+                            <li>重视工作的意义和目的，不仅仅是为了谋生</li>
+                            <li>对多样性和包容性持开放态度</li>
+                            <li>倾向于延迟结婚和生育，更注重个人发展</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 mt-8 fade-in">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">历史背景</h2>
+                <p class="text-gray-700 mb-4">千禧世代出生于1981年至1996年间，他们经历了：</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>互联网的兴起和普及</li>
+                    <li>9/11恐怖袭击和反恐战争</li>
+                    <li>2008年全球金融危机</li>
+                    <li>社交媒体的出现和发展</li>
+                    <li>移动技术的快速发展</li>
+                </ul>
+            </div>
+
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 mt-8 fade-in">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">价值观与信念</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>重视工作与生活的平衡</li>
+                    <li>追求有意义的工作和职业发展</li>
+                    <li>对社会和环境问题持关注态度</li>
+                    <li>重视多样性和包容性</li>
+                    <li>倾向于使用技术解决问题</li>
+                </ul>
+            </div>
+
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 mt-8 fade-in">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">对社会的影响</h2>
+                <p class="text-gray-700 mb-4">千禧世代对社会产生了深远的影响：</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>推动了数字技术和社交媒体的普及</li>
+                    <li>改变了工作场所的文化和期望</li>
+                    <li>促进了共享经济的发展</li>
+                    <li>在政治上倾向于进步主义价值观</li>
+                    <li>现在正成为劳动力市场的主力军，在各个领域发挥重要作用</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">代际知识库 - 千禧世代</p>
+                <p class="text-gray-500 text-sm mt-2">© 2026 代际知识库</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

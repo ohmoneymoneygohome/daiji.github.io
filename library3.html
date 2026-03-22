@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代际创伤与家庭心理学 - 代际图书馆</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+        .stagger-9 {
+            animation-delay: 0.9s;
+        }
+        .stagger-10 {
+            animation-delay: 1.0s;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .book-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="home.html" class="flex items-center space-x-2">
+                <i class="fa fa-book-open text-blue-600 text-2xl"></i>
+                <span class="text-xl font-bold text-gray-800">代际知识库</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="home.html" class="text-gray-600 hover:text-blue-600 transition-colors">首页</a>
+                <a href="home.html#library" class="text-gray-600 hover:text-blue-600 transition-colors">代际图书馆</a>
+                <a href="dialectic.html" class="text-gray-600 hover:text-blue-600 transition-colors">代际辩证法</a>
+                <a href="research.html" class="text-gray-600 hover:text-blue-600 transition-colors">大器层研究</a>
+            </nav>
+            <button class="md:hidden text-gray-600">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">代际创伤与家庭心理学</h1>
+                <p class="text-lg opacity-90">研究心理学、表观遗传学和家庭系统，探讨原生家庭、历史灾难与基因记忆如何跨代传递。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Library Navigation -->
+    <section class="bg-white shadow-sm py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="library1.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">奠基理论与世代周期研究</a>
+                <a href="library2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际流动与阶层再生产</a>
+                <a href="library3.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">代际创伤与家庭心理学</a>
+                <a href="library4.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">中国视角的代际研究</a>
+                <a href="library5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">职场、管理与代际融合</a>
+                <a href="library6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际公平、伦理与长远哲学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Book 1 -->
+                <div class="book-card fade-in stagger-1">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20It%20Didn't%20Start%20with%20You%20Mark%20Wolynn%20intergenerational%20trauma%20psychology%20therapeutic%20style&image_size=portrait_4_3" alt="《这不是你的错：代际创伤的家庭牵绊与心理治疗》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《这不是你的错：代际创伤的家庭牵绊与心理治疗》</h3>
+                        <p class="text-gray-600">Mark Wolynn</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2016年，Viking Press 出版。【中译版】机械工业出版社 (2022)。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">结合表观遗传学，解析祖辈未解决的创伤如何留在我们的基因与潜意识中，并提供打破循环的方法。</p>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card fade-in stagger-2">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Intergenerational%20Transmission%20of%20Trauma%20M.%20Gerard%20Fromm%20psychology%20clinical%20research&image_size=portrait_4_3" alt="《创伤的代际传递》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《创伤的代际传递》</h3>
+                        <p class="text-gray-600">M. Gerard Fromm (编著)</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2012年，Karnac Books 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">精神分析视角下大屠杀、战争、家暴等创伤的代际心理学临床研究汇编。</p>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card fade-in stagger-3">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Family%20Therapy%20in%20Clinical%20Practice%20Murray%20Bowen%20family%20system%20theory%20psychology&image_size=portrait_4_3" alt="《临床实践中的家庭治疗》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《临床实践中的家庭治疗》</h3>
+                        <p class="text-gray-600">Murray Bowen</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 1978年，Jason Aronson 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">家庭系统理论的绝对奠基作，提出了"多代传递过程"（Multigenerational Transmission Process）这一核心概念。</p>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card fade-in stagger-4">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20My%20Grandmother's%20Hands%20Resmaa%20Menakem%20racial%20trauma%20healing%20psychology&image_size=portrait_4_3" alt="《我祖母的手：种族化创伤与修复》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《我祖母的手：种族化创伤与修复》</h3>
+                        <p class="text-gray-600">Resmaa Menakem</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2017年，Central Recovery Press 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">深刻剖析了种族压迫造成的创伤是如何深深烙印在身体和神经系统层面并跨代传递的。</p>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="book-card fade-in stagger-5">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Post%20Traumatic%20Slave%20Syndrome%20Joy%20DeGruy%20African%20American%20trauma%20psychology&image_size=portrait_4_3" alt="《创伤后奴隶综合症》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《创伤后奴隶综合症》</h3>
+                        <p class="text-gray-600">Joy DeGruy</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2005年，Joy DeGruy Publications 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">专门针对非裔群体几个世纪以来的系统性代际创伤进行深度病理学与心理学分析。</p>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="book-card fade-in stagger-6">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Wounds%20of%20History%20Jill%20Salberg%20Sue%20Grand%20historical%20trauma%20psychology&image_size=portrait_4_3" alt="《历史的创伤：穿越世代的记忆》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《历史的创伤：穿越世代的记忆》</h3>
+                        <p class="text-gray-600">Jill Salberg & Sue Grand</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2016年，Routledge 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">探讨宏观历史暴力（如独裁、屠杀）如何侵入微观家庭的代际结构中。</p>
+                    </div>
+                </div>
+
+                <!-- Book 7 -->
+                <div class="book-card fade-in stagger-7">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Invisible%20Loyalties%20Ivan%20Boszormenyi-Nagy%20family%20ethics%20psychology&image_size=portrait_4_3" alt="《看不见的忠诚》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《看不见的忠诚》</h3>
+                        <p class="text-gray-600">Ivan Boszormenyi-Nagy</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 1973年，Harper & Row 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">探讨家庭内部代际之间的伦理契约、心理负债和盲目忠诚如何束缚子代的人生。</p>
+                    </div>
+                </div>
+
+                <!-- Book 8 -->
+                <div class="book-card fade-in stagger-8">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Telescoping%20of%20Generations%20Haydee%20Faimberg%20psychoanalysis%20identity&image_size=portrait_4_3" alt="《世代的伸缩》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《世代的伸缩》</h3>
+                        <p class="text-gray-600">Haydee Faimberg</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2005年，Routledge 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">精神分析名著，研究父母未消化的创伤如何潜入孩子的精神世界，造成身份认同的错位。</p>
+                    </div>
+                </div>
+
+                <!-- Book 9 -->
+                <div class="book-card fade-in stagger-9">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Haunting%20Legacies%20Gabriele%20Schwab%20literature%20psychoanalysis%20trauma&image_size=portrait_4_3" alt="《挥之不去的遗产》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《挥之不去的遗产》</h3>
+                        <p class="text-gray-600">Gabriele Schwab</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2010年，Columbia University Press (哥伦比亚大学出版社)。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">从文学叙事与精神分析结合的角度，分析挥之不去的代际心理阴影。</p>
+                    </div>
+                </div>
+
+                <!-- Book 10 -->
+                <div class="book-card fade-in stagger-10">
+                    <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Breaking%20Intergenerational%20Cycles%20of%20Repetition%20Pumla%20Gobodo-Madikizela%20reconciliation%20healing&image_size=portrait_4_3" alt="《打破代际重复的循环》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《打破代际重复的循环》</h3>
+                        <p class="text-gray-600">Pumla Gobodo-Madikizela</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2016年，Barbara Budrich Publishers 出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">基于南非真相与和解委员会的经验，研究社会与家庭如何切断仇恨与创伤的代际延续。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-book-open text-blue-400 text-xl"></i>
+                        <span class="text-lg font-bold">代际知识库</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">理解世代差异，支撑业务决策</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="home.html" class="text-gray-400 hover:text-white transition-colors">首页</a>
+                    <a href="home.html#library" class="text-gray-400 hover:text-white transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-400 hover:text-white transition-colors">代际辩证法</a>
+                    <a href="research.html" class="text-gray-400 hover:text-white transition-colors">大器层研究</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2026 代际知识库 | 大器层·代际研究</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

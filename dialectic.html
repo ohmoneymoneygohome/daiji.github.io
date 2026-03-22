@@ -27,10 +27,19 @@
         
         body {
             font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #f8fafc;
+            background-color: #0f172a;
         }
         
         .slide {
             scroll-margin-top: 80px;
+            transition: all 0.3s ease;
+        }
+        
+        .slide:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
         
         .fade-in {
@@ -47,20 +56,80 @@
                 transform: translateY(0);
             }
         }
+        
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .illustration {
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 2rem 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .illustration:hover {
+            transform: scale(1.02);
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+            margin: 3rem 0;
+        }
+        
+        /* 导航栏滚动效果 */
+        nav {
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 按钮和链接交互 */
+        a {
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            transform: translateY(-1px);
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 内容容器宽度调整 */
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .content-container {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
     <!-- 导航栏 -->
-    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+    <nav class="fixed w-full top-0 z-50 bg-slate-800/90 backdrop-blur-md shadow-md">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <i class="fa fa-book text-primary text-2xl mr-2"></i>
-                    <span class="text-xl font-bold text-gray-900">代际：时间的社会学与文明的辩证法</span>
+                    <span class="text-xl font-bold text-white">代际：时间的社会学与文明的辩证法</span>
                 </div>
                 <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">首页</a>
-                    <a href="#intro" class="text-gray-700 hover:text-primary transition-colors">介绍</a>
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">首页</a>
+                    <a href="#intro" class="text-gray-300 hover:text-white transition-colors">介绍</a>
                 </div>
             </div>
         </div>
@@ -69,128 +138,216 @@
     <!-- 主内容 -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <!-- 标题部分 -->
-        <section id="intro" class="mb-16 text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">代际：时间的社会学与文明的辩证法</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">探索代际之间的时间社会学与文明发展的辩证关系</p>
+        <section id="intro" class="mb-16 relative">
+            <!-- 炫酷背景 -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
+                <div class="absolute inset-0 bg-[url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20sociology%20abstract%20background%2C%20time%20flow%20civilization%20dialectic%2C%20modern%20minimal%20design%20with%20deep%20blue%20tones&image_size=landscape_16_9')] bg-cover bg-center opacity-30"></div>
+                <!-- 动画效果 -->
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-white/10 blur-3xl animate-pulse"></div>
+                    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-primary/20 blur-3xl animate-pulse delay-1000"></div>
+                    <div class="absolute top-1/2 left-1/2 w-72 h-72 rounded-full bg-secondary/20 blur-3xl animate-pulse delay-2000"></div>
+                </div>
+            </div>
+            <div class="relative z-10 text-center py-20">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">代际：时间的社会学与文明的辩证法</h1>
+                <p class="text-xl text-gray-100 max-w-3xl mx-auto">探索代际之间的时间社会学与文明发展的辩证关系</p>
+            </div>
         </section>
 
-        <!-- PPT内容部分 -->
-        <div class="space-y-16">
+        <!-- 目录导航 -->
+        <div class="max-w-4xl mx-auto">
+            <section class="slide bg-slate-800 rounded-xl shadow-lg p-8 mb-16 fade-in">
+                <h2 class="text-2xl font-bold text-white mb-6">目录导航</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="#section1" class="text-blue-400 hover:text-blue-300 transition-colors py-2 border-b border-slate-700 hover:border-blue-500/50">01 引言：代际问题作为“人类的唯一真问题”</a>
+                    <a href="#section2" class="text-blue-400 hover:text-blue-300 transition-colors py-2 border-b border-slate-700 hover:border-blue-500/50">02 曼海姆代际理论的思想渊源与核心建构</a>
+                    <a href="#section3" class="text-blue-400 hover:text-blue-300 transition-colors py-2 border-b border-slate-700 hover:border-blue-500/50">03 曼海姆代际理论的学术传承与拓展</a>
+                    <a href="#section4" class="text-blue-400 hover:text-blue-300 transition-colors py-2 border-b border-slate-700 hover:border-blue-500/50">04 近十年全球代际研究的跨学科图谱</a>
+                    <a href="#section5" class="text-blue-400 hover:text-blue-300 transition-colors py-2 border-b border-slate-700 hover:border-blue-500/50">05 对《六世同堂》理论的批判性反思</a>
+                    <a href="#section6" class="text-blue-400 hover:text-blue-300 transition-colors py-2 border-b border-slate-700 hover:border-blue-500/50">06 代际研究的未来走向与结论</a>
+                </div>
+            </section>
+
+            <!-- PPT内容部分 -->
+            <div class="space-y-16">
             
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">代际：时间的社会学与文明的辩证法</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">ACADEMIC REPORT 2026</p>
+        <section class="slide bg-slate-800 rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-2xl font-bold text-white mb-6">代际：时间的社会学与文明的辩证法</h2>
+            <div class="space-y-6">
+                <p class="text-gray-300">ACADEMIC REPORT 2026</p>
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">目录</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">01</p><p class="text-gray-700">引言：代际问题作为“人类的唯一真问题”</p><p class="text-gray-700">02</p><p class="text-gray-700">曼海姆代际理论的思想渊源与核心建构</p><p class="text-gray-700">03</p><p class="text-gray-700">曼海姆代际理论的学术传承与拓展</p><p class="text-gray-700">04</p><p class="text-gray-700">近十年全球代际研究的跨学科图谱</p><p class="text-gray-700">05</p><p class="text-gray-700">对《六世同堂》理论的批判性反思</p><p class="text-gray-700">06</p><p class="text-gray-700">代际研究的未来走向与结论</p><p class="text-gray-700">Intergenerational Research Overview · 2026 Academic Report</p>
+        <section class="slide bg-slate-800 rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-2xl font-bold text-white mb-6">目录</h2>
+            <div class="space-y-6">
+                <p class="text-gray-300">01</p><p class="text-gray-300">引言：代际问题作为“人类的唯一真问题”</p><p class="text-gray-300">02</p><p class="text-gray-300">曼海姆代际理论的思想渊源与核心建构</p><p class="text-gray-300">03</p><p class="text-gray-300">曼海姆代际理论的学术传承与拓展</p><p class="text-gray-300">04</p><p class="text-gray-300">近十年全球代际研究的跨学科图谱</p><p class="text-gray-300">05</p><p class="text-gray-300">对《六世同堂》理论的批判性反思</p><p class="text-gray-300">06</p><p class="text-gray-300">代际研究的未来走向与结论</p><p class="text-gray-300">Intergenerational Research Overview · 2026 Academic Report</p>
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">一、引言</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">代际问题作为“人类的唯一真问题”</p>
+        <section id="section1" class="slide bg-slate-800 rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-2xl font-bold text-white mb-6">一、引言</h2>
+            <div class="space-y-6">
+                <p class="text-gray-300">代际问题作为“人类的唯一真问题”</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20sociology%20concept%20illustration%20with%20different%20generations%20connecting%20through%20time%2C%20abstract%20modern%20style&image_size=landscape_16_9" alt="代际问题示意图" class="illustration w-full">
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">代际：时间在社会结构中的具象化载体</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">文明传承与断裂的单元
-代际不仅是年龄差异，更是文明得以延续或发生断裂的基本载体。</p><p class="text-gray-700">塑造社会运行逻辑
-从个体生命历程到宏观文明演进周期，代际关系深刻定义了社会的运行规则。</p><p class="text-gray-700">卡尔·曼海姆的洞见
-“代际问题是社会变迁与文化传承的动态结晶，是理解社会转型的关键钥匙。”</p><p class="text-gray-700">图示：不同世代的连接与共生结构</p>
+        <section class="slide bg-slate-800 rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-2xl font-bold text-white mb-6">代际：时间在社会结构中的具象化载体</h2>
+            <div class="space-y-6">
+                <p class="text-gray-300">文明传承与断裂的单元
+代际不仅是年龄差异，更是文明得以延续或发生断裂的基本载体。</p>
+                <p class="text-gray-300">塑造社会运行逻辑
+从个体生命历程到宏观文明演进周期，代际关系深刻定义了社会的运行规则。</p>
+                <p class="text-gray-300">卡尔·曼海姆的洞见
+“代际问题是社会变迁与文化传承的动态结晶，是理解社会转型的关键钥匙。”</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generational%20connections%20and%20symbiosis%20structure%2C%20visualization%20of%20different%20generations%20linked%20through%20time%2C%20modern%20abstract%20style&image_size=landscape_16_9" alt="不同世代的连接与共生结构" class="illustration w-full">
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">全球化与数字化下的代际新挑战</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">技术迭代催生“代际跃迁”
-数字化技术重塑能力结构，年轻一代掌握新技术速度显著超前</p><p class="text-gray-700">文化传承面临“后喻文化”挑战
-知识流向逆转，年轻一代反哺年长一代，传统权威结构松动</p><p class="text-gray-700">冲突延伸至多维治理层面
-代际分歧从家庭延伸至政治、经济及社会公共政策制定领域</p><p class="text-gray-700">代际正义成全球治理议题
-资源分配与责任共担成为代际间博弈与合作的核心焦点</p><p class="text-gray-700">数字技术与人类世代的演进共生</p>
+        <section class="slide bg-slate-800 rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-2xl font-bold text-white mb-6">全球化与数字化下的代际新挑战</h2>
+            <div class="space-y-6">
+                <p class="text-gray-300">技术迭代催生“代际跃迁”
+数字化技术重塑能力结构，年轻一代掌握新技术速度显著超前</p>
+                <p class="text-gray-300">文化传承面临“后喻文化”挑战
+知识流向逆转，年轻一代反哺年长一代，传统权威结构松动</p>
+                <p class="text-gray-300">冲突延伸至多维治理层面
+代际分歧从家庭延伸至政治、经济及社会公共政策制定领域</p>
+                <p class="text-gray-300">代际正义成全球治理议题
+资源分配与责任共担成为代际间博弈与合作的核心焦点</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=digital%20technology%20and%20intergenerational%20evolution%2C%20young%20and%20old%20generations%20interacting%20with%20technology%2C%20modern%20conceptual%20art&image_size=landscape_16_9" alt="数字技术与人类世代的演进共生" class="illustration w-full">
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">本研究的三大核心任务</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">01 理论溯源与阐释</p><p class="text-gray-700">系统阐释曼海姆代际理论的核心观点，梳理其学术脉络与历史传承，为研究奠定理论基石。</p><p class="text-gray-700">02 全球跨学科图景</p><p class="text-gray-700">全景式呈现近十年全球代际研究的跨学科进展，涵盖社会学、心理学及文化研究等多个领域。</p><p class="text-gray-700">03 深度案例批判</p><p class="text-gray-700">以《六世同堂》为典型案例，开展深度批判性分析，揭示其在代际互动研究中的方法论困境。</p><p class="text-gray-700">构建“理论-现状-批判”的三维研究框架，推动代际研究的本土化与创新发展</p>
+        <section class="slide bg-slate-800 rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-2xl font-bold text-white mb-6">本研究的三大核心任务</h2>
+            <div class="space-y-6">
+                <p class="text-gray-300">01 理论溯源与阐释</p>
+                <p class="text-gray-300">系统阐释曼海姆代际理论的核心观点，梳理其学术脉络与历史传承，为研究奠定理论基石。</p>
+                <p class="text-gray-300">02 全球跨学科图景</p>
+                <p class="text-gray-300">全景式呈现近十年全球代际研究的跨学科进展，涵盖社会学、心理学及文化研究等多个领域。</p>
+                <p class="text-gray-300">03 深度案例批判</p>
+                <p class="text-gray-300">以《六世同堂》为典型案例，开展深度批判性分析，揭示其在代际互动研究中的方法论困境。</p>
+                <p class="text-gray-300">构建“理论-现状-批判”的三维研究框架，推动代际研究的本土化与创新发展</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=research%20framework%20concept%20with%20three%20dimensions%20theory%20status%20criticism%2C%20academic%20visualization%2C%20modern%20infographic%20style&image_size=landscape_16_9" alt="三维研究框架" class="illustration w-full">
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
+        <section id="section2" class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">二、曼海姆代际理论的思想渊源与核心建构</h2>
-            <div class="space-y-4">
+            <div class="space-y-6">
                 <p class="text-gray-700">从双重批判到“社会代”理论的诞生</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=karl%20mannheim%20generational%20theory%20concept%2C%20sociological%20thought%20visualization%2C%20abstract%20intellectual%20style&image_size=landscape_16_9" alt="曼海姆代际理论" class="illustration w-full">
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">理论背景：对两种传统范式的批判与超越</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">实证主义代际理论</p><p class="text-gray-700">核心观点：生物决定论
-将代际视为可测量的物理时间单位，忽视社会文化因素的影响，陷入了机械论的误区。</p><p class="text-gray-700">历史浪漫主义代际理论</p><p class="text-gray-700">核心观点：精神决定论
-过度强调内在时间性与独特的精神气质，割裂了代际体验与宏观社会结构的历史关联。</p><p class="text-gray-700">曼海姆的超越：代际不仅是生物学事实，更是由社会位置和历史经验共同塑造的“社会位置”。</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">实证主义代际理论</p>
+                <p class="text-gray-700">核心观点：生物决定论
+将代际视为可测量的物理时间单位，忽视社会文化因素的影响，陷入了机械论的误区。</p>
+                <p class="text-gray-700">历史浪漫主义代际理论</p>
+                <p class="text-gray-700">核心观点：精神决定论
+过度强调内在时间性与独特的精神气质，割裂了代际体验与宏观社会结构的历史关联。</p>
+                <p class="text-gray-700">曼海姆的超越：代际不仅是生物学事实，更是由社会位置和历史经验共同塑造的“社会位置”。</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=critical%20analysis%20of%20traditional%20generational%20theories%2C%20comparison%20of%20positivism%20and%20romanticism%2C%20sociological%20concept%20art&image_size=landscape_16_9" alt="传统范式的批判与超越" class="illustration w-full">
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">曼海姆的超越：代际研究的社会学转向</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">核心观点：社会现象的本质</p><p class="text-gray-700">代际本质上是一种社会现象，而非单纯的生物遗传或精神决定论所能解释。曼海姆强调其社会建构属性。</p><p class="text-gray-700">分析框架：动态关系考察</p><p class="text-gray-700">将代际置于社会结构、历史变迁与文化传承的动态互动关系中进行考察，打破了静态的个体视角。</p><p class="text-gray-700">社会结构与个体节点的动态关联</p><p class="text-gray-700">“这一转向为理解代际冲突与融合提供了全新的社会学视角。”</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">核心观点：社会现象的本质</p>
+                <p class="text-gray-700">代际本质上是一种社会现象，而非单纯的生物遗传或精神决定论所能解释。曼海姆强调其社会建构属性。</p>
+                <p class="text-gray-700">分析框架：动态关系考察</p>
+                <p class="text-gray-700">将代际置于社会结构、历史变迁与文化传承的动态互动关系中进行考察，打破了静态的个体视角。</p>
+                <p class="text-gray-700">社会结构与个体节点的动态关联</p>
+                <p class="text-gray-700">“这一转向为理解代际冲突与融合提供了全新的社会学视角。”</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sociological%20turn%20in%20generational%20research%2C%20dynamic%20relationship%20between%20social%20structure%20and%20individuals%2C%20modern%20conceptual%20art&image_size=landscape_16_9" alt="代际研究的社会学转向" class="illustration w-full">
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">“社会代”理论的三重维度（一）：代的位置</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">核心定义</p><p class="text-gray-700">出生于同一历史时期的群体，在社会结构中占据的相似位置。</p><p class="text-gray-700">决定因素</p><p class="text-gray-700">由社会变迁的节奏与重大历史事件的影响共同塑造，而非单纯年龄。</p><p class="text-gray-700">理论作用</p><p class="text-gray-700">为代际群体的形成提供了客观的社会结构基础与可能性条件。</p><p class="text-gray-700">图示：历史时间与社会层级的交互结构</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">核心定义</p>
+                <p class="text-gray-700">出生于同一历史时期的群体，在社会结构中占据的相似位置。</p>
+                <p class="text-gray-700">决定因素</p>
+                <p class="text-gray-700">由社会变迁的节奏与重大历史事件的影响共同塑造，而非单纯年龄。</p>
+                <p class="text-gray-700">理论作用</p>
+                <p class="text-gray-700">为代际群体的形成提供了客观的社会结构基础与可能性条件。</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generational%20position%20concept%2C%20historical%20time%20and%20social%20hierarchy%20interaction%2C%20sociological%20visualization&image_size=landscape_16_9" alt="历史时间与社会层级的交互结构" class="illustration w-full">
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">“社会代”理论的三重维度（二）：现实的代</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">核心定义</p><p class="text-gray-700">从潜在的“代的位置”转化为现实的社会群体，完成从抽象到具体的跃迁。</p><p class="text-gray-700">形成标志</p><p class="text-gray-700">共同参与社会历史命运，形成共同的集体记忆与价值认同。</p><p class="text-gray-700">典型案例</p><p class="text-gray-700">20世纪60年代欧美青年群体，在反战、民权运动中凝聚成一个整体。</p><p class="text-gray-700">图：共同望向未来的群体象征</p><p class="text-gray-700">Source: 社会代理论研究综述</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">核心定义</p>
+                <p class="text-gray-700">从潜在的“代的位置”转化为现实的社会群体，完成从抽象到具体的跃迁。</p>
+                <p class="text-gray-700">形成标志</p>
+                <p class="text-gray-700">共同参与社会历史命运，形成共同的集体记忆与价值认同。</p>
+                <p class="text-gray-700">典型案例</p>
+                <p class="text-gray-700">20世纪60年代欧美青年群体，在反战、民权运动中凝聚成一个整体。</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=realized%20generation%20concept%2C%20group%20of%20people%20looking%20towards%20future%2C%20symbolic%20representation%20of%20collective%20identity&image_size=landscape_16_9" alt="共同望向未来的群体象征" class="illustration w-full">
+                <p class="text-gray-700 text-sm">Source: 社会代理论研究综述</p>
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">“社会代”理论的三重维度（三）：代的单元</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">核心定义</p><p class="text-gray-700">在“现实的代”内部，因对共同经验的不同解读而形成的亚群体。</p><p class="text-gray-700">主要特征</p><p class="text-gray-700">具有独特的精神气质与行为模式，体现代际多样性。</p><p class="text-gray-700">形成原因</p><p class="text-gray-700">社会结构分化、利益诉求差异，导致对共同历史经验的解读不同。</p><p class="text-gray-700">图示：代际单元的分化与多样性</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">核心定义</p>
+                <p class="text-gray-700">在“现实的代”内部，因对共同经验的不同解读而形成的亚群体。</p>
+                <p class="text-gray-700">主要特征</p>
+                <p class="text-gray-700">具有独特的精神气质与行为模式，体现代际多样性。</p>
+                <p class="text-gray-700">形成原因</p>
+                <p class="text-gray-700">社会结构分化、利益诉求差异，导致对共同历史经验的解读不同。</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generational%20units%20diversification%20and%20differentiation%2C%20subgroups%20within%20a%20generation%2C%20sociological%20visualization&image_size=landscape_16_9" alt="代际单元的分化与多样性" class="illustration w-full">
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">曼海姆代际理论的三大贡献</h2>
-            <div class="space-y-4">
+            <div class="space-y-6">
                 <p class="text-gray-700">定义重构
-重构代际本质定义，提出“社会代”核心概念，奠定理论基石。</p><p class="text-gray-700">关联建立
-深刻揭示代际与社会变迁的内在关联，阐释宏观社会结构的影响。</p><p class="text-gray-700">框架构建
+重构代际本质定义，提出“社会代”核心概念，奠定理论基石。</p>
+                <p class="text-gray-700">关联建立
+深刻揭示代际与社会变迁的内在关联，阐释宏观社会结构的影响。</p>
+                <p class="text-gray-700">框架构建
 构建完整的代际分析框架，提供从“位置”到“单元”的方法论基础。</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=mannheim%20generational%20theory%20contributions%2C%20three%20key%20contributions%20visualization%2C%20academic%20concept%20art&image_size=landscape_16_9" alt="曼海姆代际理论的三大贡献" class="illustration w-full">
             </div>
         </section>
         
-        <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
+        <section id="section3" class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">三、曼海姆代际理论的学术传承与拓展</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">从学生到全球学者的理论演进</p><p class="text-gray-700">CHAPTER 03 · THEORETICAL EVOLUTION</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">从学生到全球学者的理论演进</p>
+                <p class="text-gray-700">CHAPTER 03 · THEORETICAL EVOLUTION</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=theoretical%20evolution%20of%20generational%20theory%2C%20academic%20inheritance%20from%20mannheim%20to%20global%20scholars%2C%20intellectual%20genealogy&image_size=landscape_16_9" alt="曼海姆代际理论的学术传承" class="illustration w-full">
             </div>
         </section>
         
         <section class="slide bg-white rounded-xl shadow-md p-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">曼海姆的核心学生与直接传承</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700">玛丽·雅霍达</p><p class="text-gray-700">社会心理学家</p><p class="text-gray-700">提出“代际社会化的双向性”理论，打破了单向社会化的传统认知。</p><p class="text-gray-700">卡尔·波普尔</p><p class="text-gray-700">科学哲学家</p><p class="text-gray-700">将代际视角引入科学哲学，强调批判理性主义与知识增长的代际互动。</p><p class="text-gray-700">托马斯·马歇尔</p><p class="text-gray-700">社会学家</p><p class="text-gray-700">聚焦代际流动与社会分层研究，完善了公民身份与社会阶级的分析框架。</p><p class="text-gray-700">“这些学生的工作，直接继承并发展了曼海姆关于知识社会学与代际动力学的核心思想。”</p>
+            <div class="space-y-6">
+                <p class="text-gray-700">玛丽·雅霍达</p>
+                <p class="text-gray-700">社会心理学家</p>
+                <p class="text-gray-700">提出“代际社会化的双向性”理论，打破了单向社会化的传统认知。</p>
+                <p class="text-gray-700">卡尔·波普尔</p>
+                <p class="text-gray-700">科学哲学家</p>
+                <p class="text-gray-700">将代际视角引入科学哲学，强调批判理性主义与知识增长的代际互动。</p>
+                <p class="text-gray-700">托马斯·马歇尔</p>
+                <p class="text-gray-700">社会学家</p>
+                <p class="text-gray-700">聚焦代际流动与社会分层研究，完善了公民身份与社会阶级的分析框架。</p>
+                <p class="text-gray-700">“这些学生的工作，直接继承并发展了曼海姆关于知识社会学与代际动力学的核心思想。”</p>
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=mannheim%27s%20core%20students%20and%20direct%20inheritance%2C%20intellectual%20legacy%20visualization%2C%20academic%20genealogy&image_size=landscape_16_9" alt="曼海姆的核心学生与直接传承" class="illustration w-full">
             </div>
         </section>
         

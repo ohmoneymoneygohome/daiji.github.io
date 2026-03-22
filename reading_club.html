@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代际读书会·AI时代阅读的禅机</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20knowledge%20base%20icon%20book%20generations%20symbol%20minimal%20design&image_size=square" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .video-card {
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="home.html#generations" class="text-gray-700 hover:text-primary transition-colors">代际档案</a>
+                    <a href="home.html#insights" class="text-gray-700 hover:text-primary transition-colors">维度洞察</a>
+                    <a href="home.html#methodology" class="text-gray-700 hover:text-primary transition-colors">前沿方法论</a>
+                    <a href="home.html#contributors" class="text-gray-700 hover:text-primary transition-colors">代际理论贡献者</a>
+                    <a href="home.html#reading-club" class="text-gray-700 hover:text-primary transition-colors">代际读书会</a>
+                    <a href="home.html#library" class="text-gray-700 hover:text-primary transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-700">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-4 py-3 space-y-3">
+                <a href="home.html#home" class="block text-gray-700 hover:text-primary">首页</a>
+                <a href="home.html#generations" class="block text-gray-700 hover:text-primary">代际档案</a>
+                <a href="home.html#insights" class="block text-gray-700 hover:text-primary">维度洞察</a>
+                <a href="home.html#methodology" class="block text-gray-700 hover:text-primary">前沿方法论</a>
+                <a href="home.html#contributors" class="block text-gray-700 hover:text-primary">代际理论贡献者</a>
+                <a href="home.html#reading-club" class="block text-gray-700 hover:text-primary">代际读书会</a>
+                <a href="home.html#library" class="block text-gray-700 hover:text-primary">代际图书馆</a>
+                <a href="dialectic.html" class="block text-gray-700 hover:text-primary">时间的社会学</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <!-- 标题部分 -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold mb-6">代际读书会·AI时代阅读的禅机</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">在AI时代重新思考阅读的意义，跨越代际的智慧对话</p>
+        </section>
+
+        <!-- 历史主题 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">历史主题</h2>
+            <div class="space-y-8">
+                <!-- 主题1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover fade-in stagger-1">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fa fa-book text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">虾焦虑什么？AI时代的反脆弱阅读</h3>
+                            <p class="text-sm text-gray-500">2026年3月15日</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">探讨在AI时代如何保持阅读的反脆弱性，应对技术焦虑。在大语言模型时代，我们如何构建阅读的韧性，避免被技术洪流所淹没？</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded">AI</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded">反脆弱</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded">阅读</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded">焦虑</span>
+                    </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                        <div class="h-64 md:h-auto overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20quality%20illustration%20style%20anti-fragile%20reading%20in%20AI%20era%20shrimp%20anxiety%20stylized%20art&image_size=landscape_4_3" alt="虾焦虑什么？AI时代的反脆弱阅读" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主题2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover fade-in stagger-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 order-2 md:order-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                                    <i class="fa fa-users text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">代际阅读的禅机</h3>
+                                    <p class="text-sm text-gray-500">2026年2月28日</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">不同世代对同一本书的解读差异，以及跨越年龄的智慧碰撞。从婴儿潮到Z世代，同一本书如何在不同代际中产生不同的共鸣？</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-green-100 text-green-600 text-xs rounded">代际差异</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-600 text-xs rounded">阅读体验</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-600 text-xs rounded">智慧碰撞</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                        <div class="h-64 md:h-auto overflow-hidden order-1 md:order-2">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=multi-generational%20book%20club%20discussion%20zen%20wisdom&image_size=landscape_4_3" alt="代际阅读的禅机" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主题3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover fade-in stagger-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                                    <i class="fa fa-lightbulb-o text-purple-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">古典智慧与现代科技的对话</h3>
+                                    <p class="text-sm text-gray-500">2026年2月14日</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">如何在AI时代重新理解古典著作的现代意义。从孔子到莎士比亚，经典著作在数字时代的新解读。</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-purple-100 text-purple-600 text-xs rounded">古典智慧</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-600 text-xs rounded">现代科技</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-600 text-xs rounded">经典解读</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                        <div class="h-64 md:h-auto overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20wisdom%20modern%20technology%20book%20reading&image_size=landscape_4_3" alt="古典智慧与现代科技的对话" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主题4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover fade-in stagger-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 order-2 md:order-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                                    <i class="fa fa-heart text-red-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">阅读与情感共鸣的代际差异</h3>
+                                    <p class="text-sm text-gray-500">2026年1月31日</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">不同世代如何通过阅读产生情感共鸣，以及这种共鸣如何影响他们的价值观和行为。</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-600 text-xs rounded">情感共鸣</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-600 text-xs rounded">价值观</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-600 text-xs rounded">行为影响</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                        <div class="h-64 md:h-auto overflow-hidden order-1 md:order-2">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=emotional%20reading%20experience%20different%20generations&image_size=landscape_4_3" alt="阅读与情感共鸣的代际差异" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主题5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover fade-in stagger-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-4">
+                                    <i class="fa fa-globe text-yellow-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">全球化时代的代际阅读偏好</h3>
+                                    <p class="text-sm text-gray-500">2026年1月15日</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">全球化背景下，不同国家和文化的代际阅读偏好差异，以及这些差异如何反映文化价值观的演变。</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-600 text-xs rounded">全球化</span>
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-600 text-xs rounded">文化差异</span>
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-600 text-xs rounded">阅读偏好</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                        <div class="h-64 md:h-auto overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=global%20reading%20preferences%20different%20cultures&image_size=landscape_4_3" alt="全球化时代的代际阅读偏好" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 视频卡片 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">精彩视频</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 视频1 -->
+                <div class="video-card bg-white rounded-xl shadow-md overflow-hidden fade-in stagger-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20quality%20illustration%20style%20anti-fragile%20reading%20in%20AI%20era%20shrimp%20anxiety%20stylized%20art&image_size=landscape_4_3" alt="虾焦虑什么？AI时代的反脆弱阅读" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fa fa-play text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">虾焦虑什么？AI时代的反脆弱阅读</h3>
+                        <p class="text-gray-600 text-sm mb-4">探讨在AI时代如何保持阅读的反脆弱性，应对技术焦虑</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>2026年3月15日</span>
+                            <span>45:30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频2 -->
+                <div class="video-card bg-white rounded-xl shadow-md overflow-hidden fade-in stagger-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=multi-generational%20book%20club%20discussion%20panel&image_size=landscape_4_3" alt="代际阅读的禅机" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fa fa-play text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">代际阅读的禅机：跨越年龄的智慧对话</h3>
+                        <p class="text-gray-600 text-sm mb-4">不同世代对同一本书的解读差异，以及跨越年龄的智慧碰撞</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>2026年2月28日</span>
+                            <span>52:15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频3 -->
+                <div class="video-card bg-white rounded-xl shadow-md overflow-hidden fade-in stagger-3">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=classical%20wisdom%20modern%20technology%20discussion&image_size=landscape_4_3" alt="古典智慧与现代科技的对话" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fa fa-play text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">古典智慧与现代科技的对话</h3>
+                        <p class="text-gray-600 text-sm mb-4">如何在AI时代重新理解古典著作的现代意义</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>2026年2月14日</span>
+                            <span>48:45</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频4 -->
+                <div class="video-card bg-white rounded-xl shadow-md overflow-hidden fade-in stagger-4">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=emotional%20reading%20discussion%20panel&image_size=landscape_4_3" alt="阅读与情感共鸣的代际差异" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fa fa-play text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">阅读与情感共鸣的代际差异</h3>
+                        <p class="text-gray-600 text-sm mb-4">不同世代如何通过阅读产生情感共鸣</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>2026年1月31日</span>
+                            <span>42:20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频5 -->
+                <div class="video-card bg-white rounded-xl shadow-md overflow-hidden fade-in stagger-5">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=global%20reading%20preferences%20discussion&image_size=landscape_4_3" alt="全球化时代的代际阅读偏好" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fa fa-play text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">全球化时代的代际阅读偏好</h3>
+                        <p class="text-gray-600 text-sm mb-4">不同国家和文化的代际阅读偏好差异</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>2026年1月15日</span>
+                            <span>50:10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频6 -->
+                <div class="video-card bg-white rounded-xl shadow-md overflow-hidden fade-in stagger-6">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=future%20of%20reading%20technology%20panel&image_size=landscape_4_3" alt="未来阅读的可能性" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fa fa-play text-primary text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">未来阅读的可能性：技术与人文的融合</h3>
+                        <p class="text-gray-600 text-sm mb-4">探索未来阅读的多种可能性和发展方向</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>2025年12月30日</span>
+                            <span>46:35</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">代际知识库</span>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    代际读书会·AI时代阅读的禅机
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                © 2026 代际知识库 | 大器层·代际研究
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 点击移动端菜单链接后关闭菜单
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

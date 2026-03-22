@@ -51,11 +51,17 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+        .hero-bg {
+            background-image: linear-gradient(rgba(79, 70, 229, 0.8), rgba(139, 92, 246, 0.8)), url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20sociology%20background%2C%20abstract%20modern%20design%20with%20generations%20concept%2C%20vibrant%20colors&image_size=landscape_16_9');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-indigo-50 text-gray-800 font-sans">
     <!-- 导航栏 -->
-    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm">
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
@@ -63,49 +69,49 @@
                     <span class="text-xl font-bold text-gray-900">代际知识库</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors">2026 </a>
-                    <a href="#generations" class="text-gray-700 hover:text-primary transition-colors">代际档案</a>
-                    <a href="#insights" class="text-gray-700 hover:text-primary transition-colors">维度洞察</a>
-                    <a href="#methodology" class="text-gray-700 hover:text-primary transition-colors">前沿方法论</a>
-                    <a href="#contributors" class="text-gray-700 hover:text-primary transition-colors">代际理论贡献者</a>
-                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">首页</a>
+                    <a href="#generations" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">代际档案</a>
+                    <a href="#insights" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">维度洞察</a>
+                    <a href="#methodology" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">前沿方法论</a>
+                    <a href="#contributors" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">代际理论贡献者</a>
+                    <a href="#library" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">代际图书馆</a>
                 </div>
                 <div class="md:hidden">
-                    <button id="menuBtn" class="text-gray-700">
+                    <button id="menuBtn" class="text-gray-700 hover:text-primary transition-colors p-2 rounded-md hover:bg-primary/5">
                         <i class="fa fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- 移动端菜单 -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
-            <div class="px-4 py-3 space-y-3">
-                <a href="#home" class="block text-gray-700 hover:text-primary">首页</a>
-                <a href="#generations" class="block text-gray-700 hover:text-primary">代际档案</a>
-                <a href="#insights" class="block text-gray-700 hover:text-primary">维度洞察</a>
-                <a href="#methodology" class="block text-gray-700 hover:text-primary">前沿方法论</a>
-                <a href="#contributors" class="block text-gray-700 hover:text-primary">代际理论贡献者</a>
-                <a href="dialectic.html" class="block text-gray-700 hover:text-primary">时间的社会学</a>
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full transition-all duration-300 transform origin-top">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#home" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">首页</a>
+                <a href="#generations" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际档案</a>
+                <a href="#insights" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">维度洞察</a>
+                <a href="#methodology" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">前沿方法论</a>
+                <a href="#contributors" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际理论贡献者</a>
+                <a href="#library" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际图书馆</a>
             </div>
         </div>
     </nav>
 
     <!-- Banner 区域 -->
-    <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <section id="home" class="pt-24 pb-24 hero-bg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-4xl mx-auto">
-                <h1 class="text-4xl sm:text-5xl font-bold mb-6">
-                    <span class="text-gradient bg-gradient-to-r from-primary to-purple-600">理解世代差异</span>
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-white">
+                    理解世代差异
                     <br>支撑业务决策
                 </h1>
-                <p class="text-xl text-gray-600 mb-8">
+                <p class="text-xl text-white/90 mb-8">
                     从婴儿潮到Beta世代，系统梳理不同代际的价值观、消费习惯与行为模式，为营销、管理、产品决策提供专业支撑
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#generations" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-lg">
+                    <a href="#generations" class="px-6 py-3 bg-white text-primary rounded-lg hover:bg-white/90 transition-colors shadow-lg">
                         <i class="fa fa-user-circle mr-2"></i>查看代际档案
                     </a>
-                    <a href="research.html" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-colors">
+                    <a href="research.html" class="px-6 py-3 bg-transparent text-white border border-white rounded-lg hover:bg-white/10 transition-colors">
                         <i class="fa fa-cog mr-2"></i>大器层·代际研究
                     </a>
                 </div>
@@ -131,109 +137,119 @@
             <!-- 代际卡片 -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 婴儿潮 -->
-                <div class="card-hover bg-white border-t-4 border-gen_boomer rounded-xl shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gen_boomer/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-user text-gen_boomer text-xl"></i>
+                <a href="generation2.html" class="block">
+                    <div class="card-hover bg-white border-t-4 border-gen_boomer rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gen_boomer/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-user text-gen_boomer text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">婴儿潮世代</h3>
+                                <p class="text-sm text-gray-500">1946-1964</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-lg">婴儿潮世代</h3>
-                            <p class="text-sm text-gray-500">1946-1964</p>
+                        <p class="text-gray-600">成长于战后经济复苏期，普遍重视集体主义与职业稳定，是传统职场文化的主要构建者。</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">集体主义</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">稳定优先</span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=baby%20boomer%20generation%20vintage%20style%20portrait%20group%20photo%20stylized&image_size=square" alt="婴儿潮世代" class="w-full h-32 object-cover rounded-lg">
                         </div>
                     </div>
-                    <p class="text-gray-600">成长于战后经济复苏期，普遍重视集体主义与职业稳定，是传统职场文化的主要构建者。</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">集体主义</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">稳定优先</span>
-                    </div>
-                    <div class="mt-4">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=baby%20boomer%20generation%20vintage%20style%20portrait%20group%20photo%20stylized&image_size=square" alt="婴儿潮世代" class="w-full h-32 object-cover rounded-lg">
-                    </div>
-                </div>
+                </a>
 
                 <!-- X世代 -->
-                <div class="card-hover bg-white border-t-4 border-gen_x rounded-xl shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gen_x/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-home text-gen_x text-xl"></i>
+                <a href="generation3.html" class="block">
+                    <div class="card-hover bg-white border-t-4 border-gen_x rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gen_x/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-home text-gen_x text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">X世代</h3>
+                                <p class="text-sm text-gray-500">1965-1980</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-lg">X世代</h3>
-                            <p class="text-sm text-gray-500">1965-1980</p>
+                        <p class="text-gray-600">家庭的"首席财务官"，主导全球消费支出，消费理性且注重性价比，目前是职场的中坚力量。</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">家庭责任</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">理性消费</span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20x%20family%20lifestyle%20professional%20stylized%20photo&image_size=square" alt="X世代家庭消费" class="w-full h-32 object-cover rounded-lg">
                         </div>
                     </div>
-                    <p class="text-gray-600">家庭的"首席财务官"，主导全球消费支出，消费理性且注重性价比，目前是职场的中坚力量。</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">家庭责任</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">理性消费</span>
-                    </div>
-                    <div class="mt-4">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20x%20family%20lifestyle%20professional%20stylized%20photo&image_size=square" alt="X世代家庭消费" class="w-full h-32 object-cover rounded-lg">
-                    </div>
-                </div>
+                </a>
 
                 <!-- Y世代 -->
-                <div class="card-hover bg-white border-t-4 border-gen_y rounded-xl shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gen_y/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-laptop text-gen_y text-xl"></i>
+                <a href="generation4.html" class="block">
+                    <div class="card-hover bg-white border-t-4 border-gen_y rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gen_y/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-laptop text-gen_y text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Y世代/千禧一代</h3>
+                                <p class="text-sm text-gray-500">1981-1995</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-lg">Y世代/千禧一代</h3>
-                            <p class="text-sm text-gray-500">1981-1995</p>
+                        <p class="text-gray-600">互联网早期使用者，经历了互联网泡沫与金融危机，注重工作与生活的平衡，是第一批网络移民。</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">工作生活平衡</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">互联网早期</span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=millennial%20generation%20laptop%20coffee%20shop%20work%20lifestyle%20stylized&image_size=square" alt="Y世代生活方式" class="w-full h-32 object-cover rounded-lg">
                         </div>
                     </div>
-                    <p class="text-gray-600">互联网早期使用者，经历了互联网泡沫与金融危机，注重工作与生活的平衡，是第一批网络移民。</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">工作生活平衡</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">互联网早期</span>
-                    </div>
-                    <div class="mt-4">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=millennial%20generation%20laptop%20coffee%20shop%20work%20lifestyle%20stylized&image_size=square" alt="Y世代生活方式" class="w-full h-32 object-cover rounded-lg">
-                    </div>
-                </div>
+                </a>
 
                 <!-- Z世代 -->
-                <div class="card-hover bg-white border-t-4 border-gen_z rounded-xl shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gen_z/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-mobile text-gen_z text-xl"></i>
+                <a href="generation5.html" class="block">
+                    <div class="card-hover bg-white border-t-4 border-gen_z rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gen_z/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-mobile text-gen_z text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Z世代</h3>
+                                <p class="text-sm text-gray-500">1996-2009</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-lg">Z世代</h3>
-                            <p class="text-sm text-gray-500">1996-2009</p>
+                        <p class="text-gray-600">移动互联网原住民，追求个性表达与真实体验，厌恶虚假营销，是当前消费与职场的新生力量。</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">个性表达</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">数字原生</span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20z%20mobile%20phone%20social%20media%20stylized%20vibrant%20colors&image_size=square" alt="Z世代消费场景" class="w-full h-32 object-cover rounded-lg">
                         </div>
                     </div>
-                    <p class="text-gray-600">移动互联网原住民，追求个性表达与真实体验，厌恶虚假营销，是当前消费与职场的新生力量。</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">个性表达</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">数字原生</span>
-                    </div>
-                    <div class="mt-4">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20z%20mobile%20phone%20social%20media%20stylized%20vibrant%20colors&image_size=square" alt="Z世代消费场景" class="w-full h-32 object-cover rounded-lg">
-                    </div>
-                </div>
+                </a>
 
                 <!-- α世代 -->
-                <div class="card-hover bg-white border-t-4 border-gen_alpha rounded-xl shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gen_alpha/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-gamepad text-gen_alpha text-xl"></i>
+                <a href="generation6.html" class="block">
+                    <div class="card-hover bg-white border-t-4 border-gen_alpha rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gen_alpha/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-gamepad text-gen_alpha text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">α世代</h3>
+                                <p class="text-sm text-gray-500">2010-2024</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-lg">α世代</h3>
-                            <p class="text-sm text-gray-500">2010-2024</p>
+                        <p class="text-gray-600">完全的数字原生代，从小接触智能设备，越来越多地参与家庭消费决策，被称为"家庭合伙人"。</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI启蒙</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">家庭合伙人</span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20alpha%20children%20tablet%20ai%20technology%20futuristic%20stylized&image_size=square" alt="α世代" class="w-full h-32 object-cover rounded-lg">
                         </div>
                     </div>
-                    <p class="text-gray-600">完全的数字原生代，从小接触智能设备，越来越多地参与家庭消费决策，被称为"家庭合伙人"。</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI启蒙</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">家庭合伙人</span>
-                    </div>
-                    <div class="mt-4">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20alpha%20children%20tablet%20ai%20technology%20futuristic%20stylized&image_size=square" alt="α世代" class="w-full h-32 object-cover rounded-lg">
-                    </div>
-                </div>
+                </a>
 
                 <!-- Beta世代 -->
                 <div class="card-hover bg-white border-t-4 border-gen_beta rounded-xl shadow-md p-6">
@@ -258,6 +274,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- 维度洞察 -->
     <section id="insights" class="py-16 bg-gray-50">
@@ -500,6 +518,90 @@
                     <p class="text-xs text-gray-600">
                         主要贡献：正在筹划中
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 代际图书馆 -->
+    <section id="library" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">代际图书馆</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">探索代际研究的经典著作与前沿理论</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 板块1：奠基理论与世代周期研究 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fa fa-book text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">奠基理论与世代周期研究</h3>
+                    <p class="text-gray-600 mb-4">探讨"世代"概念的社会学起源、代际划分的理论模型，以及各个世代群体的宏观特征。</p>
+                    <a href="library1.html" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        浏览书籍
+                    </a>
+                </div>
+
+                <!-- 板块2：代际流动与阶层再生产 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6">
+                        <i class="fa fa-exchange text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">代际流动与阶层再生产</h3>
+                    <p class="text-gray-600 mb-4">研究财富、贫困、教育和阶层是如何在父代与子代之间传递、固化或打破的。</p>
+                    <a href="library2.html" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        浏览书籍
+                    </a>
+                </div>
+
+                <!-- 板块3：代际创伤与家庭心理学 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6">
+                        <i class="fa fa-heart text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">代际创伤与家庭心理学</h3>
+                    <p class="text-gray-600 mb-4">研究原生家庭、历史灾难与基因记忆如何跨代传递，以及家庭系统的代际动力学。</p>
+                    <a href="library3.html" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        浏览书籍
+                    </a>
+                </div>
+
+                <!-- 板块4：中国视角的代际研究 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-6">
+                        <i class="fa fa-map-marker text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">中国视角的代际研究</h3>
+                    <p class="text-gray-600 mb-4">立足中国本土，研究剧烈变迁社会下的孝道演变、文化反哺、独生子女现象以及城乡代际剥削。</p>
+                    <a href="library4.html" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        浏览书籍
+                    </a>
+                </div>
+
+                <!-- 板块5：职场、管理与代际融合 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-6">
+                        <i class="fa fa-briefcase text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">职场、管理与代际融合</h3>
+                    <p class="text-gray-600 mb-4">探讨如何在有史以来第一次"多代同堂"的职场中消除代沟，实现代际优势互补。</p>
+                    <a href="library5.html" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        浏览书籍
+                    </a>
+                </div>
+
+                <!-- 板块6：代际公平、伦理与长远哲学 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-6">
+                        <i class="fa fa-balance-scale text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">代际公平、伦理与长远哲学</h3>
+                    <p class="text-gray-600 mb-4">探讨我们对未出生的后代负有怎样的义务，涉及气候变化、养老金和资源分配。</p>
+                    <a href="library6.html" class="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        浏览书籍
+                    </a>
                 </div>
             </div>
         </div>

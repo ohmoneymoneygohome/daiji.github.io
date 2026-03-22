@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奠基理论与世代周期研究 - 代际图书馆</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=intergenerational%20knowledge%20base%20icon%20book%20generations%20symbol%20minimal%20design&image_size=square" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .book-card {
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+        
+        .book-cover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .book-cover:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+        
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+        
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+        
+        .stagger-9 {
+            animation-delay: 0.9s;
+        }
+        
+        .stagger-10 {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">代际知识库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                    <a href="home.html#library" class="text-gray-700 hover:text-primary transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <!-- 标题部分 -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">奠基理论与世代周期研究</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">探讨"世代"概念的社会学起源、代际划分的理论模型，以及各个世代群体的宏观特征</p>
+        </section>
+
+        <!-- 图书馆导航 -->
+        <section class="mb-16">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="library1.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">奠基理论与世代周期研究</a>
+                <a href="library2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际流动与阶层再生产</a>
+                <a href="library3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际创伤与家庭心理学</a>
+                <a href="library4.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">中国视角的代际研究</a>
+                <a href="library5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">职场、管理与代际融合</a>
+                <a href="library6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际公平、伦理与长远哲学</a>
+            </div>
+        </section>
+
+        <!-- 书籍展示 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 书籍1 -->
+            <div class="book-card fade-in stagger-1">
+                <div class="book-cover bg-blue-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Problem%20of%20Generations%20Karl%20Mannheim%20sociology%20academic%20style&image_size=portrait_4_3" alt="《代之问题》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《代之问题》</h3>
+                    <p class="text-gray-600">卡尔·曼海姆</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首发于 1928年（德文论文）。英文经典版由 Routledge 收录于《知识社会学论丛》(1952)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">全球代际社会学绝对奠基之作。首次将"世代"定义为一种社会历史现象，提出了"代际认同"等核心概念。</p>
+                </div>
+            </div>
+
+            <!-- 书籍2 -->
+            <div class="book-card fade-in stagger-2">
+                <div class="book-cover bg-green-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Generations%20The%20History%20of%20America's%20Future%20Strauss%20Howe%20academic%20style&image_size=portrait_4_3" alt="《世代：美国未来的历史》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《世代：美国未来的历史》</h3>
+                    <p class="text-gray-600">William Strauss & Neil Howe</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1991年，William Morrow 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">提出了著名的"施特劳斯-豪世代理论"，认为历史是循环的，由四种不同的世代原型交替推动。</p>
+                </div>
+            </div>
+
+            <!-- 书籍3 -->
+            <div class="book-card fade-in stagger-3">
+                <div class="book-cover bg-purple-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Fourth%20Turning%20Strauss%20Howe%20academic%20style&image_size=portrait_4_3" alt="《第四次转折》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《第四次转折》</h3>
+                    <p class="text-gray-600">William Strauss & Neil Howe</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1997年，Broadway Books 出版。【中译版】《第四个转折点》，中国发展出版社。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">上书的进阶版，精准预测了千禧一代危机与代际周期的爆发（即"第四个转折点"）。</p>
+                </div>
+            </div>
+
+            <!-- 书籍4 -->
+            <div class="book-card fade-in stagger-4">
+                <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Generations%20Jean%20Twenge%20academic%20style&image_size=portrait_4_3" alt="《世代：关于你、我以及未来的惊人真相》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《世代：关于你、我以及未来的惊人真相》</h3>
+                    <p class="text-gray-600">Jean M. Twenge</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2023年，Atria Books (Simon & Schuster旗下) 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">基于百年海量数据，分析了五大世代的真实差异，打破了许多关于世代的刻板印象。</p>
+                </div>
+            </div>
+
+            <!-- 书籍5 -->
+            <div class="book-card fade-in stagger-5">
+                <div class="book-cover bg-yellow-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20iGen%20Jean%20Twenge%20Z%20generation%20academic%20style&image_size=portrait_4_3" alt="《i世代》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《i世代》</h3>
+                    <p class="text-gray-600">Jean M. Twenge</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2017年，Atria Books 出版。【中译版】《i世代》，北京联合出版公司 (2019)。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">研究Z世代（伴随智能手机长大的一代）心理与行为的现象级著作。</p>
+                </div>
+            </div>
+
+            <!-- 书籍6 -->
+            <div class="book-card fade-in stagger-6">
+                <div class="book-cover bg-indigo-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Generations%20and%20Social%20Theory%20academic%20style&image_size=portrait_4_3" alt="《世代与社会理论》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《世代与社会理论》</h3>
+                    <p class="text-gray-600">June Edmunds & Bryan S. Turner</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2002年，Routledge 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">系统梳理了代际理论在现代社会学中的演变与学术脉络。</p>
+                </div>
+            </div>
+
+            <!-- 书籍7 -->
+            <div class="book-card fade-in stagger-7">
+                <div class="book-cover bg-pink-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Generation%20X%20Douglas%20Coupland%20cultural%20style&image_size=portrait_4_3" alt="《X世代：速成文化的故事》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《X世代：速成文化的故事》</h3>
+                    <p class="text-gray-600">Douglas Coupland</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 1991年，St. Martin's Press 出版。【中译版】译林出版社曾引进。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">这本书直接创造并普及了"X世代"这个词，是代际文化研究的起点。</p>
+                </div>
+            </div>
+
+            <!-- 书籍8 -->
+            <div class="book-card fade-in stagger-8">
+                <div class="book-cover bg-teal-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20The%20Generation%20Myth%20Bobby%20Duffy%20academic%20style&image_size=portrait_4_3" alt="《世代神话》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《世代神话》</h3>
+                    <p class="text-gray-600">Bobby Duffy</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2021年，Basic Books 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">驳斥了媒体上关于世代差异的刻板印象，提出"生命周期效应"往往大于"世代效应"。</p>
+                </div>
+            </div>
+
+            <!-- 书籍9 -->
+            <div class="book-card fade-in stagger-9">
+                <div class="book-cover bg-orange-100 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Stop%20Mugging%20Grandma%20Jennie%20Bristow%20academic%20style&image_size=portrait_4_3" alt="《停止打劫奶奶：世代战争与为何指责婴儿潮一代无济于事》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《停止打劫奶奶：世代战争与为何指责婴儿潮一代无济于事》</h3>
+                    <p class="text-gray-600">Jennie Bristow</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2019年，Yale University Press (耶鲁大学出版社) 出版。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">深刻批判了现代社会与媒体刻意制造"世代对立"和代际仇恨的现象。</p>
+                </div>
+            </div>
+
+            <!-- 书籍10 -->
+            <div class="book-card fade-in stagger-10">
+                <div class="book-cover bg-blue-200 rounded-lg p-6 text-center mb-4">
+                    <div class="h-64 flex items-center justify-center">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20Grown%20Up%20Digital%20Don%20Tapscott%20digital%20generation%20style&image_size=portrait_4_3" alt="《数字化生存的后代》" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">《数字化生存的后代》</h3>
+                    <p class="text-gray-600">Don Tapscott</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="font-bold mb-2">出版信息</h4>
+                    <p class="text-gray-600 text-sm mb-4">首版于 2008年，McGraw-Hill 出版。【中译版】《数字化生存的后代》，中国青年出版社。</p>
+                    <h4 class="font-bold mb-2">核心贡献</h4>
+                    <p class="text-gray-600 text-sm">最早系统研究"数字原住民"（互联网一代）心智模式与行为特征的经典。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">代际图书馆 - 奠基理论与世代周期研究</p>
+                <p class="text-gray-500 text-sm mt-2">© 2026 代际知识库</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

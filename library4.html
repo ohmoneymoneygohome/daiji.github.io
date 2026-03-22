@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国视角的代际研究 - 代际图书馆</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+        .stagger-9 {
+            animation-delay: 0.9s;
+        }
+        .stagger-10 {
+            animation-delay: 1.0s;
+        }
+        .stagger-11 {
+            animation-delay: 1.1s;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .book-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="home.html" class="flex items-center space-x-2">
+                <i class="fa fa-book-open text-blue-600 text-2xl"></i>
+                <span class="text-xl font-bold text-gray-800">代际知识库</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="home.html" class="text-gray-600 hover:text-blue-600 transition-colors">首页</a>
+                <a href="home.html#library" class="text-gray-600 hover:text-blue-600 transition-colors">代际图书馆</a>
+                <a href="dialectic.html" class="text-gray-600 hover:text-blue-600 transition-colors">代际辩证法</a>
+                <a href="research.html" class="text-gray-600 hover:text-blue-600 transition-colors">大器层研究</a>
+            </nav>
+            <button class="md:hidden text-gray-600">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">中国视角的代际研究</h1>
+                <p class="text-lg opacity-90">立足中国本土，研究剧烈变迁社会下的孝道演变、文化反哺、独生子女现象以及城乡代际剥削。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Library Navigation -->
+    <section class="bg-white shadow-sm py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="library1.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">奠基理论与世代周期研究</a>
+                <a href="library2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际流动与阶层再生产</a>
+                <a href="library3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际创伤与家庭心理学</a>
+                <a href="library4.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">中国视角的代际研究</a>
+                <a href="library5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">职场、管理与代际融合</a>
+                <a href="library6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">代际公平、伦理与长远哲学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Book 1 -->
+                <div class="book-card fade-in stagger-1">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20文化反哺%20变迁社会中的代际革命%20周晓虹%20Chinese%20sociology%20academic%20style&image_size=portrait_4_3" alt="《文化反哺：变迁社会中的代际革命》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《文化反哺：变迁社会中的代际革命》</h3>
+                        <p class="text-gray-600">周晓虹</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">学术概念首发于1988年，专著首版于 2015年，商务印书馆。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">中国代际研究的里程碑，系统论述了变迁社会中子代反向向父代传授知识和文化的"反向社会化"现象。</p>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card fade-in stagger-2">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20私人生活的变革%20一个中国村庄里的爱情、家庭与亲密关系%20阎云翔%20Chinese%20village%20anthropology&image_size=portrait_4_3" alt="《私人生活的变革：一个中国村庄里的爱情、家庭与亲密关系》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《私人生活的变革：一个中国村庄里的爱情、家庭与亲密关系》</h3>
+                        <p class="text-gray-600">阎云翔</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">英文版首发于 2003年 (Stanford Univ Press)。【中译版】上海译文出版社。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">通过长期田野调查，揭示了中国农村代际关系从传统的"父权中心"向"青年中心"的历史性转移。</p>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card fade-in stagger-3">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20中国社会的个体化%20阎云翔%20Chinese%20individualization%20sociology&image_size=portrait_4_3" alt="《中国社会的个体化》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《中国社会的个体化》</h3>
+                        <p class="text-gray-600">阎云翔</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">英文版首发于 2009年 (Palgrave Macmillan)。【中译版】上海译文出版社 (2012)。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">上书的理论升华，探讨国家、家庭与个人之间代际伦理的重塑与个体化的崛起。</p>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card fade-in stagger-4">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20乡土中国%20费孝通%20Chinese%20rural%20society%20classical%20sociology&image_size=portrait_4_3" alt="《乡土中国》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《乡土中国》</h3>
+                        <p class="text-gray-600">费孝通</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 1948年。目前通行推荐版为 北京大学出版社 (1998)。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">理解中国传统宗法社会代际结构（长幼有序、差序格局、长老统治）的绝对理论原点。</p>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="book-card fade-in stagger-5">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20断裂与新生%20中国社会代际更替研究%20李春玲%20Chinese%20generational%20change&image_size=portrait_4_3" alt="《断裂与新生：中国社会代际更替研究》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《断裂与新生：中国社会代际更替研究》</h3>
+                        <p class="text-gray-600">李春玲</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2019年，社会科学文献出版社。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">用翔实的问卷数据全面描绘了中国80、90、00后在价值观、婚恋与阶层流动上的代际断裂与演变。</p>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="book-card fade-in stagger-6">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20新乡土中国%20贺雪峰%20Chinese%20rural%20studies%20contemporary&image_size=portrait_4_3" alt="《新乡土中国》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《新乡土中国》</h3>
+                        <p class="text-gray-600">贺雪峰</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2003年，广西师范大学出版社 / 最新修订版由北京大学出版社出版。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">深刻剖析了当代中国农村养老危机、代际关系失衡以及子代对父代资源的"代际剥削"。</p>
+                    </div>
+                </div>
+
+                <!-- Book 7 -->
+                <div class="book-card fade-in stagger-7">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20中国独生子女研究%20回溯与前瞻%20风笑天%20Chinese%20only%20child%20policy&image_size=portrait_4_3" alt="《中国独生子女研究：回溯与前瞻》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《中国独生子女研究：回溯与前瞻》</h3>
+                        <p class="text-gray-600">风笑天</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2010年，社会科学文献出版社。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">针对中国独有的、人类历史上最大规模的"独生世代"的社会学三十年追踪研究。</p>
+                    </div>
+                </div>
+
+                <!-- Book 8 -->
+                <div class="book-card fade-in stagger-8">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20中国当代家庭结构变动分析%20王跃生%20Chinese%20family%20structure%20demography&image_size=portrait_4_3" alt="《中国当代家庭结构变动分析》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《中国当代家庭结构变动分析》</h3>
+                        <p class="text-gray-600">王跃生</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2006年，中国社会科学出版社。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">基于人口学和社会学的量化分析，研究中国家庭结构的代际变迁与居住模式（如核心家庭化）。</p>
+                    </div>
+                </div>
+
+                <!-- Book 9 -->
+                <div class="book-card fade-in stagger-9">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20个体家庭%20iFamily%20中国城市现代化进程中的个体、家庭和国家%20沈奕斐%20Chinese%20urban%20family&image_size=portrait_4_3" alt="《个体家庭 iFamily：中国城市现代化进程中的个体、家庭和国家》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《个体家庭 iFamily：中国城市现代化进程中的个体、家庭和国家》</h3>
+                        <p class="text-gray-600">沈奕斐</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2013年，上海三联书店。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">研究现代化进程中，中国家庭看似个体化，实则高度依赖复杂的代际互助（如祖辈带孙、买房啃老）的矛盾现象。</p>
+                    </div>
+                </div>
+
+                <!-- Book 10 -->
+                <div class="book-card fade-in stagger-10">
+                    <div class="book-cover bg-red-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20蚁族%20大学毕业生聚居村实录%20廉思%20Chinese%20educated%20youth%20struggle&image_size=portrait_4_3" alt="《蚁族：大学毕业生聚居村实录》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《蚁族：大学毕业生聚居村实录》</h3>
+                        <p class="text-gray-600">廉思</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">首版于 2009年，广西师范大学出版社。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">深刻反映了中国快速城市化进程中，高学历子代面临的代际期望落差、阶层下流与生存困境。</p>
+                    </div>
+                </div>
+
+                <!-- Book 11 -->
+                <div class="book-card fade-in stagger-11">
+                    <div class="book-cover bg-yellow-100 rounded-lg p-6 text-center mb-4">
+                        <div class="h-64 flex items-center justify-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=book%20cover%20张作霖传%20外国人眼中的张作霖%20黄色封面%20张作霖肖像%20Chinese%20history%20biography&image_size=portrait_4_3" alt="《张作霖传：外国人眼中的张作霖》" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold mt-4">《张作霖传：外国人眼中的张作霖》</h3>
+                        <p class="text-gray-600">[英国] 加文·麦考马克</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-2">出版信息</h4>
+                        <p class="text-gray-600 text-sm mb-4">中文版，湖南人民出版社。</p>
+                        <h4 class="font-bold mb-2">核心贡献</h4>
+                        <p class="text-gray-600 text-sm">从外国人视角解读张作霖的生平与时代，为理解中国近代史上的代际变迁与权力传承提供了独特视角。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-book-open text-blue-400 text-xl"></i>
+                        <span class="text-lg font-bold">代际知识库</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">理解世代差异，支撑业务决策</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="home.html" class="text-gray-400 hover:text-white transition-colors">首页</a>
+                    <a href="home.html#library" class="text-gray-400 hover:text-white transition-colors">代际图书馆</a>
+                    <a href="dialectic.html" class="text-gray-400 hover:text-white transition-colors">代际辩证法</a>
+                    <a href="research.html" class="text-gray-400 hover:text-white transition-colors">大器层研究</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2026 代际知识库 | 大器层·代际研究</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
