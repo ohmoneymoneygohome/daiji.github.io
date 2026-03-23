@@ -14,7 +14,6 @@
                     colors: {
                         primary: '#4F46E5',
                         secondary: '#8B5CF6',
-                        gen_beta: '#FFD700',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -38,7 +37,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -46,20 +45,13 @@
             }
         }
         
-        .stagger-1 {
-            animation-delay: 0.2s;
+        .generation-card {
+            transition: all 0.3s ease;
         }
         
-        .stagger-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .stagger-3 {
-            animation-delay: 0.6s;
-        }
-        
-        .stagger-4 {
-            animation-delay: 0.8s;
+        .generation-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-5px);
         }
         
         .nav-link {
@@ -72,7 +64,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50">
     <!-- 导航栏 -->
     <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,167 +106,76 @@
     <!-- 主内容 -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <!-- 标题部分 -->
-        <section class="mb-16 text-center fade-in">
-            <div class="w-20 h-20 bg-gen_beta/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fa fa-robot text-gen_beta text-3xl"></i>
-            </div>
-            <h1 class="text-4xl sm:text-5xl font-bold mb-6">Beta世代</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">2025-2039</p>
-        </section>
-
-        <!-- 核心特征 -->
-        <section class="mb-16 fade-in stagger-1">
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold mb-6">核心特征</h2>
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="w-12 h-12 rounded-full bg-gen_beta/10 flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fa fa-lightbulb-o text-gen_beta text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2">AI原生代</h3>
-                            <p class="text-gray-600">Beta世代是首个完全在人工智能环境中成长的世代，从小接触智能设备和AI助手，对技术的理解和应用能力远超之前的世代。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-12 h-12 rounded-full bg-gen_beta/10 flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fa fa-leaf text-gen_beta text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2">永续优先</h3>
-                            <p class="text-gray-600">在气候变化和环境危机的背景下成长，Beta世代将环保和可持续发展视为基本需求，对企业的ESG表现有更高的要求。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-12 h-12 rounded-full bg-gen_beta/10 flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fa fa-globe text-gen_beta text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2">全球公民意识</h3>
-                            <p class="text-gray-600">Beta世代拥有更强的全球公民意识，更关注全球性问题，如气候变化、贫富差距和人权等，具有更强的社会责任感。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-12 h-12 rounded-full bg-gen_beta/10 flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fa fa-code text-gen_beta text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2">数字创造力</h3>
-                            <p class="text-gray-600">从小学习编程和数字技能，Beta世代具有更强的数字创造力，能够利用AI工具进行创新和创作。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 成长环境 -->
-        <section class="mb-16 fade-in stagger-2">
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold mb-6">成长环境</h2>
-                <div class="space-y-4">
-                    <p class="text-gray-600">Beta世代成长于人工智能全面普及的时代，他们的童年和青少年时期将经历以下环境特征：</p>
-                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
-                        <li>AI助手成为日常生活的一部分，如智能音箱、家庭机器人等</li>
-                        <li>虚拟现实(VR)和增强现实(AR)技术广泛应用于教育和娱乐</li>
-                        <li>可持续发展理念融入日常生活，如可再生能源、循环经济等</li>
-                        <li>全球化程度进一步加深，跨文化交流更加频繁</li>
-                        <li>数字化学习成为主流，个性化教育得到普及</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 价值观与行为模式 -->
-        <section class="mb-16 fade-in stagger-3">
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold mb-6">价值观与行为模式</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="font-bold text-lg mb-4">价值观</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">技术乐观主义：相信技术能够解决人类面临的挑战</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">可持续发展：将环保视为基本责任</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">全球意识：关注全球性问题，具有国际视野</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">自我实现：追求个人价值和意义</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-4">行为模式</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">数字原住民：无缝融入数字环境</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">环保意识强：积极参与环保行动</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">全球思维：乐于接受多元文化</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check-circle text-gen_beta mr-2"></i>
-                                <span class="text-gray-600">创新精神：善于利用新技术进行创造</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 对社会的影响 -->
-        <section class="mb-16 fade-in stagger-4">
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold mb-6">对社会的影响</h2>
-                <div class="space-y-4">
-                    <p class="text-gray-600">Beta世代将对社会产生深远的影响，主要体现在以下方面：</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-bold text-lg mb-2">经济与就业</h3>
-                            <p class="text-gray-600">推动数字经济和绿色经济发展，创造新的就业机会，如AI伦理专家、可持续发展顾问等。</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-bold text-lg mb-2">教育与学习</h3>
-                            <p class="text-gray-600">促进教育方式的创新，推动个性化学习和终身学习理念的普及。</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-bold text-lg mb-2">科技与创新</h3>
-                            <p class="text-gray-600">成为科技创新的主力军，推动AI、VR/AR等技术的进一步发展和应用。</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-bold text-lg mb-2">社会与文化</h3>
-                            <p class="text-gray-600">促进多元文化的融合，推动社会更加包容和开放。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">Beta世代</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">出生于 2025-2039 年，首个AI原生代，成长于人工智能全面普及的环境</p>
         </section>
 
         <!-- 世代导航 -->
-        <section class="fade-in">
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold mb-6 text-center">世代导航</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="generation2.html" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">婴儿潮世代 (1946-1964)</a>
-                    <a href="generation3.html" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">X世代 (1965-1980)</a>
-                    <a href="generation4.html" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">Y世代 (1981-1995)</a>
-                    <a href="generation5.html" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">Z世代 (1996-2009)</a>
-                    <a href="generation6.html" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">α世代 (2010-2024)</a>
-                    <a href="generation1.html" class="px-4 py-2 bg-gen_beta text-white rounded-lg hover:bg-gen_beta/90 transition-colors">Beta世代 (2025-2039)</a>
+        <section class="mb-16">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="generation1.html" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">Beta世代</a>
+                <a href="generation2.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">婴儿潮世代</a>
+                <a href="generation3.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">X世代</a>
+                <a href="generation4.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Y世代</a>
+                <a href="generation5.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Z世代</a>
+                <a href="generation6.html" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">α世代</a>
+            </div>
+        </section>
+
+        <!-- 世代详细介绍 -->
+        <section class="max-w-4xl mx-auto">
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 fade-in">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=generation%20beta%20future%20ai%20sustainable%20technology%20futuristic%20stylized&image_size=portrait_4_3" alt="Beta世代" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">世代特征</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>首个完全在人工智能环境中成长的世代</li>
+                            <li>从小接触智能设备和AI助手</li>
+                            <li>对技术的理解和应用能力远超之前的世代</li>
+                            <li>将环保和可持续发展视为基本需求</li>
+                            <li>拥有更强的全球公民意识</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 mt-8 fade-in">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">历史背景</h2>
+                <p class="text-gray-700 mb-4">Beta世代出生于2025年至2039年间，他们经历了：</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>人工智能全面普及的时代</li>
+                    <li>气候变化和环境危机的挑战</li>
+                    <li>全球化程度进一步加深</li>
+                    <li>数字化学习成为主流</li>
+                    <li>可持续发展理念融入日常生活</li>
+                </ul>
+            </div>
+
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 mt-8 fade-in">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">价值观与信念</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>技术乐观主义：相信技术能够解决人类面临的挑战</li>
+                    <li>可持续发展：将环保视为基本责任</li>
+                    <li>全球意识：关注全球性问题，具有国际视野</li>
+                    <li>自我实现：追求个人价值和意义</li>
+                    <li>数字创造力：善于利用新技术进行创造</li>
+                </ul>
+            </div>
+
+            <div class="generation-card bg-white rounded-xl shadow-md p-8 mt-8 fade-in">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">对社会的影响</h2>
+                <p class="text-gray-700 mb-4">Beta世代将对社会产生深远的影响：</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>推动数字经济和绿色经济发展</li>
+                    <li>创造新的就业机会，如AI伦理专家、可持续发展顾问等</li>
+                    <li>促进教育方式的创新，推动个性化学习</li>
+                    <li>成为科技创新的主力军</li>
+                    <li>促进多元文化的融合，推动社会更加包容和开放</li>
+                </ul>
             </div>
         </section>
     </main>
@@ -282,17 +183,9 @@
     <!-- 页脚 -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <i class="fa fa-book text-primary text-2xl mr-2"></i>
-                    <span class="text-xl font-bold">代际知识库</span>
-                </div>
-                <div class="text-gray-400 text-sm">
-                    帮助你理解世代差异，支撑业务决策
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                © 2026 代际知识库
+            <div class="text-center">
+                <p class="text-gray-400">代际知识库 - Beta世代</p>
+                <p class="text-gray-500 text-sm mt-2">© 2026 代际知识库</p>
             </div>
         </div>
     </footer>
