@@ -53,6 +53,15 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             transform: translateY(-5px);
         }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #4F46E5;
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -64,11 +73,32 @@
                     <i class="fa fa-book text-primary text-2xl mr-2"></i>
                     <span class="text-xl font-bold text-gray-900">代际知识库</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
-                    <a href="home.html#profiles" class="text-gray-700 hover:text-primary transition-colors">代际档案</a>
-                    <a href="dialectic.html" class="text-gray-700 hover:text-primary transition-colors">时间的社会学</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="home.html" class="nav-link text-gray-700 hover:text-primary">首页</a>
+                    <a href="generation2.html" class="nav-link text-primary font-medium">婴儿潮世代</a>
+                    <a href="generation3.html" class="nav-link text-gray-700 hover:text-primary">X世代</a>
+                    <a href="generation4.html" class="nav-link text-gray-700 hover:text-primary">Y世代</a>
+                    <a href="generation5.html" class="nav-link text-gray-700 hover:text-primary">Z世代</a>
+                    <a href="generation6.html" class="nav-link text-gray-700 hover:text-primary">α世代</a>
+                    <a href="generation1.html" class="nav-link text-gray-700 hover:text-primary">Beta世代</a>
                 </div>
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-4 py-3 space-y-2">
+                <a href="home.html" class="block text-gray-700 hover:text-primary">首页</a>
+                <a href="generation2.html" class="block text-primary font-medium">婴儿潮世代</a>
+                <a href="generation3.html" class="block text-gray-700 hover:text-primary">X世代</a>
+                <a href="generation4.html" class="block text-gray-700 hover:text-primary">Y世代</a>
+                <a href="generation5.html" class="block text-gray-700 hover:text-primary">Z世代</a>
+                <a href="generation6.html" class="block text-gray-700 hover:text-primary">α世代</a>
+                <a href="generation1.html" class="block text-gray-700 hover:text-primary">Beta世代</a>
             </div>
         </div>
     </nav>
@@ -158,5 +188,22 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 点击移动端菜单链接后关闭菜单
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
