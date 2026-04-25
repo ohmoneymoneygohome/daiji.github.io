@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空间合作 - 小憩</title>
+    <style>
+        :root {
+            --primary-color: #2d5016; /* 深绿色 */
+            --secondary-color: #6b8e4d; /* 灰绿色 */
+            --background-color: #f9f7f3; /* 米白色 */
+            --text-color: #333333; /* 深灰色 */
+            --light-text: #666666; /* 浅灰色 */
+            --accent-color: #a3c987; /* 浅绿色 */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(249, 247, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* 页面标题 */
+        .page-header {
+            padding: 150px 0 100px;
+            text-align: center;
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cozy%20cafe%20with%20lots%20of%20green%20plants%2C%20large%20space%2C%20natural%20light%2C%20warm%20atmosphere%2C%20modern%20design%2C%20comfortable%20seating&image_size=landscape_16_9');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* 内容区域 */
+        .content-section {
+            padding: 100px 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-content p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+        
+        /* 列表样式 */
+        .feature-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        
+        /* 合作表单 */
+        .form-container {
+            max-width: 600px;
+            margin: 60px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        
+        /* 页脚 */
+        footer {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* 悬浮按钮 */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--background-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 20px;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* 动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .stagger-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .stagger-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/小憩logo.png" alt="小憩" width="40" height="30">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">首页</a>
+                <a href="space.html">空间合作</a>
+                <a href="sponsor.html">商务赞助</a>
+                <a href="about.html">关于我们</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+    
+    <!-- 页面标题 -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">和《小憩》一起，让空间成为内容发生的地方</h1>
+        </div>
+    </header>
+    
+    <!-- 为什么我们重视空间 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in">为什么我们重视空间</h2>
+            <div class="section-content fade-in stagger-1">
+                <p>对《小憩》来说，空间不是背景，而是内容的一部分。</p>
+                <p>我们相信，真实的对话需要真实的场域承载。</p>
+                <p>一个合适的空间，不只是拍摄地点，也是气质、关系与情绪的共同构成者。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 我们在寻找什么样的空间 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in">我们在寻找什么样的空间</h2>
+            <div class="section-content fade-in stagger-1">
+                <ul class="feature-list">
+                    <li>有生活方式气质</li>
+                    <li>有一定安静度与美感</li>
+                    <li>有清晰主理理念</li>
+                    <li>愿意和内容长期共生，而不是一次性租借</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 合作方式 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in">合作方式</h2>
+            <div class="section-content fade-in stagger-1">
+                <ul class="feature-list">
+                    <li>节目录制空间合作</li>
+                    <li>主题对谈 / 特别场次</li>
+                    <li>联名活动</li>
+                    <li>空间露出与影像共创</li>
+                    <li>内容共创</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 空间方能获得什么 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in">空间方能获得什么</h2>
+            <div class="section-content fade-in stagger-1">
+                <ul class="feature-list">
+                    <li>高质量影像素材</li>
+                    <li>内容共创曝光</li>
+                    <li>社群人群触达</li>
+                    <li>空间气质强化</li>
+                    <li>长期品牌绑定可能</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 合作表单 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in">空间合作申请</h2>
+            <div class="form-container fade-in stagger-1">
+                <form>
+                    <div class="form-group">
+                        <label for="space-name">空间名称</label>
+                        <input type="text" id="space-name" name="space-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">所在城市</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">联系人</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="space-intro">空间简介</label>
+                        <textarea id="space-intro" name="space-intro" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cooperation-idea">合作想法</label>
+                        <textarea id="cooperation-idea" name="cooperation-idea" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">提交申请</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">小憩</div>
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="space.html">空间合作</a>
+                <a href="sponsor.html">商务赞助</a>
+                <a href="about.html">关于我们</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+            <div class="footer-copyright">© 2026 小憩. 保留所有权利</div>
+        </div>
+    </footer>
+    
+    <!-- 悬浮按钮 -->
+    <div class="floating-buttons">
+        <a href="space.html" class="floating-btn" title="空间合作">
+            <span>空</span>
+        </a>
+        <a href="contact.html" class="floating-btn" title="联系我们">
+            <span>联</span>
+        </a>
+    </div>
+    
+    <script>
+        // 移动端菜单
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+        
+        // 表单提交
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('申请已提交，我们会尽快与您联系！');
+        });
+    </script>
+</body>
+</html>

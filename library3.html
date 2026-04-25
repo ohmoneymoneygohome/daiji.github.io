@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>代际创伤与家庭心理学 - 代际图书馆</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
     <style>
@@ -72,39 +71,81 @@
 </head>
 <body class="bg-gray-50">
     <!-- 导航栏 -->
-    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <i class="fa fa-book text-primary text-2xl mr-2"></i>
                     <span class="text-xl font-bold text-gray-900">代际知识库</span>
                 </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="home.html" class="nav-link text-gray-700 hover:text-primary">首页</a>
-                    <a href="generation2.html" class="nav-link text-gray-700 hover:text-primary">婴儿潮世代</a>
-                    <a href="generation3.html" class="nav-link text-gray-700 hover:text-primary">X世代</a>
-                    <a href="generation4.html" class="nav-link text-gray-700 hover:text-primary">Y世代</a>
-                    <a href="generation5.html" class="nav-link text-gray-700 hover:text-primary">Z世代</a>
-                    <a href="generation6.html" class="nav-link text-gray-700 hover:text-primary">α世代</a>
-                    <a href="generation1.html" class="nav-link text-gray-700 hover:text-primary">Beta世代</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html#home" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">首页</a>
+                    <div class="relative group">
+                        <a href="home.html#generations" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">代际档案</a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left">
+                            <div class="py-1">
+                                <a href="generation1.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">婴儿潮世代</a>
+                                <a href="generation2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">X世代</a>
+                                <a href="generation3.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">Y世代</a>
+                                <a href="generation4.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">Z世代</a>
+                                <a href="generation5.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">α世代</a>
+                                <a href="generation6.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">Beta世代</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="home.html#insights" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">维度洞察</a>
+                    <a href="home.html#methodology" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">前沿方法论</a>
+                    <a href="home.html#contributors" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">代际理论贡献者</a>
+                    <div class="relative group">
+                        <a href="home.html#library" class="text-gray-700 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/5">代际图书馆</a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left">
+                            <div class="py-1">
+                                <a href="library1.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">奠基理论与世代周期研究</a>
+                                <a href="library2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">代际流动与阶层再生产</a>
+                                <a href="library3.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">代际创伤与家庭心理学</a>
+                                <a href="library4.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">中国视角的代际研究</a>
+                                <a href="library5.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">职场、管理与代际融合</a>
+                                <a href="library6.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary">代际公平、伦理与长远哲学</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="menuBtn" class="text-gray-700 hover:text-primary">
+                    <button id="menuBtn" class="text-gray-700 hover:text-primary transition-colors p-2 rounded-md hover:bg-primary/5">
                         <i class="fa fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- 移动端菜单 -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full transition-all duration-300 transform origin-top">
             <div class="px-4 py-3 space-y-2">
-                <a href="home.html" class="block text-gray-700 hover:text-primary">首页</a>
-                <a href="generation2.html" class="block text-gray-700 hover:text-primary">婴儿潮世代</a>
-                <a href="generation3.html" class="block text-gray-700 hover:text-primary">X世代</a>
-                <a href="generation4.html" class="block text-gray-700 hover:text-primary">Y世代</a>
-                <a href="generation5.html" class="block text-gray-700 hover:text-primary">Z世代</a>
-                <a href="generation6.html" class="block text-gray-700 hover:text-primary">α世代</a>
-                <a href="generation1.html" class="block text-gray-700 hover:text-primary">Beta世代</a>
+                <a href="home.html#home" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">首页</a>
+                <div class="space-y-1">
+                    <a href="home.html#generations" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际档案</a>
+                    <div class="pl-6 space-y-1">
+                        <a href="generation1.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">婴儿潮世代</a>
+                        <a href="generation2.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">X世代</a>
+                        <a href="generation3.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">Y世代</a>
+                        <a href="generation4.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">Z世代</a>
+                        <a href="generation5.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">α世代</a>
+                        <a href="generation6.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">Beta世代</a>
+                    </div>
+                </div>
+                <a href="home.html#insights" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">维度洞察</a>
+                <a href="home.html#methodology" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">前沿方法论</a>
+                <a href="home.html#contributors" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际理论贡献者</a>
+                <div class="space-y-1">
+                    <a href="home.html#library" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际图书馆</a>
+                    <div class="pl-6 space-y-1">
+                        <a href="library1.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">奠基理论与世代周期研究</a>
+                        <a href="library2.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际流动与阶层再生产</a>
+                        <a href="library3.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际创伤与家庭心理学</a>
+                        <a href="library4.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">中国视角的代际研究</a>
+                        <a href="library5.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">职场、管理与代际融合</a>
+                        <a href="library6.html" class="block text-gray-700 hover:text-primary px-3 py-2 rounded-md hover:bg-primary/5 transition-colors">代际公平、伦理与长远哲学</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
