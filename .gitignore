@@ -1,10 +1,11 @@
+# Temporary scripts
+*.py
+debug.log
+
 # Python virtual environment
 venv/
 
 # Log files
-debug.log
-
-# Temporary files
 *.7z
 *.zip
 *.rar
