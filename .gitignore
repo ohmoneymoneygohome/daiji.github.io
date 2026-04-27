@@ -1,16 +1,22 @@
-# 忽略文件
-.DS_Store
-Thumbs.db
-*.log
-node_modules/
-build/
-dist/
+# Python virtual environment
+venv/
 
-# 编辑器目录和文件
+# Log files
+debug.log
+
+# Temporary files
+*.7z
+*.zip
+*.rar
+
+# IDE files
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Build files
+build/
+dist/
