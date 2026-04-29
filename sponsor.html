@@ -90,12 +90,33 @@
         .page-header {
             padding: 150px 0 100px;
             text-align: center;
+            background-image: url('img/bussiness.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: var(--primary-color);
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(45, 80, 22, 0.7);
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 1;
         }
         
         .page-header h1 {
             font-size: 48px;
             font-weight: 300;
-            color: var(--primary-color);
+            color: #ffffff;
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
