@@ -159,9 +159,11 @@
             border-radius: 8px;
         }
         
-        .qrcode-placeholder {
-            font-size: 14px;
-            color: var(--light-text);
+        .qrcode-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         /* 合作表单 */
@@ -392,56 +394,20 @@
                 <div class="contact-method fade-in stagger-1">
                     <h3>微信联系</h3>
                     <div class="qrcode-container">
-                        <div class="qrcode-placeholder">微信二维码</div>
+                        <img src="img/weixin.png" alt="微信二维码" class="qrcode-image">
                     </div>
                     <p>扫码添加微信，注明合作意向</p>
                 </div>
                 <div class="contact-method fade-in stagger-2">
                     <h3>商务邮箱</h3>
-                    <p>business@xiaoqi.com</p>
+                    <p>mady@foxmail.com</p>
                     <p>工作时间：周一至周五 9:00-18:00</p>
                 </div>
-                <div class="contact-method fade-in stagger-3">
-                    <h3>合作需求</h3>
-                    <p>填写下方表单，我们会尽快与您联系</p>
-                    <a href="#cooperation-form" class="btn">提交需求</a>
-                </div>
             </div>
         </div>
     </section>
     
-    <!-- 合作表单 -->
-    <section class="content-section" id="cooperation-form">
-        <div class="container">
-            <h2 class="section-title fade-in">提交合作需求</h2>
-            <div class="form-container fade-in stagger-1">
-                <form>
-                    <div class="form-group">
-                        <label for="name">姓名/公司</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">邮箱</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">电话</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cooperation-type">合作类型</label>
-                        <input type="text" id="cooperation-type" name="cooperation-type" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">合作需求</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">提交需求</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- 页脚 -->
     <footer>
         <div class="container footer-content">
