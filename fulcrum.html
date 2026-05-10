@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代际支点 - 人物纪录片与深度访谈</title>
+    <link rel="icon" href="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fulcrum%20balance%20support%20intergenerational%20symbol%20minimal%20design&image_size=square" type="image/png">
+
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#0ea5e9',
+                        gold: '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/zhidian/team.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 100%;
+            min-height: 100vh;
+        }
+        .quote-section { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-left: 4px solid #8b5cf6; }
+        .quote-text { font-family: 'Songti SC', 'SimSun', serif; font-style: italic; }
+        .section-divider { background: linear-gradient(90deg, transparent, #6366f1, transparent); height: 2px; }
+        .price-card { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-compass text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">代际支点</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-primary transition-colors">关于</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary transition-colors">服务</a>
+                    <a href="#team" class="text-gray-600 hover:text-primary transition-colors">关于我们</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-primary transition-colors">定价</a>
+                    <a href="#suitable" class="text-gray-600 hover:text-primary transition-colors">适合谁</a>
+                    <a href="#process" class="text-gray-600 hover:text-primary transition-colors">工作方式</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+                    <a href="home.html" class="text-primary font-medium">代际知识库</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-600 hover:text-primary p-2">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#about" class="block text-gray-600 hover:text-primary px-3 py-2">关于</a>
+                <a href="#services" class="block text-gray-600 hover:text-primary px-3 py-2">服务</a>
+                <a href="#team" class="block text-gray-600 hover:text-primary px-3 py-2">关于我们</a>
+                <a href="#pricing" class="block text-gray-600 hover:text-primary px-3 py-2">定价</a>
+                <a href="#suitable" class="block text-gray-600 hover:text-primary px-3 py-2">适合谁</a>
+                <a href="#process" class="block text-gray-600 hover:text-primary px-3 py-2">工作方式</a>
+                <a href="#contact" class="block text-gray-600 hover:text-primary px-3 py-2">联系</a>
+                <a href="home.html" class="block text-primary font-medium px-3 py-2">代际知识库</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="pt-24 hero-bg h-[calc(100vh-6rem)] relative">
+        <div class="container mx-auto px-6 lg:px-8 text-center max-w-4xl">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-5 text-white">人物纪录片与深度访谈计划</h1>
+            <p class="text-xl text-white/90 mb-8">给你通往大器晚成的路上，一个小憩的支点</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="px-6 py-3 bg-white text-primary rounded-lg hover:bg-white/90 transition-colors shadow-lg">
+                    <i class="fa fa-envelope mr-2"></i>联系我们
+                </a>
+                <a href="index.html" class="px-6 py-3 bg-white/20 text-white border border-white/50 rounded-lg hover:bg-white/30 transition-colors">
+                    <i class="fa fa-coffee mr-2"></i>小憩播客
+                </a>
+            </div>
+        </div>
+
+            <!-- 底部引用 -->
+            <div class="absolute bottom-0 left-0 right-0 text-center pb-6">
+                <div class="mb-4">
+                    <i class="fa fa-quote-left text-white/50 text-3xl"></i>
+                </div>
+                <p class="quote-text text-xl text-center text-white/90 mb-2">给我一个支点，我可以撬动地球。</p>
+                <p class="text-center text-white/60 text-sm mb-4">—— 阿基米德</p>
+                <div class="section-divider w-24 mx-auto mb-4"></div>
+                <p class="text-white/80 text-lg leading-relaxed text-center">
+                    我们相信，在每个人通往"大器晚成"的路上，也都需要这样一个支点。
+                </p>
+                <p class="text-white/80 text-lg leading-relaxed text-center mt-2">
+                    有时，这个支点不是一次重大机会，不是一个正确答案，而是一次停下来重新看见自己的时刻。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们在做什么 -->
+    <section id="services" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">我们在做什么</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md p-8 mb-6">
+                <p class="text-gray-700 text-lg mb-6">
+                    我们提供<strong class="text-primary">人物纪录片与深度访谈服务</strong>。通过一次深入对话与影像记录，帮助个人、品牌与机构讲清楚：
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center p-4 bg-indigo-50 rounded-lg">
+                        <i class="fa fa-user text-primary mr-4 text-lg"></i>
+                        <span class="text-gray-700">你是谁</span>
+                    </div>
+                    <div class="flex items-center p-4 bg-indigo-50 rounded-lg">
+                        <i class="fa fa-question-circle text-primary mr-4 text-lg"></i>
+                        <span class="text-gray-700">你为什么做这件事</span>
+                    </div>
+                    <div class="flex items-center p-4 bg-indigo-50 rounded-lg">
+                        <i class="fa fa-history text-primary mr-4 text-lg"></i>
+                        <span class="text-gray-700">哪些经历塑造了今天的你</span>
+                    </div>
+                    <div class="flex items-center p-4 bg-indigo-50 rounded-lg">
+                        <i class="fa fa-heart text-primary mr-4 text-lg"></i>
+                        <span class="text-gray-700">你真正相信什么</span>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-lg mt-6">你想留下些什么</p>
+            </div>
+
+            <div class="bg-purple-50 rounded-2xl p-8 mb-6">
+                <p class="text-gray-700 text-lg mb-3">
+                    这不是传统意义上的企业宣传片，也不是简单的人物采访。
+                </p>
+                <p class="text-gray-700 text-lg">
+                    我们更关注一个人或一个品牌背后的<strong class="text-purple-600">精神气质</strong>，以及那些真正塑造它的小情节。
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md p-8">
+                <h3 class="text-xl font-bold mb-4 text-center">代表作品：《小憩》</h3>
+                <p class="text-gray-700 text-lg mb-3">一档对话型播客，也是一种生活方式表达。关注工作、关系、选择、焦虑与自我感这些具体而真实的问题。</p>
+                <div class="bg-slate-50 rounded-xl p-6 mb-6">
+                    <p class="text-gray-700 text-center italic">
+                        大情节让人生看起来成立，<br>小情节让人生真正发生。
+                    </p>
+                </div>
+                <p class="text-gray-700 text-lg mb-4">《小憩》的气质，构成了我们纪录片的创作方法：</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                        <i class="fa fa-clock-o text-purple-500 mr-3"></i>
+                        <span>不急着给答案</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                        <i class="fa fa-ban text-purple-500 mr-3"></i>
+                        <span>不追求表面包装</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                        <i class="fa fa-check-square-o text-purple-500 mr-3"></i>
+                        <span>尊重真实的复杂性</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                        <i class="fa fa-commenting-o text-purple-500 mr-3"></i>
+                        <span>在对话中呈现精神世界</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队成员 -->
+    <section id="team" class="py-16 bg-slate-100">
+        <div class="container mx-auto px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">关于我们</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 老周 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-indigo-100 to-purple-100">
+                        <img src="img/zhidian/老周.png" alt="老周" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">老周</h3>
+                        <p class="text-indigo-600 font-medium mb-4">导演 / 摄影</p>
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="border-l-2 border-indigo-300 pl-3">
+                                <p class="font-medium text-gray-700">话剧花絮：《求证》</p>
+                                <p>导演：田壮壮 | 编剧：大卫·奥本 | 主演：赵薇</p>
+                            </div>
+                            <div class="border-l-2 border-indigo-300 pl-3">
+                                <p class="font-medium text-gray-700">话剧宣传：《断金》</p>
+                                <p>张国立 王刚 张铁林等主演</p>
+                                <p>豆瓣 8.3分 | 3965人评价</p>
+                            </div>
+                            <div class="border-l-2 border-indigo-300 pl-3">
+                                <p class="font-medium text-gray-700">纪录片：《走，赶街去》</p>
+                                <p>腾讯 9.1分 | 968人点评</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 齐默 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-green-100 to-emerald-100">
+                        <img src="img/zhidian/齐默.png" alt="齐默" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">齐默</h3>
+                        <p class="text-green-600 font-medium mb-4">编剧 / 制片</p>
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="border-l-2 border-green-300 pl-3">
+                                <p class="font-medium text-gray-700">剧本《死者葬仪》</p>
+                                <p>亚洲国际艺术电影节入围</p>
+                            </div>
+                            <div class="border-l-2 border-green-300 pl-3">
+                                <p class="font-medium text-gray-700">电视剧《炽热吸引》（2025）</p>
+                                <p>制片</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 怀民 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-amber-100 to-orange-100">
+                        <img src="img/zhidian/怀民.png" alt="怀民" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">怀民</h3>
+                        <p class="text-amber-600 font-medium mb-4">摄影</p>
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="border-l-2 border-amber-300 pl-3">
+                                <p class="font-medium text-gray-700">《龙女孩》</p>
+                                <p>摄影</p>
+                            </div>
+                            <div class="border-l-2 border-amber-300 pl-3">
+                                <p class="font-medium text-gray-700">《无忧面包店第二部》</p>
+                                <p>摄影</p>
+                            </div>
+                            <div class="border-l-2 border-amber-300 pl-3">
+                                <p class="font-medium text-gray-700">纪录片《陈家祠》</p>
+                                <p>摄影</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 野孩子凶猛 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="aspect-square bg-gradient-to-br from-pink-100 to-rose-100">
+                        <img src="img/zhidian/野孩子凶猛.png" alt="野孩子凶猛" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">野孩子凶猛</h3>
+                        <p class="text-pink-600 font-medium mb-4">美术</p>
+                        <div class="space-y-3 text-sm text-gray-600">
+                            <div class="border-l-2 border-pink-300 pl-3">
+                                <p class="font-medium text-gray-700">川美虚拟美术馆实验项目</p>
+                                <p>主创</p>
+                            </div>
+                            <div class="border-l-2 border-pink-300 pl-3">
+                                <p class="font-medium text-gray-700">国风文创《岂曰无诗》</p>
+                                <p>主创</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定价 -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">服务与定价</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 服务1 -->
+                <div class="price-card rounded-2xl shadow-md p-8 border border-slate-200 card-hover">
+                    <div class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-film text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">个人品牌故事片</h3>
+                    <p class="text-gray-500 text-center mb-6">为你的事业提供清晰有力的叙事</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-slate-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">完整版</span>
+                                <span class="text-2xl font-bold text-indigo-600">¥30,000</span>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• 精制故事片1条（5分钟）</li>
+                                <li>• 切片剪辑15条（1分钟/条）</li>
+                                <li>• 两次访问3-6小时</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">标准版</span>
+                                <span class="text-2xl font-bold text-slate-600">¥12,000</span>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• 精制故事片1条（5分钟）</li>
+                                <li>• 两次访问3-6小时</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#contact" class="block text-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                        咨询详情
+                    </a>
+                </div>
+
+                <!-- 服务2 -->
+                <div class="price-card rounded-2xl shadow-md p-8 border border-slate-200 card-hover">
+                    <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-video-camera text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">自媒体陪跑服务</h3>
+                    <p class="text-gray-500 text-center mb-6">策略清晰，持续稳定的内容产出</p>
+                    <div class="bg-slate-50 rounded-lg p-6 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-medium">首月</span>
+                            <span class="text-2xl font-bold text-green-600">¥20,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">次月起</span>
+                            <span class="text-2xl font-bold text-green-600">¥15,000<span class="text-sm font-normal">/月</span></span>
+                        </div>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li>• 每月3-4次集中拍摄</li>
+                        <li>• 出片15条短视频（40s-90s）</li>
+                        <li>• 稳定更新一个月</li>
+                        <li>• 备稿访谈 + 工作场景</li>
+                        <li>• 赠送账号托管服务</li>
+                    </ul>
+                    <a href="#contact" class="block text-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        咨询详情
+                    </a>
+                </div>
+
+                <!-- 服务3 -->
+                <div class="price-card rounded-2xl shadow-md p-8 border border-slate-200 card-hover">
+                    <div class="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-microphone text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">访谈试镜</h3>
+                    <p class="text-gray-500 text-center mb-6">低成本验证镜头下的「我」</p>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-amber-600">¥99</span>
+                        <span class="text-gray-500">/次</span>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li>• 全部访问素材</li>
+                        <li>• 50s访问切片一条</li>
+                        <li>• 搜集资料</li>
+                        <li>• 拟定访谈方向</li>
+                        <li>• 访问录制</li>
+                    </ul>
+                    <a href="#contact" class="block text-center px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+                        立即体验
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务案例 -->
+    <section id="cases" class="py-16 bg-white">
+        <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">服务案例</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="rounded-xl overflow-hidden text-center cursor-pointer">
+                    <img src="img/zhidian/快惠见.jpg" alt="快惠见" class="w-full h-32 object-contain">
+                    <h3 class="font-bold text-gray-800 mt-2 text-sm pb-2">快惠见</h3>
+                </div>
+                <div class="rounded-xl overflow-hidden text-center cursor-pointer">
+                    <img src="img/zhidian/岂曰无诗.png" alt="岂曰无诗" class="w-full h-32 object-contain">
+                    <h3 class="font-bold text-gray-800 mt-2 text-sm pb-2">岂曰无诗</h3>
+                </div>
+                <div class="rounded-xl overflow-hidden text-center cursor-pointer">
+                    <img src="img/zhidian/亦有鲜.png" alt="亦有鲜" class="w-full h-32 object-contain">
+                    <h3 class="font-bold text-gray-800 mt-2 text-sm pb-2">亦有鲜</h3>
+                </div>
+                <div class="rounded-xl overflow-hidden text-center cursor-pointer">
+                    <img src="img/zhidian/共同性赖.png" alt="共同性赖" class="w-full h-32 object-contain">
+                    <h3 class="font-bold text-gray-800 mt-2 text-sm pb-2">共同性赖</h3>
+                </div>
+                <div class="rounded-xl overflow-hidden text-center cursor-pointer">
+                    <img src="img/zhidian/同道雅集.jpg" alt="同道雅集" class="w-full h-32 object-contain">
+                    <h3 class="font-bold text-gray-800 mt-2 text-sm pb-2">同道雅集</h3>
+                </div>
+                <div class="rounded-xl overflow-hidden text-center cursor-pointer">
+                    <img src="img/zhidian/本能乐队.jpg" alt="本能乐队" class="w-full h-32 object-contain">
+                    <h3 class="font-bold text-gray-800 mt-2 text-sm pb-2">本能乐队</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们适合谁 -->
+    <section id="suitable" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">我们适合谁</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center mr-4">
+                            <i class="fa fa-user text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">个人</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-rocket text-indigo-400 mr-3"></i>
+                            <span>创业者</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-graduation-cap text-indigo-400 mr-3"></i>
+                            <span>学者</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-pencil text-indigo-400 mr-3"></i>
+                            <span>作家</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-film text-indigo-400 mr-3"></i>
+                            <span>导演</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-palette text-indigo-400 mr-3"></i>
+                            <span>艺术家</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-edit text-indigo-400 mr-3"></i>
+                            <span>内容创作者</span>
+                        </div>
+                        <div class="col-span-2 flex items-center p-3 bg-indigo-50 rounded-lg">
+                            <i class="fa fa-star text-indigo-500 mr-3"></i>
+                            <span class="font-medium">品牌主理人</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-4">
+                            <i class="fa fa-building text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">品牌与机构</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-shopping-bag text-purple-400 mr-3"></i>
+                            <span>生活方式品牌</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-university text-purple-400 mr-3"></i>
+                            <span>文化机构</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-book text-purple-400 mr-3"></i>
+                            <span>教育项目</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-50 rounded-lg">
+                            <i class="fa fa-lightbulb-o text-purple-400 mr-3"></i>
+                            <span>创新企业</span>
+                        </div>
+                        <div class="col-span-2 flex items-center p-3 bg-purple-50 rounded-lg">
+                            <i class="fa fa-flask text-purple-500 mr-3"></i>
+                            <span class="font-medium">研究机构</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作方式 -->
+    <section id="process" class="py-16 bg-white">
+        <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">我们的工作方式</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="flex items-center p-6 bg-indigo-50 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-white font-bold">01</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-1">前期沟通与选题策划</h3>
+                        <p class="text-gray-600">深入了解需求，制定专属拍摄方案</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center p-6 bg-purple-50 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-white font-bold">02</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-1">深度访谈与现场拍摄</h3>
+                        <p class="text-gray-600">深入对话与高质量影像记录</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center p-6 bg-blue-50 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-white font-bold">03</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-1">后期剪辑与内容制作</h3>
+                        <p class="text-gray-600">精心打磨每一帧，呈现最真实的精神气质</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center p-6 bg-green-50 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-white font-bold">04</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-1">多平台传播素材整理</h3>
+                        <p class="text-gray-600">提供适合不同平台的内容版本</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 bg-slate-50 rounded-2xl p-8 text-center">
+                <p class="text-gray-700 text-lg mb-3">我们关注的不是"你做了什么"，而是"你为什么成为今天的你"。</p>
+                <p class="text-gray-700 text-lg mb-3">真正打动人的，往往不是成就本身，而是那些曾经改变你的关键时刻。</p>
+                <p class="text-gray-700 text-lg">这些看似微小的情节，构成了一个人最真实的力量来源。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 bg-gradient-to-br from-indigo-600 to-purple-600">
+        <div class="container mx-auto px-6 lg:px-8 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-3 text-white">联系我们</h2>
+                <div class="section-divider w-16 mx-auto"></div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <p class="text-gray-700 text-lg text-center mb-6">
+                    如果你希望用一次深入而真诚的影像对话，讲清楚自己或品牌的故事，欢迎与我们联系。
+                </p>
+
+                <div class="text-center mb-6">
+                    <p class="text-gray-600 mb-1">给你通往大器晚成的路上</p>
+                    <p class="text-2xl font-bold text-purple-600">一个小憩的支点</p>
+                </div>
+
+                <p class="text-gray-700 text-center text-lg mb-8">让真正重要的部分，被看见。</p>
+
+                <div class="text-center mb-6">
+                    <div class="inline-block p-5 bg-slate-50 rounded-xl">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mx-auto mb-3">
+                            <i class="fa fa-envelope text-indigo-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">邮箱</h4>
+                        <p class="text-gray-600">mady@foxmail.com</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors">
+                        <i class="fa fa-coffee mr-2"></i>了解更多：小憩播客
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-slate-900 text-white py-10">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-compass text-primary text-xl mr-2"></i>
+                    <span class="text-lg font-bold">代际支点</span>
+                </div>
+                <div class="text-slate-400 text-sm">
+                    给你通往大器晚成的路上，一个小憩的支点
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-6 pt-6 text-center text-slate-500 text-sm">
+                <a href="home.html" class="hover:text-white transition-colors">代际知识库</a>
+                <span class="mx-3">|</span>
+                <a href="index.html" class="hover:text-white transition-colors">小憩播客</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
