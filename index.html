@@ -149,6 +149,129 @@
             transform: translateY(-4px);
             border-color: var(--secondary-color);
         }
+
+        /* 板块通用标题 */
+        .block-section { padding: 0 24px 96px; }
+        .block-title {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 0.08em;
+        }
+        .block-subtitle {
+            font-size: 14px;
+            color: var(--light-text);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .more-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 32px;
+            border: 1px solid var(--primary-color);
+            border-radius: 999px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .more-link:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        .more-wrap { text-align: center; }
+
+        /* 最新播客卡片 */
+        .podcast-card {
+            background: #fff;
+            border: 1px solid var(--accent-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .podcast-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 24px rgba(41, 77, 51, 0.1);
+        }
+        .podcast-cover {
+            aspect-ratio: 2.35 / 1;
+            overflow: hidden;
+            background: var(--accent-color);
+        }
+        .podcast-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .podcast-body { padding: 18px 20px 22px; }
+        .podcast-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        .podcast-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .podcast-guest {
+            font-size: 13px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+        .podcast-desc {
+            font-size: 13px;
+            color: var(--text-color);
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 金句便签（首页 1:1） */
+        .quote-tile {
+            aspect-ratio: 1 / 1;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(41, 77, 51, 0.12);
+            transition: all 0.35s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .quote-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .quote-tile:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(41, 77, 51, 0.22);
+            z-index: 5;
+        }
+        .quote-tile .tile-caption {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(41,77,51,0.8), transparent 60%);
+            color: #fff;
+            padding: 16px;
+            display: flex;
+            align-items: flex-end;
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .quote-tile:hover .tile-caption { opacity: 1; }
+        .tile-tilt-l { transform: rotate(-1deg); }
+        .tile-tilt-r { transform: rotate(1deg); }
+        .tile-tilt-0 { transform: rotate(0deg); }
+        .quote-tile:hover { transform: translateY(-5px) scale(1.02) rotate(0deg) !important; }
         
         /* 正文排版 */
         .prose-container {
@@ -214,7 +337,7 @@
                 <img src="img/小憩logo.png" alt="小憩" width="40" height="30">
             </a>
             <div class="nav-links" id="navLinks">
-                <a href="home.html">首页</a>
+                <a href="index.html">首页</a>
                 <a href="index.html">播客</a>
                 <a href="space.html">空间合作</a>
                 <a href="sponsor.html">商务赞助</a>
@@ -257,6 +380,59 @@
             </div>
         </div>
     </header>
+
+    <!-- 最新播客采访 -->
+    <section class="block-section">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="block-title fade-in">最新播客</h2>
+            <p class="block-subtitle fade-in delay-1">与真实的人坐下来，聊聊工作、关系、选择与焦虑</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <!-- 播客卡片1：萃月书庭（真实） -->
+                <a href="episodes.html#ep01" class="podcast-card fade-in">
+                    <div class="podcast-cover">
+                        <img src="img/cuiyue/cover-cat-books.jpg" alt="萃月书庭">
+                    </div>
+                    <div class="podcast-body">
+                        <span class="podcast-tag">EP01 · 首播</span>
+                        <h3 class="podcast-title">萃月书庭——小的秩序</h3>
+                        <p class="podcast-guest">嘉宾：小蓉 · 萃月书庭主理人</p>
+                        <p class="podcast-desc">从一间小书店出发，聊聊兴趣、失败、焦虑，以及一个人如何在日常里建立自己的小的秩序。</p>
+                    </div>
+                </a>
+
+                <!-- 播客卡片2 -->
+                <a href="episodes.html" class="podcast-card fade-in delay-1">
+                    <div class="podcast-cover">
+                        <img src="img/小酌.jpg" alt="加速时代的时间主权">
+                    </div>
+                    <div class="podcast-body">
+                        <span class="podcast-tag">EP02 · 即将上线</span>
+                        <h3 class="podcast-title">加速时代的时间主权</h3>
+                        <p class="podcast-guest">嘉宾：周简 · 时间管理教练</p>
+                        <p class="podcast-desc">我们不是没有时间，而是失去了对时间的主权。在加速主义里，怎样把一天要回自己手里？</p>
+                    </div>
+                </a>
+
+                <!-- 播客卡片3 -->
+                <a href="episodes.html" class="podcast-card fade-in delay-2">
+                    <div class="podcast-cover">
+                        <img src="img/小议.jpg" alt="AI时代的判断力">
+                    </div>
+                    <div class="podcast-body">
+                        <span class="podcast-tag">EP03 · 即将上线</span>
+                        <h3 class="podcast-title">AI时代，判断力如何安放</h3>
+                        <p class="podcast-guest">嘉宾：林深 · AI伦理研究者</p>
+                        <p class="podcast-desc">当算法比你更懂你，「自我」还剩下多少是自己的？我们在AI的镜像里，重新辨认人的轮廓。</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="more-wrap">
+                <a href="episodes.html" class="more-link">查看全部播客 →</a>
+            </div>
+        </div>
+    </section>
 
     <!-- 正文内容区 -->
     <section class="px-6 pb-24">
@@ -314,6 +490,66 @@
         </div>
     </section>
 
+    <!-- 金句书签 -->
+    <section class="block-section">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="block-title fade-in">金句书签</h2>
+            <p class="block-subtitle fade-in delay-1">把值得停下来的句子，夹进随身的书页里</p>
+
+            <div class="grid grid-cols-3 gap-5">
+                <div class="quote-tile tile-tilt-l fade-in">
+                    <img src="img/quotes/01_时间里的留存.png" alt="时间里的留存">
+                    <div class="tile-caption">我想用所有的时间、精力和资源，让它在时间里留存下来。</div>
+                </div>
+                <div class="quote-tile tile-tilt-r fade-in delay-1">
+                    <img src="img/quotes/02_最好的装饰.png" alt="最好的装饰">
+                    <div class="tile-caption">我觉得最好的装饰，不就是每一本书吗？</div>
+                </div>
+                <div class="quote-tile tile-tilt-0 fade-in delay-2">
+                    <img src="img/quotes/03_属于自己的震撼.png" alt="属于自己的震撼">
+                    <div class="tile-caption">哪怕感受肤浅一点，也是属于你自己的震撼。</div>
+                </div>
+                <div class="quote-tile tile-tilt-r fade-in">
+                    <img src="img/quotes/04_读书可以随性.png" alt="读书可以随性">
+                    <div class="tile-caption">现在不用考试了，读书这件事真的可以随性一点。</div>
+                </div>
+                <div class="quote-tile tile-tilt-l fade-in delay-1">
+                    <img src="img/quotes/05_兴趣与生活.png" alt="兴趣与生活">
+                    <div class="tile-caption">兴趣不一定非要变成商业项目，能服务于生活就已足够。</div>
+                </div>
+                <div class="quote-tile tile-tilt-0 fade-in delay-2">
+                    <img src="img/quotes/06_只有你会打断自己.png" alt="只有你会打断自己">
+                    <div class="tile-caption">只有你会打断你自己。</div>
+                </div>
+                <div class="quote-tile tile-tilt-l fade-in">
+                    <img src="img/quotes/07_人的精力.png" alt="人的精力">
+                    <div class="tile-caption">人的精力才是最重要的。没有精力，你坚持不了。</div>
+                </div>
+                <div class="quote-tile tile-tilt-r fade-in delay-1">
+                    <img src="img/quotes/08_锁定目标.png" alt="锁定目标">
+                    <div class="tile-caption">认定了目标，就只关注自己要做的事。</div>
+                </div>
+                <div class="quote-tile tile-tilt-0 fade-in delay-2">
+                    <img src="img/quotes/09_比以前的自己好一点.png" alt="比以前的自己好一点">
+                    <div class="tile-caption">我只是想，比以前的自己好一点。</div>
+                </div>
+            </div>
+
+            <div class="more-wrap">
+                <a href="quotes.html" class="more-link">查看全部金句 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 引导区 -->
+    <section class="px-6 pb-24">
+        <div class="max-w-2xl mx-auto text-center fade-in">
+            <p class="text-lg mb-8" style="color: var(--light-text);">
+                摘一把野果坐看日落，放漾心海
+            </p>
+        </div>
+    </section>
+
     <!-- 更多视频区域 -->
     <section class="px-6 pb-24">
         <div class="max-w-4xl mx-auto">
@@ -361,15 +597,6 @@
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 引导区 -->
-    <section class="px-6 pb-24">
-        <div class="max-w-2xl mx-auto text-center fade-in">
-            <p class="text-lg mb-8" style="color: var(--light-text);">
-                摘一把野果坐看日落，放漾心海
-            </p>
         </div>
     </section>
 

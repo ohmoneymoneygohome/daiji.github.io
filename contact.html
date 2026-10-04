@@ -7,12 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --primary-color: #2d5016; /* 深绿色 */
-            --secondary-color: #6b8e4d; /* 灰绿色 */
+            --primary-color: #1e492d; /* 统一主题深绿色 */
+            --secondary-color: #527a5a; /* 灰绿色 */
             --background-color: #f9f7f3; /* 米白色 */
             --text-color: #333333; /* 深灰色 */
             --light-text: #666666; /* 浅灰色 */
-            --accent-color: #a3c987; /* 浅绿色 */
+            --accent-color: #b8cdb0; /* 浅绿色 */
         }
         
         * {
@@ -88,7 +88,7 @@
         
         /* 页面标题 */
         .page-header {
-            padding: 150px 0 100px;
+            padding: 140px 0 64px;
             text-align: center;
         }
         
@@ -102,7 +102,7 @@
         
         /* 内容区域 */
         .content-section {
-            padding: 100px 0;
+            padding: 64px 0 96px;
         }
         
         .content-section:nth-child(even) {
@@ -130,14 +130,17 @@
         
         /* 联系方式 */
         .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            margin: 60px 0;
+            max-width: 560px;
+            margin: 0 auto;
         }
         
         .contact-method {
             text-align: center;
+            padding: 42px 32px 38px;
+            background: #fff;
+            border: 1px solid rgba(45, 80, 22, 0.12);
+            border-radius: 16px;
+            box-shadow: 0 14px 36px rgba(45, 80, 22, 0.08);
         }
         
         .contact-method h3 {
@@ -148,11 +151,11 @@
         }
         
         .qrcode-container {
-            width: 200px;
-            height: 200px;
+            width: 232px;
+            height: 232px;
             background-color: white;
             border: 1px solid #ddd;
-            margin: 0 auto 20px;
+            margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -160,10 +163,27 @@
         }
         
         .qrcode-image {
-            width: 150px;
-            height: 150px;
+            width: 190px;
+            height: 190px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-note {
+            color: var(--light-text);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; }
+            .page-header { padding: 116px 0 40px; }
+            .page-header h1 { font-size: 36px; }
+            .content-section { padding: 40px 0 72px; }
+            .section-title { font-size: 28px; margin-bottom: 28px; }
+            .contact-method { padding: 32px 20px 28px; }
+            .qrcode-container { width: min(232px, 72vw); height: min(232px, 72vw); }
+            .qrcode-image { width: 82%; height: 82%; }
         }
         
         /* 合作表单 */
@@ -368,7 +388,7 @@
                 <img src="img/小憩logo.png" alt="小憩" width="40" height="30">
             </a>
             <div class="nav-links" id="navLinks">
-                <a href="home.html">首页</a>
+                <a href="index.html">首页</a>
                 <a href="index.html">播客</a>
                 <a href="space.html">空间合作</a>
                 <a href="sponsor.html">商务赞助</a>
@@ -396,12 +416,7 @@
                     <div class="qrcode-container">
                         <img src="img/weixin.png" alt="微信二维码" class="qrcode-image">
                     </div>
-                    <p>扫码添加微信，注明合作意向</p>
-                </div>
-                <div class="contact-method fade-in stagger-2">
-                    <h3>商务邮箱</h3>
-                    <p>mady@foxmail.com</p>
-                    <p>工作时间：周一至周五 9:00-18:00</p>
+                    <p class="contact-note">扫码添加微信<br>添加时请注明合作意向</p>
                 </div>
             </div>
         </div>
@@ -471,11 +486,6 @@
             }
         });
         
-        // 表单提交
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('需求已提交，我们会尽快与您联系！');
-        });
     </script>
 </body>
 </html>

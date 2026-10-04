@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播客采访 · 小憩</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #294d33;
+            --secondary-color: #3d6b4a;
+            --background-color: #fafaeb;
+            --text-color: #2d3436;
+            --light-text: #636e72;
+            --accent-color: #dfe6e9;
+            --quote-color: #294d33;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 2;
+            font-weight: 400;
+            overflow-x: hidden;
+            letter-spacing: 0.02em;
+            font-size: 16px;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* 导航栏 */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background-color: rgba(250, 250, 235, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 30px; width: auto; }
+        .nav-links { display: flex; gap: 32px; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 400; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-color); }
+        nav.scrolled { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background-color: var(--background-color);
+                border-bottom: 1px solid rgba(41, 77, 51, 0.1);
+                flex-direction: column; padding: 20px; gap: 16px;
+                box-shadow: 0 4px 15px rgba(41, 77, 51, 0.08);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        .fade-in { opacity: 0; animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+
+        /* 页面标题 */
+        .page-header { padding-top: 144px; padding-bottom: 52px; text-align: center; }
+        .page-title { font-size: 36px; font-weight: 300; color: var(--primary-color); margin-bottom: 16px; letter-spacing: 0.1em; }
+        .page-subtitle { font-size: 16px; color: var(--light-text); max-width: 540px; margin: 0 auto; }
+        .divider { width: 40px; height: 1px; background: var(--primary-color); margin: 24px auto; opacity: 0.4; }
+
+        /* 文章列表卡片 */
+        .episode-card {
+            background: #fff;
+            border: 1px solid var(--accent-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 28px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .episode-card:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 24px rgba(41, 77, 51, 0.1);
+            transform: translateY(-2px);
+        }
+        .episode-card.unreleased { cursor: default; }
+        .episode-card.unreleased .episode-summary { position: relative; }
+        .episode-card.unreleased .episode-cover img { filter: grayscale(1); opacity: 0.58; }
+        .episode-card.unreleased .episode-tag { background: #8a918b; }
+        .episode-card.unreleased .episode-title,
+        .episode-card.unreleased .episode-guest,
+        .episode-card.unreleased .episode-desc,
+        .episode-card.unreleased .episode-date { color: #8a918b; }
+        .episode-card.unreleased .expand-hint { color: #9aa09b; }
+        .episode-card.unreleased .episode-summary::after {
+            content: '即将上线';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 3px 10px;
+            border: 1px solid #aeb5af;
+            border-radius: 999px;
+            color: #737a74;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+        }
+        .episode-card.unreleased .episode-detail { display: none; }
+        .episode-summary {
+            display: flex;
+            gap: 24px;
+            padding: 24px;
+            align-items: flex-start;
+        }
+        .episode-cover {
+            flex-shrink: 0;
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--accent-color);
+        }
+        .episode-cover img { width: 100%; height: 100%; object-fit: cover; }
+        .episode-meta { flex: 1; min-width: 0; padding-top: 2px; }
+        .episode-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        .episode-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .episode-guest {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+        .episode-desc {
+            font-size: 15px;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        .episode-date {
+            font-size: 13px;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+        .expand-hint {
+            flex-shrink: 0;
+            color: var(--light-text);
+            font-size: 13px;
+            transition: transform 0.3s ease;
+        }
+        .episode-card.open .expand-hint { transform: rotate(180deg); }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; }
+            .page-header { padding-top: 116px; padding-bottom: 36px; }
+            .page-title { font-size: 30px; }
+            .page-subtitle { font-size: 15px; line-height: 1.8; }
+            .episode-summary { flex-direction: column; text-align: left; gap: 16px; padding: 18px; }
+            .episode-cover { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+            .episode-title { font-size: 20px; }
+            .episode-desc { font-size: 14px; line-height: 1.75; }
+            .expand-hint { display: none; }
+        }
+
+        /* 详情展开区 */
+        .episode-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 1px solid var(--accent-color);
+        }
+        .episode-card.open .episode-detail { max-height: 20000px; }
+
+        .detail-inner {
+            padding: 44px 40px 48px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .detail-cover {
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 36px;
+            background: var(--accent-color);
+        }
+        .detail-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .detail-h3 {
+            color: var(--primary-color);
+            font-size: 20px;
+            font-weight: 600;
+            margin: 40px 0 18px;
+            padding-left: 14px;
+            border-left: 3px solid var(--primary-color);
+            line-height: 1.5;
+        }
+        .detail-text {
+            font-size: 17px;
+            line-height: 2;
+            color: var(--text-color);
+            margin-bottom: 18px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        .detail-text:last-of-type { margin-bottom: 0; }
+        .detail-quote {
+            position: relative;
+            font-size: 17px;
+            line-height: 2;
+            color: var(--quote-color);
+            margin: 32px 0;
+            padding: 24px 28px 24px 56px;
+            background: linear-gradient(135deg, rgba(41, 77, 51, 0.05) 0%, rgba(41, 77, 51, 0.02) 100%);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+        }
+        .detail-quote::before {
+            content: "\201C";
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            font-size: 48px;
+            color: var(--primary-color);
+            opacity: 0.25;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .detail-guest-box {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px 24px;
+            background: rgba(41, 77, 51, 0.04);
+            border-radius: 10px;
+            margin-bottom: 36px;
+        }
+        .guest-avatar {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(41, 77, 51, 0.1);
+        }
+        .guest-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .guest-info h4 { font-size: 17px; color: var(--primary-color); font-weight: 600; margin-bottom: 2px; }
+        .guest-info p { font-size: 13px; color: var(--light-text); }
+
+        .audio-box {
+            margin-top: 40px;
+            padding: 22px 26px;
+            background: rgba(41, 77, 51, 0.04);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .audio-box .play-btn {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            padding-left: 3px;
+        }
+        .audio-box .play-btn:hover { transform: scale(1.08); background: var(--secondary-color); }
+        .audio-info .audio-title { font-size: 15px; color: var(--primary-color); font-weight: 500; }
+        .audio-info .audio-meta { font-size: 12px; color: var(--light-text); margin-top: 2px; }
+
+        /* 文章图片与排版 */
+        .detail-lead {
+            font-size: 16px;
+            color: #4a5a50;
+            line-height: 1.9;
+            padding: 20px 24px;
+            margin: 0 0 28px;
+            border-left: 3px solid var(--secondary-color);
+            background: rgba(41, 77, 51, 0.04);
+            border-radius: 0 8px 8px 0;
+        }
+        .detail-img {
+            margin: 28px -40px;
+            width: calc(100% + 80px);
+        }
+        .detail-img img { width: 100%; display: block; }
+        .detail-img-caption {
+            font-size: 13px;
+            color: #9a9a9a;
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .detail-img-row {
+            display: flex;
+            gap: 8px;
+            margin: 28px -40px;
+            width: calc(100% + 80px);
+        }
+        .detail-img-row .detail-img {
+            flex: 1;
+            margin: 0;
+            width: auto;
+        }
+        .detail-divider {
+            text-align: center;
+            color: #a3c4b0;
+            font-size: 14px;
+            margin: 40px 0;
+            letter-spacing: 8px;
+        }
+        .detail-ending {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--accent-color);
+        }
+        .detail-ending p {
+            font-size: 15px;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            text-indent: 0;
+        }
+        .detail-ending .signature {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-top: 16px;
+        }
+        .detail-center-text {
+            text-align: center;
+            text-indent: 0;
+            font-size: 17px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin: 30px 0 10px;
+        }
+        .detail-center-sub {
+            text-align: center;
+            text-indent: 0;
+            font-size: 16px;
+            color: var(--secondary-color);
+            line-height: 2;
+        }
+        .detail-text.no-indent { text-indent: 0; }
+
+        @media (max-width: 640px) {
+            .detail-inner { padding: 28px 18px 32px; }
+            .detail-h3 { font-size: 18px; margin: 32px 0 14px; }
+            .detail-text { font-size: 16px; text-indent: 2em; }
+            .detail-quote { padding: 20px 20px 20px 48px; }
+            .detail-quote::before { font-size: 40px; left: 12px; }
+            .detail-img { margin: 24px -18px; width: calc(100% + 36px); }
+            .detail-img-row { margin: 24px -18px; width: calc(100% + 36px); }
+        }
+
+        footer { border-top: 1px solid var(--accent-color); padding-top: 60px; padding-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/小憩logo.png" alt="小憩" width="40" height="30">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">首页</a>
+                <a href="index.html">播客</a>
+                <a href="space.html">空间合作</a>
+                <a href="sponsor.html">商务赞助</a>
+                <a href="about.html">关于我们</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in">播客采访</h1>
+            <div class="divider fade-in"></div>
+            <p class="page-subtitle fade-in delay-1">
+                与真实的人坐下来，聊聊工作、关系、选择与焦虑。<br>
+                点击任意一期，展开完整对谈。
+            </p>
+        </div>
+    </header>
+
+    <!-- 播客文章列表 -->
+    <section class="px-6 pb-24">
+        <div class="container" id="episodeList">
+
+            <!-- EP01 · 萃月书庭 -->
+            <div class="episode-card fade-in" data-id="ep01">
+                <div class="episode-summary">
+                    <div class="episode-cover">
+                        <img src="img/cuiyue/cover-cat-books.jpg" alt="萃月书庭封面" style="object-position: center;">
+                    </div>
+                    <div class="episode-meta">
+                        <span class="episode-tag">EP01 · 首播</span>
+                        <h2 class="episode-title">萃月书庭——小的秩序</h2>
+                        <p class="episode-guest">嘉宾：小蓉 · 萃月书庭主理人</p>
+                        <p class="episode-desc">从一间小书店出发，聊聊兴趣、失败、焦虑，以及一个人如何在日常里建立自己的小的秩序。</p>
+                        <p class="episode-date">2026.10.03</p>
+                    </div>
+                    <span class="expand-hint">▼ 展开</span>
+                </div>
+                <div class="episode-detail">
+                    <div class="detail-inner">
+                        <div class="detail-cover">
+                            <img src="img/cuiyue/cover-cat-books.jpg" alt="萃月书庭大图">
+                        </div>
+                        <div class="detail-guest-box">
+                            <div class="guest-avatar"><img src="img/cuiyue/微信图片_2026-10-03_154401_883.jpg" alt="嘉宾"></div>
+                            <div class="guest-info">
+                                <h4>小蓉</h4>
+                                <p>萃月书庭主理人 / 手工咖啡爱好者 / 拳击练习者</p>
+                            </div>
+                        </div>
+
+                        <!-- 封面图 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154529_576.jpg" alt="萃月书庭靠窗座位">
+                        </div>
+
+                        <!-- 导语 -->
+                        <div class="detail-lead">
+                            在城市的一条普通街道里，有一间不太容易被注意到的书店。<br><br>
+                            招牌上的字没有刻意放大，菜单是手写的，价格牌被放进相框里。店里没有铺满教辅资料，也没有急着告诉你"这里有什么特别"。书架、咖啡、窗户和一只偶尔打断谈话的猫，共同构成了它的秩序。
+                        </div>
+
+                        <!-- 第1张图：店内全景 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154424_721.jpg" alt="萃月书庭店内">
+                            <div class="detail-img-caption">萃月书庭 · 店内一角</div>
+                        </div>
+
+                        <p class="detail-text">这间店的主人小蓉说，她最初并没有一个完整的商业计划。</p>
+                        <p class="detail-text">她只是从很小的时候起，就喜欢逛书店。那时没有那么多电子设备，放学后和朋友一起钻进书店，看纸书，聊小说。长大以后，工作和生活把人推向越来越快的轨道，但那个关于书店的想象一直没有消失。</p>
+
+                        <blockquote class="detail-quote">
+                            "等基本的事情完成了，我们可以找一个地方，把自己的东西寄托在这里。"
+                        </blockquote>
+
+                        <p class="detail-text">后来，机会真的出现了。她没有先计算这间店能带来多少财富，而是先把想做的事情做起来：让它尽量接近自己记忆里那种纯粹的书店。</p>
+                        <p class="detail-text">这听起来不太像一个标准的创业故事。它没有宏大的目标，也没有清晰的增长曲线。它更像是一种对时间的重新分配：把原本可以交给工作、效率和结果的那部分时间，留一点给自己。</p>
+
+                        <!-- 章节1 -->
+                        <h3 class="detail-h3">一间不急着证明自己的书店</h3>
+
+                        <!-- 第2张图：黑板招牌 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154401_883.jpg" alt="萃月书庭黑板招牌">
+                            <div class="detail-img-caption">C.MOON BOOK CAFE · 萃月书庭</div>
+                        </div>
+
+                        <p class="detail-text">小蓉不愿意在装修上投入过多。不是因为她不在意美，而是因为她不希望过度装饰把主题带走。</p>
+
+                        <blockquote class="detail-quote">
+                            "最好的装饰不就是每一本书吗？"
+                        </blockquote>
+
+                        <p class="detail-text">她喜欢小店和周围街道之间自然形成的关系。这里不是一座需要被看见的地标，而是藏在社区里的一个小角落。招牌的字小一点，反而和门面、街道、附近居民的生活保持了和谐。</p>
+
+                        <!-- 第3、4张图：书架 -->
+                        <div class="detail-img-row">
+                            <div class="detail-img">
+                                <img src="img/cuiyue/微信图片_2026-10-03_154446_571.jpg" alt="书架">
+                            </div>
+                            <div class="detail-img">
+                                <img src="img/cuiyue/微信图片_2026-10-03_154449_713.jpg" alt="书架与阅读角">
+                            </div>
+                        </div>
+
+                        <p class="detail-text">菜单也是如此。她并非专业设计师，只是用软件一点点试出喜欢的图案和布局，再把它们做成一张张手写的菜单。制作价格牌的时候，她想的并不是"怎样更像一个商业品牌"，而是怎样把一些细小但确实属于自己的感受放进去。</p>
+
+                        <!-- 第5张图：手写菜单 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154506_410.jpg" alt="手写菜单">
+                            <div class="detail-img-caption">手写菜单 · 每一笔都是温度</div>
+                        </div>
+
+                        <p class="detail-text">当客人说它看起来舒服、有温度时，她会觉得这些细节被接住了。</p>
+                        <p class="detail-text">在一个越来越习惯标准化的时代，我们经常被要求把一切事情说清楚：目标是什么，结果是什么，投入能换来什么。可一间小书店未必需要立刻回答这些问题。它可以先存在，先成为一个人记忆里的地方，也成为另一些人短暂离开日常的位置。</p>
+
+                        <!-- 章节2 -->
+                        <h3 class="detail-h3">阅读不是接收答案</h3>
+
+                        <!-- 第6张图：书架特写 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154514_031.jpg" alt="书架上的书">
+                            <div class="detail-img-caption">每一本书，都是一次相遇</div>
+                        </div>
+
+                        <p class="detail-text">小蓉小时候喜欢逛书店，也一直相信纸书带来的感受，和刷到一段讲书视频不一样。</p>
+                        <p class="detail-text">读书博主可以提供很好的见解，但那仍然是别人替你完成了一次理解。真正拿起一本书，读到某一句话，然后在某个瞬间感到震动，是另一种经验。</p>
+                        <p class="detail-text">它可能不够深，也不够完整，甚至只是一个很私人、很浅的感受。但那是你自己抵达的地方。</p>
+
+                        <!-- 第7张图：另一书架角度 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154521_597.jpg" alt="书架陈列">
+                        </div>
+
+                        <blockquote class="detail-quote">
+                            "我们现在不用考试了。"
+                        </blockquote>
+
+                        <p class="detail-text">她不认为每一本书都必须被完整读完、解释透彻，也不认为读书需要重新变成一种考试。看到哪里，有什么想法，和身边的人聊一聊，已经足够有意义。</p>
+                        <p class="detail-text">这也是她经营书店的方式：不急着替别人规定应该读什么、怎么读。有人带着一本书来，谈起自己的理解；有人只在书架前停留一会儿；有人喝完一杯咖啡，和店主聊一段并不宏大的话题。书店提供的不是标准答案，而是让人重新产生感受和交流的条件。</p>
+
+                        <!-- 章节3 -->
+                        <h3 class="detail-h3">把兴趣留在生活里</h3>
+
+                        <!-- 第8张图：咖啡角 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154525_444.jpg" alt="咖啡角">
+                            <div class="detail-img-caption">咖啡角 · 属于自己的烘焙时光</div>
+                        </div>
+
+                        <p class="detail-text">咖啡是小蓉另一条持续了很多年的兴趣。</p>
+                        <p class="detail-text">她没有把自己训练成一个追求标准化的商业烘焙师。最开始，她用手网烘焙，后来甚至拿家里不用来炒菜的锅做咖啡豆。她会观察火候、风、豆子的变化，也会用手去感受锅的温度：太燥了，就把火调小；不温不火，就再往上加一点。</p>
+                        <p class="detail-text">这套方法听起来并不"科学"，但它属于她。</p>
+                        <p class="detail-text">工厂会为一只豆子设定味型，决定哪些味道应该被突出，哪些应该被舍弃。小蓉更想知道的是：今天这个豆子，它自己是什么样子？在今天的气温、湿度和状态里，它愿意呈现什么？</p>
+
+                        <blockquote class="detail-quote">
+                            她把咖啡豆当成一个需要被认识的朋友，<br>而不是一件必须被控制的产品。
+                        </blockquote>
+
+                        <p class="detail-text">这并不意味着她拒绝专业或结果。她只是没有把兴趣一开始就交给商业目标。她不打算把咖啡做成线上品牌，只希望书店里有人需要提神时，能喝到一杯还不错的口粮咖啡。</p>
+                        <p class="detail-text">兴趣因此没有变成另一个需要完成的项目。它留在生活里，慢慢生长，带她走到她自己也没有预料到的地方。</p>
+
+                        <blockquote class="detail-quote">
+                            "十年前我喝咖啡，只是想喝而已。那时候也不知道它会把我带到今天。"
+                        </blockquote>
+
+                        <p class="detail-text">我们很容易把兴趣也变成一种绩效管理：几年内要达到什么水平，拥有多少成果，最好还能产生收入。但真正长久的兴趣，往往不是从计划开始的。它只是因为你在意，所以你愿意给它一点时间；因为你愿意给时间，它才有机会逐渐变深。</p>
+
+                        <!-- 章节4 -->
+                        <h3 class="detail-h3">只有自己可以打断自己</h3>
+
+                        <!-- 第9、10张图：猫咪 -->
+                        <div class="detail-img-row">
+                            <div class="detail-img">
+                                <img src="img/cuiyue/微信图片_2026-10-03_154431_511.jpg" alt="暹罗猫">
+                            </div>
+                            <div class="detail-img">
+                                <img src="img/cuiyue/微信图片_2026-10-03_154424_721.jpg" alt="店内的猫">
+                            </div>
+                        </div>
+                        <div class="detail-img-caption" style="margin-top:-16px; margin-bottom:28px;">店猫 · 偶尔打断谈话的小家伙</div>
+
+                        <p class="detail-text">小蓉说，自己从小就是一个很在意感受的人。</p>
+                        <p class="detail-text">小时候读书、想事情，家人当然会提醒她学习、提醒她专注。但很多时候，她的心仍然在另一个问题上。她可能在睡觉前想，洗澡时想，炒菜时想。那些兴趣并没有阻止她工作，只是一直在她的生活里占据着一块位置。</p>
+
+                        <blockquote class="detail-quote">
+                            "只有你会打断你自己。"
+                        </blockquote>
+
+                        <p class="detail-text">这句话听起来任性，却也带着一种清醒。一个人是否应该继续想一件事，是否应该给一个兴趣机会，最终不能完全交给外部评价。别人可以认为它不实用、不赚钱、不值得，但你仍然需要知道，自己是否真的愿意放弃它。</p>
+
+                        <!-- 第11、12张图：趣味细节 -->
+                        <div class="detail-img-row">
+                            <div class="detail-img">
+                                <img src="img/cuiyue/微信图片_2026-10-03_154436_631.jpg" alt="趣味海报">
+                            </div>
+                            <div class="detail-img">
+                                <img src="img/cuiyue/微信图片_2026-10-03_154441_230.jpg" alt="小熊水龙头">
+                            </div>
+                        </div>
+                        <div class="detail-img-caption" style="margin-top:-16px; margin-bottom:28px;">角落里的小趣味 · 把自己的感受放进去</div>
+
+                        <p class="detail-text">当然，尊重感受并不等于拒绝现实。书店依然需要维持，生活依然需要工作，身体也会疲惫。她处理焦虑的第一步，反而很朴素：最近是不是没睡好，饭有没有吃好，生活节奏是不是太乱。</p>
+                        <p class="detail-text">很多时候，焦虑并不是因为发生了多么巨大的事情，而是因为人在同时想着十件事，却没有真正完成眼前的一件事。</p>
+                        <p class="detail-text">当她去训练时，只需要处理当下这一组动作；当她炒咖啡时，只需要感受这一锅豆子的变化。事情没有减少，但注意力重新回到了身体和当下。</p>
+
+                        <!-- 章节5 -->
+                        <h3 class="detail-h3">失败之后，重新判断</h3>
+
+                        <!-- 第13张图：绿色台灯角落 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154510_273.jpg" alt="安静的角落">
+                            <div class="detail-img-caption">一盏灯的角落 · 留给思考的位置</div>
+                        </div>
+
+                        <p class="detail-text">访谈里，小蓉谈到过一次没有继续下去的项目。</p>
+                        <p class="detail-text">那时她太害怕失败，于是停了下来。后来回头看，她发现事情并不一定真的不行，更多时候，是自己在某个阶段承受不住了。</p>
+                        <p class="detail-text">这不是一句轻飘飘的"坚持就会成功"。相反，它承认了人确实会害怕，会耗尽，会在某个时刻扛不下去。但当一个人能把那段经历重新放回自己的生命里，客观地看见哪里做得不错，哪里还需要调整，就不必再用一次失败把整个自己判定为无效。</p>
+                        <p class="detail-text">她现在会允许自己重新评估：今天做到什么程度，哪些部分还可以再推进一点。比起一开始就做出正确选择，更重要的也许是，在走偏之后仍然有能力回到自己的判断上。</p>
+
+                        <!-- 章节6 -->
+                        <h3 class="detail-h3">在拳击里，学习专注</h3>
+
+                        <p class="detail-text">最近，小蓉开始练拳击。</p>
+                        <p class="detail-text">最初只是因为雨季太长，无法经常到户外运动。她没想到，拳击会比想象中更消耗体力，也更考验意志。训练不只是出拳，还包括步伐、跳跃、敏捷和持续不断的体能练习。一节课八十分钟，真正需要坚持的部分可能超过一个小时。</p>
+                        <p class="detail-text">她曾经因为训练受伤，休息了半个月。重新回去时，她发现自己没有上一次那么容易受伤了。身体能承受的苦变多了，心理能承受的事情似乎也跟着变多了。</p>
+                        <p class="detail-text">拳击真正有意思的地方，不只是力量，而是它需要判断。什么时候进攻，什么时候防守，怎样在对抗里找到自己的策略，像一场发生在身体里的棋局。</p>
+                        <p class="detail-text">第一次进行轻实战时，她甚至不知道该怎么动。面对突然靠近的攻击，大脑先被恐惧占满，身体反而停在那里。练了几轮之后，她先学会了跑，再慢慢学会阻挡，学会让身体在危险到来时作出反应。</p>
+
+                        <blockquote class="detail-quote">
+                            许多能力不是"知道"就够了。<br>它们需要在具体的处境里被身体练出来。
+                        </blockquote>
+
+                        <p class="detail-text">她对焦虑的理解，也在训练中变得更具体：当你一边做这件事，一边惦记着另外九件事，你会觉得自己同时拥有十个问题；但如果只处理眼前这一件，世界就暂时只剩下一件事。</p>
+                        <p class="detail-text">这可能就是拳击带给她的"小憩"——不是停止行动，而是让注意力从混乱中撤回来，重新放在此刻。</p>
+
+                        <!-- 章节7 -->
+                        <h3 class="detail-h3">小憩不是逃离</h3>
+
+                        <!-- 第14张图：店内全景 -->
+                        <div class="detail-img">
+                            <img src="img/cuiyue/微信图片_2026-10-03_154502_045.jpg" alt="萃月书庭内景">
+                            <div class="detail-img-caption">萃月书庭 · 在世界加速时，保留一个自己的位置</div>
+                        </div>
+
+                        <p class="detail-text">我们常常把"停下来"理解成休息，理解成暂时不工作、不承担、不面对。但小蓉的书店、咖啡和拳击提醒我们，停下来也可以是一种主动的训练。</p>
+                        <p class="detail-text">它让人重新听见自己的感受，保留一部分不急着变现的兴趣，允许一个念头在心里多停留一会儿；也让人在失败、焦虑和不确定中，重新判断什么值得继续，什么需要放下。</p>
+                        <p class="detail-text">书店没有把她从现实里带走。咖啡没有成为一条新的商业赛道。拳击也不是为了让她变成一个更具攻击性的人。</p>
+                        <p class="detail-text">它们只是帮助她在高速旋转的生活里，保留一个仍然属于自己的位置。</p>
+                        <p class="detail-text">当一个人能够在当下专注地做一件事，能够不因为暂时没有结果就否定自己的兴趣，能够在受伤之后重新回到训练场，也许他已经在积蓄一种不容易被看见的力量。</p>
+
+                        <div class="detail-divider">· · ·</div>
+
+                        <p class="detail-center-text">小憩，或许正是这样一种力量：</p>
+                        <p class="detail-center-sub">
+                            不是离开世界，<br>
+                            而是在世界不断加速的时候，<br>
+                            仍然知道自己为什么出发，<br>
+                            正在往哪里走。
+                        </p>
+
+                        <div class="detail-ending">
+                            <p>—— 小憩 · 把时间还给自己 ——</p>
+                            <p class="signature">萃月书庭 · C.MOON BOOK CAFE</p>
+                        </div>
+
+                        <div class="audio-box">
+                            <div class="play-btn">▶</div>
+                            <div class="audio-info">
+                                <p class="audio-title">EP01 · 萃月书庭——小的秩序</p>
+                                <p class="audio-meta">时长 约 45 分钟 · 已上线</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EP02 -->
+            <div class="episode-card fade-in unreleased" data-id="ep02">
+                <div class="episode-summary">
+                    <div class="episode-cover">
+                        <img src="img/小酌.jpg" alt="EP02封面">
+                    </div>
+                    <div class="episode-meta">
+                        <span class="episode-tag">EP02 · 未上线</span>
+                        <h2 class="episode-title">加速时代的时间主权</h2>
+                        <p class="episode-guest">嘉宾：周简 · 时间管理教练</p>
+                        <p class="episode-desc">我们不是没有时间，而是失去了对时间的主权。在加速主义里，怎样把一天要回自己手里？</p>
+                        <p class="episode-date">2026.09.24</p>
+                    </div>
+                    <span class="expand-hint">▼ 展开</span>
+                </div>
+                <div class="episode-detail">
+                    <div class="detail-inner">
+                        <div class="detail-cover">
+                            <img src="img/小酌.jpg" alt="EP02大图">
+                        </div>
+                        <div class="detail-guest-box">
+                            <div class="guest-avatar"><img src="img/小酌.jpg" alt="嘉宾"></div>
+                            <div class="guest-info">
+                                <h4>周简</h4>
+                                <p>时间管理教练 / 前咨询顾问 / 慢生活实践者</p>
+                            </div>
+                        </div>
+                        <p class="detail-text">
+                            周简把现代人的困境总结为一句话：「技术在迭代，信息在过载，而人却在日复一日的系统空转中被工具化。」
+                        </p>
+                        <p class="detail-text">
+                            她提出「时间主权」的概念——不是管理时间，而是重新声明对时间的所有权。每天留出一段不被任何通知、会议、deadline 侵占的时间，这段时间里，你可以什么都不做。
+                        </p>
+                        <blockquote class="detail-quote">
+                            我们尝试发起一场关于「时间主权」的回归运动。从高速旋转的社会齿轮中抽离，积聚起穿透迷雾的力量。
+                        </blockquote>
+                        <p class="detail-text">
+                            未来的竞争力，属于那些懂得何时停下来的人。不是停下来认输，而是停下来确认方向。
+                        </p>
+                        <div class="audio-box">
+                            <div class="play-btn">▶</div>
+                            <div class="audio-info">
+                                <p class="audio-title">EP02 · 加速时代的时间主权</p>
+                                <p class="audio-meta">时长 38:45 · 已上线</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EP03 -->
+            <div class="episode-card fade-in unreleased" data-id="ep03">
+                <div class="episode-summary">
+                    <div class="episode-cover">
+                        <img src="img/小议.jpg" alt="EP03封面">
+                    </div>
+                    <div class="episode-meta">
+                        <span class="episode-tag">EP03 · 未上线</span>
+                        <h2 class="episode-title">AI时代，判断力如何安放</h2>
+                        <p class="episode-guest">嘉宾：林深 · AI 伦理研究者</p>
+                        <p class="episode-desc">当算法比你更懂你，「自我」还剩下多少是自己的？我们在AI的镜像里，重新辨认人的轮廓。</p>
+                        <p class="episode-date">2026.10.01</p>
+                    </div>
+                    <span class="expand-hint">▼ 展开</span>
+                </div>
+                <div class="episode-detail">
+                    <div class="detail-inner">
+                        <div class="detail-cover">
+                            <img src="img/小议.jpg" alt="EP03大图">
+                        </div>
+                        <div class="detail-guest-box">
+                            <div class="guest-avatar"><img src="img/小议.jpg" alt="嘉宾"></div>
+                            <div class="guest-info">
+                                <h4>林深</h4>
+                                <p>AI伦理研究者 / 高校哲学系讲师</p>
+                            </div>
+                        </div>
+                        <p class="detail-text">
+                            林深在课上问学生：「你们有多少决定，是自己做的？」大部分人沉默了。推荐算法决定了看什么、买什么、甚至喜欢谁。
+                        </p>
+                        <p class="detail-text">
+                            她认为，AI时代人的核心议题不是「如何使用AI」，而是「在AI替我们思考之前，我们是否还保有自己的判断力」。
+                        </p>
+                        <blockquote class="detail-quote">
+                            当算法比你更懂你，「自我」还剩下多少是自己的？AI重塑世界的今天，人如何重新安放自己的判断力。
+                        </blockquote>
+                        <p class="detail-text">
+                            我们关心的，是在普遍焦虑的今天，人如何重建内在秩序。判断力不是天生的，它需要在安静中被反复练习。
+                        </p>
+                        <div class="audio-box">
+                            <div class="play-btn">▶</div>
+                            <div class="audio-info">
+                                <p class="audio-title">EP03 · AI时代，判断力如何安放</p>
+                                <p class="audio-meta">时长 45:02 · 已上线</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 引导区 -->
+    <section class="px-6 pb-24">
+        <div class="max-w-2xl mx-auto text-center fade-in">
+            <p class="text-lg mb-8" style="color: var(--light-text);">
+                把每一句值得停下来的话，夹进随身的书页
+            </p>
+            <a href="quotes.html" class="inline-block px-8 py-3 rounded-full border transition-all"
+               style="border-color: var(--primary-color); color: var(--primary-color);">
+                浏览金句书签 →
+            </a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="mb-8">
+                <img src="img/小憩logo.png" alt="小憩" class="h-8 mx-auto" style="opacity: 0.6;">
+            </div>
+            <p class="font-light" style="color: var(--primary-color);">世界不停，我们小憩</p>
+            <p class="text-xs mt-8" style="color: var(--light-text);">© 2026 小憩</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // 手风琴展开
+        document.querySelectorAll('.episode-card').forEach(card => {
+            const summary = card.querySelector('.episode-summary');
+            if (card.classList.contains('unreleased')) return;
+            summary.addEventListener('click', () => {
+                const isOpen = card.classList.contains('open');
+                // 关闭其他
+                document.querySelectorAll('.episode-card.open').forEach(c => c.classList.remove('open'));
+                if (!isOpen) {
+                    card.classList.add('open');
+                    // 滚动到展开区顶部
+                    setTimeout(() => {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        });
+
+        // 支持从首页带 hash 跳转直接展开
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            const target = document.querySelector(`.episode-card[data-id="${hash}"]`);
+            if (target && !target.classList.contains('unreleased')) {
+                target.classList.add('open');
+                setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+            }
+        }
+    </script>
+</body>
+</html>
