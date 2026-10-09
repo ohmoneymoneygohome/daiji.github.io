@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金句书签 · 小憩</title>
+    <title>ta说 · 小憩</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -194,6 +194,7 @@
                 <a href="index.html">首页</a>
                 <a href="index.html">播客</a>
                 <a href="space.html">空间合作</a>
+                <a href="xunren.html">寻人启事</a>
                 <a href="sponsor.html">商务赞助</a>
                 <a href="about.html">关于我们</a>
                 <a href="contact.html">联系我们</a>
@@ -205,7 +206,7 @@
     <!-- 页面标题 -->
     <header class="page-header">
         <div class="container">
-            <h1 class="page-title fade-in">金句书签</h1>
+            <h1 class="page-title fade-in">ta说</h1>
             <div class="divider fade-in"></div>
             <p class="page-subtitle fade-in delay-1">
                 把每一期小憩里值得停下来的句子，<br>夹进你随身的书页里。
@@ -295,7 +296,7 @@
             else nav.classList.remove('scrolled');
         });
 
-        // 点击金句卡片复制
+        // 点击 ta说 卡片复制
         document.querySelectorAll('.quote-card, .poster-card').forEach(card => {
             card.addEventListener('click', () => {
                 let text = '';
@@ -310,7 +311,7 @@
                 if (!text) return;
                 navigator.clipboard?.writeText(text).then(() => {
                     const tip = document.createElement('div');
-                    tip.textContent = '已复制金句';
+                    tip.textContent = '已复制 ta说';
                     tip.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#294d33;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;z-index:9999;animation:fadeIn .3s ease;';
                     document.body.appendChild(tip);
                     setTimeout(() => tip.remove(), 1500);
